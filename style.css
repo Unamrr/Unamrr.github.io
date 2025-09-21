@@ -96,11 +96,55 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-   footer {
+   /*footer {
     background: #a800e6;
     color: white;
     text-align: center;
     padding: 15px;
+}*/
+ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+main {
+    flex: 1; 
+    padding: 20px;
+}
+
+
+footer {
+    background: #a800e6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 
