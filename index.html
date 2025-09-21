@@ -10,7 +10,126 @@
   <!DOCTYPE html>
 
 <html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- ШАПКА -->
+    <header>
+        <div class="logo">Лого</div>
+        <h1>Название сайта</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Ссылка меню 1</a></li>
+                <li><a href="#">Ссылка меню 2</a></li>
+                <li><a href="#">Ссылка меню 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- СОДЕРЖИМОЕ -->
+    <main>
+        <!-- Список ссылок -->
+        <section>
+            <h2>Список гиперссылок</h2>
+            <ul>
+                <li><a href="http://kubsu.ru/">Абсолютная ссылка (http)</a></li>
+                <li><a href="https://kubsu.ru/">Абсолютная ссылка (https)</a></li>
+                <li><a href="https://kubsu.ru/"><img src="image.jpg" alt="Лого" width="30" height="30"></a></li>
+                <!-- остальные пункты сюда -->
+            </ul>
+        </section>
+
+        <!-- Таблица -->
+        <section>
+            <h2>Таблица</h2>
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Фамилия</th>
+                    <th>Имя</th>
+                    <th>Возраст</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">1</td>
+                    <td>Иванов</td>
+                    <td>Иван</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Объединённые ячейки</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Петров</td>
+                    <td>Пётр</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Сидоров</td>
+                    <td>Сидор</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Смирнов</td>
+                    <td>Сергей</td>
+                    <td>24</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Форма -->
+        <section>
+            <h2>Форма</h2>
+            <form>
+                <label>ФИО: <input type="text" name="fio"></label><br>
+                <label>Телефон: <input type="tel" name="phone"></label><br>
+                <label>Email: <input type="email" name="email"></label><br>
+                <label>Дата рождения: <input type="date" name="birthdate"></label><br>
+
+                <p>Пол:</p>
+                <label><input type="radio" name="gender" value="male"> Мужской</label>
+                <label><input type="radio" name="gender" value="female"> Женский</label><br>
+
+                <p>Любимый язык программирования:</p>
+                <select name="languages" multiple>
+                    <option>Pascal</option>
+                    <option>C</option>
+                    <option>C++</option>
+                    <option>JavaScript</option>
+                    <option>PHP</option>
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>Haskel</option>
+                    <option>Clojure</option>
+                    <option>Prolog</option>
+                    <option>Scala</option>
+                </select><br>
+
+                <p>Биография:</p>
+                <textarea name="bio"></textarea><br>
+
+                <label><input type="checkbox" name="agree"> С контрактом ознакомлен(а)</label><br>
+                <input type="submit" value="Сохранить">
+            </form>
+        </section>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <p>&copy; Сергей Синица</p>
+    </footer>
+
+</body>
+</html>
   <head>
     <title>Пример формы HTML</title>
   </head>
