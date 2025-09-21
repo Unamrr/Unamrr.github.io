@@ -6,13 +6,32 @@ body {
 }
 
 /* Шапка */
+.header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-center h1 {
+    margin: 0;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+/* Обновите структуру header */
 header {
-    background:#a800e6;
+    background: #a800e6;
     color: white;
     padding: 20px;
     display: flex;
-    align-items: 
+    align-items: center;
     justify-content: space-between;
+    position: relative; /* Добавьте это */
+}
+
+/* Для навигации справа */
+header nav {
+    margin-left: auto;
 }
 .logo-container {
     display: flex;
@@ -93,6 +112,7 @@ tr:nth-child(even) {
     text-align: center;
     padding: 15px;
 }
+
 
 
 
