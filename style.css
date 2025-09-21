@@ -11,7 +11,7 @@ header {
     color: white;
     padding: 20px;
     display: flex;
-    align-items: center;
+    align-items: 
     justify-content: space-between;
 }
 .logo-container {
@@ -88,12 +88,12 @@ tr:nth-child(even) {
     text-align: center;
     padding: 15px 0;*/
     footer {
-    
     background: #a800e6;
     color: white;
     text-align: center;
-    padding: 15px 0;
+    padding: 15px;
 }
+
 
 
 
