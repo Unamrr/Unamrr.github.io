@@ -31,17 +31,7 @@ header {
     border: 3px solid #4CAF50;
 }
 
-header .logo {
-    width: 60px;
-    height: 60px;
-    background: #a800e6;
-    color: #a800e6;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
+
 .logo-img {
     background-color: #667eea;
     border: 3px solid white;
@@ -104,6 +94,7 @@ tr:nth-child(even) {
     text-align: center;
     padding: 15px 0;
 }
+
 
 
 
