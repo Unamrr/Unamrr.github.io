@@ -7,7 +7,7 @@ body {
 
 /* Шапка */
 header {
-    background: #4A90E2;
+    background:#a800e6;
     color: white;
     padding: 20px;
     display: flex;
@@ -19,7 +19,7 @@ header .logo {
     width: 60px;
     height: 60px;
     background: white;
-    color: #4A90E2;
+    color: #a800e6;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -69,8 +69,9 @@ tr:nth-child(even) {
 
 /* Подвал */
 footer {
-    background: #4A90E2;
+    background: #a800e6;
     color: white;
     text-align: center;
     padding: 15px;
+
 }
