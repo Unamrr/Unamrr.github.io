@@ -69,13 +69,15 @@ tr:nth-child(even) {
 
 /* Подвал */
 footer {
-    background: #a800e6;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
     color: white;
     text-align: center;
-    padding: 15px;
-    width: 100%;
-    margin-top: auto;
-
+    padding: 15px 0;
 }
+
 
 
