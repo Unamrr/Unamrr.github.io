@@ -84,42 +84,90 @@
         </section>
 
         <!-- Форма -->
-        <section>
-            <h2>Форма</h2>
-            <form>
-                <label>ФИО: <input type="text" name="fio"></label><br>
-                <label>Телефон: <input type="tel" name="phone"></label><br>
-                <label>Email: <input type="email" name="email"></label><br>
-                <label>Дата рождения: <input type="date" name="birthdate"></label><br>
+       /html>
+  <head>
+    <title>Пример формы HTML</title>
+  </head>
 
-                <p>Пол:</p>
-                <label><input type="radio" name="gender" value="male"> Мужской</label>
-                <label><input type="radio" name="gender" value="female"> Женский</label><br>
+  <body>
 
-                <p>Любимый язык программирования:</p>
-                <select name="languages" multiple>
-                    <option>Pascal</option>
-                    <option>C</option>
-                    <option>C++</option>
-                    <option>JavaScript</option>
-                    <option>PHP</option>
-                    <option>Python</option>
-                    <option>Java</option>
-                    <option>Haskel</option>
-                    <option>Clojure</option>
-                    <option>Prolog</option>
-                    <option>Scala</option>
-                </select><br>
+    <h1>Пример формы HTML</h1>
 
-                <p>Биография:</p>
-                <textarea name="bio"></textarea><br>
+    <form action="/"
+      method="POST">
 
-                <label><input type="checkbox" name="agree"> С контрактом ознакомлен(а)</label><br>
-                <input type="submit" value="Сохранить">
-            </form>
-        </section>
-    </main>
+      <label>
+         Впишите ФИО:<br />
+        <input name="field-name-1"
+          value="ФИО" 
+		  placeholder="Введите вашу почту"/>
+      </label><br />
+	  
+	  <label>
+         Впишите номер телефона:<br />
+        <input name="phone"
+          type="tel" 
+		  placeholder="+79998543251"/>
+      </label><br />
 
+      <label>
+        Введите email:<br />
+        <input name="field-email"
+          type="email"
+          placeholder="Введите вашу почту" />
+      </label><br />
+
+      <label>
+         дата рождения:<br />
+        <input name="field-date"
+          value="2019-08-13"
+          type="date" />
+      </label><br />
+
+      <label>
+        биография:<br />
+        <textarea name="field-name-2">город и тп</textarea>
+      </label><br />
+
+      
+
+      <label>
+        Любимый язык программирования:
+        <br />
+        <select name="field-name-4[]"
+          multiple="multiple">
+          <option value="Значение1">Pascal</option>
+          <option value="Значение2" selected="selected">C</option>
+          <option value="Значение3" selected="selected">C++</option>
+		  <option value="Значение4" selected="selected">JavaScript</option>
+		  <option value="Значение5" selected="selected">PHP</option>
+		  <option value="Значение6" selected="selected">Python</option>
+		  <option value="Значение7" selected="selected">Java</option>
+		  <option value="Значение8" selected="selected">Haskel</option>
+		  <option value="Значение9" selected="selected">Clojure</option>
+		  <option value="Значение10" selected="selected">Prolog</option>
+		  <option value="Значение11" selected="selected">Scala</option>
+        </select>
+      </label><br />
+
+      Пол:<br />
+      <label><input type="radio" checked="checked"
+        name="radio-group-1" value="Значение1" />
+        женский</label>
+      <label><input type="radio"
+        name="radio-group-1" value="Значение2" />
+        мужской</label><br />
+
+      Подпись:<br />
+      <label><input type="checkbox" checked="checked"
+        name="check-1" />
+        С контрактом ознакомлен (а)</label><br />
+
+      Если вы готовы, то нажмите сохранить:
+      <input type="submit" value="Сохранить" />
+    </form>
+
+  </body>
     <!-- ПОДВАЛ -->
     <footer>
         <p>&copy; Сергей Синица</p>
