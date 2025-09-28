@@ -1,188 +1,371 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booker - Адаптивный сайт</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- ШАПКА -->
-    <header>
-        <div class="header-mobile">
-            <div class="logo-title">
-                <div class="logo-container">
-                    <img src="flowers.webp" alt="Логотип" class="round-logo">
-                </div>
-                <div class="site-title">
-                    <h1>Booker</h1>
-                </div>
-            </div>
-            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
-        </div>
-        
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#list-section">Список гиперссылок</a></li>
-                <li><a href="#table-section">Таблица</a></li>
-                <li><a href="#form-section">Форма</a></li>
-            </ul>
-        </nav>
-    </header>
+/* Mobile First стили (для маленьких экранов) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- СОДЕРЖИМОЕ -->
-    <main>
-        <!-- Список ссылок -->
-        <section id="list-section" class="content-section">
-            <h2>Список гиперссылок</h2>
-            <ul class="links-list">
-                <li><a href="http://kubsu.ru/">КубГУ</a></li>
-                <li><a href="https://kubsu.ru/">КубГУ</a></li>
-                <li><a href="https://kubsu.ru/"><img src="image.jpg" alt="Цветок" class="link-image"/></a></li>
-                <li><a href="/index.html">главная</a></li>
-                <li><a href="/image.jpg">внутренняя</a></li>
-                <li id="myid"><a href="#myid">текущий фрагмент</a></li>
-                <li>
-                    <a href="https://yandex.ru/search/?text=погода+в+краснодаре&lr=35&search_source=yaru_desktop_common">
-                        Погода в Краснодаре
-                    </a>
-                </li>
-            </ul>
-        </section>
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-        <!-- Таблица -->
-        <section id="table-section" class="content-section">
-            <h2>Таблица</h2>
-            <div class="table-container">
-                <table>
-                    <tr>
-                        <th>№</th>
-                        <th>Фамилия</th>
-                        <th>Имя</th>
-                        <th>Отчество</th>
-                        <th>Возраст</th>
-                        <th>Город</th>
-                        <th>Индекс</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Петров</td>
-                        <td>Дима</td>
-                        <td>Александрович</td>
-                        <td>21</td>
-                        <td colspan="2">Москва, 101000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Алексеев</td>
-                        <td>Марк</td>
-                        <td>Игоревич</td>
-                        <td>19</td>
-                        <td colspan="2">Нижний Новгород, 603000</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Титов</td>
-                        <td>Женя</td>
-                        <td>Эльдарович</td>
-                        <td>23</td>
-                        <td colspan="2">Екатеринбург, 620000</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Тихонова</td>
-                        <td>Алина</td>
-                        <td>Марковна</td>
-                        <td>16</td>
-                        <td colspan="2">Новосибирск, 630000</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Мамедова</td>
-                        <td>Эльнара</td>
-                        <td>Андреевна</td>
-                        <td>18</td>
-                        <td colspan="2">Казань, 420000</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
 
-        <!-- Форма -->
-        <section id="form-section" class="content-section">
-            <h2>Форма</h2>
-            <form action="/" method="POST">
-                <label>
-                    Впишите ФИО:<br />
-                    <input name="field-name-1" value="ФИО" placeholder="Введите ваше ФИО"/>
-                </label><br />
-                
-                <label>
-                    Впишите номер телефона:<br />
-                    <input name="phone" type="tel" placeholder="+79998543251"/>
-                </label><br />
+/* ШАПКА - Mobile First */
+header {
+    background: #a800e6;
+    color: white;
+    width: 100%;
+}
 
-                <label>
-                    Введите email:<br />
-                    <input name="field-email" type="email" placeholder="Введите вашу почту" />
-                </label><br />
+.header-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
 
-                <label>
-                    Дата рождения:<br />
-                    <input name="field-date" value="2019-08-13" type="date" />
-                </label><br />
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-                <label>
-                    Биография:<br />
-                    <textarea name="field-name-2">город и тп</textarea>
-                </label><br />
+.round-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+}
 
-                <label>
-                    Любимый язык программирования:
-                    <br />
-                    <select name="field-name-4[]" multiple="multiple">
-                        <option value="Значение1">Pascal</option>
-                        <option value="Значение2" selected="selected">C</option>
-                        <option value="Значение3" selected="selected">C++</option>
-                        <option value="Значение4" selected="selected">JavaScript</option>
-                        <option value="Значение5" selected="selected">PHP</option>
-                        <option value="Значение6" selected="selected">Python</option>
-                        <option value="Значение7" selected="selected">Java</option>
-                        <option value="Значение8" selected="selected">Haskel</option>
-                        <option value="Значение9" selected="selected">Clojure</option>
-                        <option value="Значение10" selected="selected">Prolog</option>
-                        <option value="Значение11" selected="selected">Scala</option>
-                    </select>
-                </label><br />
+.site-title h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    white-space: nowrap;
+}
 
-                Пол:<br />
-                <label><input type="radio" checked="checked" name="radio-group-1" value="Значение1" />
-                    женский</label>
-                <label><input type="radio" name="radio-group-1" value="Значение2" />
-                    мужской</label><br />
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
 
-                Подпись:<br />
-                <label><input type="checkbox" checked="checked" name="check-1" />
-                    С контрактом ознакомлен(а)</label><br />
+/* Навигация - вертикальная для мобильных */
+.main-nav {
+    display: none;
+    background: #8a00bf;
+}
 
-                <input type="submit" value="Сохранить" />
-            </form>
-        </section>
-    </main>
+.main-nav.nav-open {
+    display: block;
+}
 
-    <!-- ПОДВАЛ -->
-    <footer>
-        <p>&copy; Сергей Синица 2022</p>
-    </footer>
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    <script>
-        // JavaScript для мобильного меню
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.main-nav').classList.toggle('nav-open');
-        });
-    </script>
-</body>
-</html>
+.main-nav li {
+    border-bottom: 1px solid #6a0099;
+}
+
+.main-nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background 0.3s;
+}
+
+.main-nav a:hover {
+    background: #6a0099;
+}
+
+/* ОСНОВНОЕ СОДЕРЖИМОЕ */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 100%;
+}
+
+.content-section {
+    margin-bottom: 40px;
+}
+
+.content-section h2 {
+    color: #a800e6;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #a800e6;
+    padding-bottom: 10px;
+}
+
+/* Список ссылок */
+.links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.links-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+}
+
+.links-list a {
+    color: #a800e6;
+    text-decoration: none;
+}
+
+.links-list a:hover {
+    text-decoration: underline;
+}
+
+.link-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Таблица */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    min-width: 600px;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #a800e6;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Форма */
+form {
+    max-width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+select[multiple] {
+    height: 150px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background: #a800e6;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+input[type="submit"]:hover {
+    background: #8a00bf;
+}
+
+/* ПОДВАЛ */
+footer {
+    background: #a800e6;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* MEDIA QUERIES */
+
+/* Планшеты (768px и выше) */
+@media (min-width: 768px) {
+    .header-mobile {
+        padding: 20px 30px;
+    }
+    
+    .round-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .site-title h1 {
+        font-size: 2rem;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    .main-nav {
+        display: block;
+        background: #8a00bf;
+    }
+    
+    .main-nav ul {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .main-nav li {
+        border-bottom: none;
+        border-right: 1px solid #6a0099;
+    }
+    
+    .main-nav li:last-child {
+        border-right: none;
+    }
+    
+    main {
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .content-section {
+        margin-bottom: 50px;
+    }
+}
+
+/* Десктоп (1024px и выше) */
+@media (min-width: 1024px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
+    
+    .header-mobile {
+        padding: 0;
+    }
+    
+    .main-nav ul {
+        justify-content: flex-end;
+    }
+    
+    .main-nav a {
+        padding: 20px 25px;
+    }
+    
+    /* Flexbox order для изменения порядка секций */
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #table-section {
+        order: 1;
+    }
+    
+    #list-section {
+        order: 2;
+    }
+    
+    #form-section {
+        order: 3;
+    }
+    
+    /* Улучшения для формы */
+    form {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    /* Улучшения для таблицы */
+    table {
+        min-width: auto;
+    }
+}
+
+/* Большие экраны (1200px и выше) */
+@media (min-width: 1200px) {
+    body {
+        font-size: 1.1rem;
+    }
+    
+    main {
+        padding: 40px;
+    }
+    
+    .content-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Портретный режим для мобильных */
+@media (max-width: 767px) and (orientation: portrait) {
+    .header-mobile {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .logo-title {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Ландшафтный режим для мобильных */
+@media (max-width: 767px) and (orientation: landscape) {
+    .main-nav a {
+        padding: 10px 15px;
+    }
+}
 
 
 
