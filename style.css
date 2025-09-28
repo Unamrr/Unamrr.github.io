@@ -1,164 +1,188 @@
-/* Общие стили */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booker - Адаптивный сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ШАПКА -->
+    <header>
+        <div class="header-mobile">
+            <div class="logo-title">
+                <div class="logo-container">
+                    <img src="flowers.webp" alt="Логотип" class="round-logo">
+                </div>
+                <div class="site-title">
+                    <h1>Booker</h1>
+                </div>
+            </div>
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#list-section">Список гиперссылок</a></li>
+                <li><a href="#table-section">Таблица</a></li>
+                <li><a href="#form-section">Форма</a></li>
+            </ul>
+        </nav>
+    </header>
 
-/* Шапка */
-.header-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    <!-- СОДЕРЖИМОЕ -->
+    <main>
+        <!-- Список ссылок -->
+        <section id="list-section" class="content-section">
+            <h2>Список гиперссылок</h2>
+            <ul class="links-list">
+                <li><a href="http://kubsu.ru/">КубГУ</a></li>
+                <li><a href="https://kubsu.ru/">КубГУ</a></li>
+                <li><a href="https://kubsu.ru/"><img src="image.jpg" alt="Цветок" class="link-image"/></a></li>
+                <li><a href="/index.html">главная</a></li>
+                <li><a href="/image.jpg">внутренняя</a></li>
+                <li id="myid"><a href="#myid">текущий фрагмент</a></li>
+                <li>
+                    <a href="https://yandex.ru/search/?text=погода+в+краснодаре&lr=35&search_source=yaru_desktop_common">
+                        Погода в Краснодаре
+                    </a>
+                </li>
+            </ul>
+        </section>
 
-.header-center h1 {
-    margin: 0;
-    font-size: 24px;
-    white-space: nowrap;
-}
+        <!-- Таблица -->
+        <section id="table-section" class="content-section">
+            <h2>Таблица</h2>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>№</th>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Отчество</th>
+                        <th>Возраст</th>
+                        <th>Город</th>
+                        <th>Индекс</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Петров</td>
+                        <td>Дима</td>
+                        <td>Александрович</td>
+                        <td>21</td>
+                        <td colspan="2">Москва, 101000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Алексеев</td>
+                        <td>Марк</td>
+                        <td>Игоревич</td>
+                        <td>19</td>
+                        <td colspan="2">Нижний Новгород, 603000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Титов</td>
+                        <td>Женя</td>
+                        <td>Эльдарович</td>
+                        <td>23</td>
+                        <td colspan="2">Екатеринбург, 620000</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Тихонова</td>
+                        <td>Алина</td>
+                        <td>Марковна</td>
+                        <td>16</td>
+                        <td colspan="2">Новосибирск, 630000</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Мамедова</td>
+                        <td>Эльнара</td>
+                        <td>Андреевна</td>
+                        <td>18</td>
+                        <td colspan="2">Казань, 420000</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
 
-/* Обновите структуру header */
-header {
-    background: #a800e6;
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative; /* Добавьте это */
-}
+        <!-- Форма -->
+        <section id="form-section" class="content-section">
+            <h2>Форма</h2>
+            <form action="/" method="POST">
+                <label>
+                    Впишите ФИО:<br />
+                    <input name="field-name-1" value="ФИО" placeholder="Введите ваше ФИО"/>
+                </label><br />
+                
+                <label>
+                    Впишите номер телефона:<br />
+                    <input name="phone" type="tel" placeholder="+79998543251"/>
+                </label><br />
 
-/* Для навигации справа */
-header nav {
-    margin-left: auto;
-}
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 15px;
-    background-color: #a800e6;
-}
+                <label>
+                    Введите email:<br />
+                    <input name="field-email" type="email" placeholder="Введите вашу почту" />
+                </label><br />
 
-.round-logo {
-    width: 80px !important;       /* Фиксированная ширина */
-    height: 80px !important;      /* Фиксированная высота */
-    max-width: none !important;   /* Отменяем максимальную ширину */
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #4CAF50;
-}
+                <label>
+                    Дата рождения:<br />
+                    <input name="field-date" value="2019-08-13" type="date" />
+                </label><br />
 
+                <label>
+                    Биография:<br />
+                    <textarea name="field-name-2">город и тп</textarea>
+                </label><br />
 
-.logo-img {
-    background-color: #667eea;
-    border: 3px solid white;
-}
+                <label>
+                    Любимый язык программирования:
+                    <br />
+                    <select name="field-name-4[]" multiple="multiple">
+                        <option value="Значение1">Pascal</option>
+                        <option value="Значение2" selected="selected">C</option>
+                        <option value="Значение3" selected="selected">C++</option>
+                        <option value="Значение4" selected="selected">JavaScript</option>
+                        <option value="Значение5" selected="selected">PHP</option>
+                        <option value="Значение6" selected="selected">Python</option>
+                        <option value="Значение7" selected="selected">Java</option>
+                        <option value="Значение8" selected="selected">Haskel</option>
+                        <option value="Значение9" selected="selected">Clojure</option>
+                        <option value="Значение10" selected="selected">Prolog</option>
+                        <option value="Значение11" selected="selected">Scala</option>
+                    </select>
+                </label><br />
 
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
+                Пол:<br />
+                <label><input type="radio" checked="checked" name="radio-group-1" value="Значение1" />
+                    женский</label>
+                <label><input type="radio" name="radio-group-1" value="Значение2" />
+                    мужской</label><br />
 
-header nav ul li {
-    margin: 0 10px;
-}
+                Подпись:<br />
+                <label><input type="checkbox" checked="checked" name="check-1" />
+                    С контрактом ознакомлен(а)</label><br />
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
+                <input type="submit" value="Сохранить" />
+            </form>
+        </section>
+    </main>
 
-/* Контент */
-main {
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 10px;
-}
+    <!-- ПОДВАЛ -->
+    <footer>
+        <p>&copy; Сергей Синица 2022</p>
+    </footer>
 
-/* Таблица */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-th, td {
-    border: 1px solid #333;
-    padding: 8px;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-   footer {
-    background: #a800e6;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
- {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-
-main {
-    flex: 1; 
-    padding: 20px;
-}
-
-
-footer {
-    background: #a800e6;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-    margin: 0;
-    position: relative;
-    bottom: 0;
-    left: 0;
-}
-
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-footer {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    max-width: 100vw;
-    width: 100vw;
-}
-
-
-
-
-
-
+    <script>
+        // JavaScript для мобильного меню
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('nav-open');
+        });
+    </script>
+</body>
+</html>
 
 
 
