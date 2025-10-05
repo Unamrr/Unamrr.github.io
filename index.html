@@ -1,191 +1,341 @@
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 3</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Задание 4 - Bootstrap</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Дополнительные кастомные стили */
+        .round-logo {
+            border: 3px solid #4CAF50;
+            object-fit: cover;
+        }
+        
+        .navbar-brand h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .content-section h2 {
+            color: #a800e6;
+            border-bottom: 2px solid #a800e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .links-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .links-list li {
+            background: #f8f8f8;
+            border-radius: 5px;
+        }
+        
+        .links-list a {
+            color: #a800e6;
+            text-decoration: none;
+        }
+        
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .link-image {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Кастомные цвета для Bootstrap */
+        .bg-purple {
+            background-color: #a800e6 !important;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        table th {
+            background-color: #a800e6;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .btn-purple {
+            background-color: #a800e6;
+            border-color: #a800e6;
+            color: white;
+        }
+        
+        .btn-purple:hover {
+            background-color: #8a00bf;
+            border-color: #8a00bf;
+            color: white;
+        }
+        
+        /* Адаптивные улучшения */
+        @media (max-width: 576px) {
+            .navbar-brand {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .round-logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .round-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .navbar-brand h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- ШАПКА -->
     <header>
-        <div class="header-mobile">
-            <div class="logo-title">
-                <div class="logo-container">
-                    <img src="flowers.webp" alt="Логотип" class="round-logo">
-                </div>
-                <div class="site-title">
-                    <h1>Задание 3</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+            <div class="container">
+                <!-- Логотип и название -->
+                <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                    <img src="flowers.webp" alt="Логотип" class="round-logo rounded-circle" width="60" height="60">
+                    <h1 class="h4 mb-0">Задание 4</h1>
+                </a>
+                
+                <!-- Кнопка меню для мобильных -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Навигация -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#list-section">Список гиперссылок</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#table-section">Таблица</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#form-section">Форма</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
-        </div>
-        
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#list-section">Список гиперссылок</a></li>
-                <li><a href="#table-section">Таблица</a></li>
-                <li><a href="#form-section">Форма</a></li>
-            </ul>
         </nav>
     </header>
 
-    <!-- СОДЕРЖИМОЕ -->
-    <main>
-        <!-- Список ссылок -->
-        <section id="list-section" class="content-section">
-            <h2>Список гиперссылок</h2>
-            <ul class="links-list">
-                <li><a href="http://kubsu.ru/">КубГУ</a></li>
-                <li><a href="https://kubsu.ru/">КубГУ</a></li>
-                <li><a href="https://kubsu.ru/"><img src="image.jpg" alt="Цветок" class="link-image"/></a></li>
-                <li><a href="/index.html">главная</a></li>
-                <li><a href="/image.jpg">внутренняя</a></li>
-                <li id="myid"><a href="#myid">текущий фрагмент</a></li>
-                <li>
-                    <a href="https://yandex.ru/search/?text=погода+в+краснодаре&lr=35&search_source=yaru_desktop_common">
-                        Погода в Краснодаре
-                    </a>
-                </li>
-            </ul>
-        </section>
+    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
+    <main class="flex-grow-1 py-4">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Список ссылок -->
+                <section id="list-section" class="col-12 col-lg-4 order-1 order-lg-1">
+                    <div class="content-section">
+                        <h2 class="h4">Список гиперссылок</h2>
+                        <ul class="links-list">
+                            <li class="mb-2 p-2">
+                                <a href="http://kubsu.ru/" class="d-block">КубГУ</a>
+                            </li>
+                            <li class="mb-2 p-2">
+                                <a href="https://kubsu.ru/" class="d-block">КубГУ</a>
+                            </li>
+                            <li class="mb-2 p-2">
+                                <a href="https://kubsu.ru/">
+                                    <img src="image.jpg" alt="Цветок" class="link-image"/>
+                                </a>
+                            </li>
+                            <li class="mb-2 p-2">
+                                <a href="/index.html" class="d-block">главная</a>
+                            </li>
+                            <li class="mb-2 p-2">
+                                <a href="/image.jpg" class="d-block">внутренняя</a>
+                            </li>
+                            <li class="mb-2 p-2" id="myid">
+                                <a href="#myid" class="d-block">текущий фрагмент</a>
+                            </li>
+                            <li class="mb-2 p-2">
+                                <a href="https://yandex.ru/search/?text=погода+в+краснодаре&lr=35&search_source=yaru_desktop_common" class="d-block">
+                                    Погода в Краснодаре
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
 
-        <!-- Таблица -->
-        <section id="table-section" class="content-section">
-            <h2>Таблица</h2>
-            <div class="table-container">
-                <table>
-                    <tr>
-                        <th>№</th>
-                        <th>Фамилия</th>
-                        <th>Имя</th>
-                        <th>Отчество</th>
-                        <th>Возраст</th>
-                        <th>Город</th>
-                        <th>Индекс</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Петров</td>
-                        <td>Дима</td>
-                        <td>Александрович</td>
-                        <td>21</td>
-                        <td colspan="2">Москва, 101000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Алексеев</td>
-                        <td>Марк</td>
-                        <td>Игоревич</td>
-                        <td>19</td>
-                        <td colspan="2">Нижний Новгород, 603000</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Титов</td>
-                        <td>Женя</td>
-                        <td>Эльдарович</td>
-                        <td>23</td>
-                        <td colspan="2">Екатеринбург, 620000</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Тихонова</td>
-                        <td>Алина</td>
-                        <td>Марковна</td>
-                        <td>16</td>
-                        <td colspan="2">Новосибирск, 630000</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Мамедова</td>
-                        <td>Эльнара</td>
-                        <td>Андреевна</td>
-                        <td>18</td>
-                        <td colspan="2">Казань, 420000</td>
-                    </tr>
-                </table>
+                <!-- Таблица -->
+                <section id="table-section" class="col-12 col-lg-8 order-3 order-lg-2">
+                    <div class="content-section">
+                        <h2 class="h4">Таблица</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>№</th>
+                                        <th>Фамилия</th>
+                                        <th>Имя</th>
+                                        <th>Отчество</th>
+                                        <th>Возраст</th>
+                                        <th>Город</th>
+                                        <th>Индекс</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Петров</td>
+                                        <td>Дима</td>
+                                        <td>Александрович</td>
+                                        <td>21</td>
+                                        <td colspan="2">Москва, 101000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Алексеев</td>
+                                        <td>Марк</td>
+                                        <td>Игоревич</td>
+                                        <td>19</td>
+                                        <td colspan="2">Нижний Новгород, 603000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Титов</td>
+                                        <td>Женя</td>
+                                        <td>Эльдарович</td>
+                                        <td>23</td>
+                                        <td colspan="2">Екатеринбург, 620000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Тихонова</td>
+                                        <td>Алина</td>
+                                        <td>Марковна</td>
+                                        <td>16</td>
+                                        <td colspan="2">Новосибирск, 630000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Мамедова</td>
+                                        <td>Эльнара</td>
+                                        <td>Андреевна</td>
+                                        <td>18</td>
+                                        <td colspan="2">Казань, 420000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Форма -->
+                <section id="form-section" class="col-12 order-2 order-lg-3">
+                    <div class="content-section">
+                        <h2 class="h4">Форма</h2>
+                        <form action="/" method="POST" class="row g-3">
+                            <div class="col-12">
+                                <label for="field-name-1" class="form-label">Впишите ФИО:</label>
+                                <input type="text" class="form-control" id="field-name-1" name="field-name-1" value="ФИО" placeholder="Введите ваше ФИО">
+                            </div>
+                            
+                            <div class="col-12 col-md-6">
+                                <label for="phone" class="form-label">Впишите номер телефона:</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+79998543251">
+                            </div>
+                            
+                            <div class="col-12 col-md-6">
+                                <label for="field-email" class="form-label">Введите email:</label>
+                                <input type="email" class="form-control" id="field-email" name="field-email" placeholder="Введите вашу почту">
+                            </div>
+                            
+                            <div class="col-12 col-md-6">
+                                <label for="field-date" class="form-label">Дата рождения:</label>
+                                <input type="date" class="form-control" id="field-date" name="field-date" value="2019-08-13">
+                            </div>
+                            
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Пол:</label>
+                                <div class="mt-1">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="female" name="radio-group-1" value="Значение1" checked>
+                                        <label class="form-check-label" for="female">женский</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="male" name="radio-group-1" value="Значение2">
+                                        <label class="form-check-label" for="male">мужской</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="field-name-2" class="form-label">Биография:</label>
+                                <textarea class="form-control" id="field-name-2" name="field-name-2" rows="3">город и тп</textarea>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="field-name-4" class="form-label">Любимый язык программирования:</label>
+                                <select class="form-select" id="field-name-4" name="field-name-4[]" multiple size="6">
+                                    <option value="Значение1">Pascal</option>
+                                    <option value="Значение2">C</option>
+                                    <option value="Значение3">C++</option>
+                                    <option value="Значение4">JavaScript</option>
+                                    <option value="Значение5">PHP</option>
+                                    <option value="Значение6">Python</option>
+                                    <option value="Значение7">Java</option>
+                                    <option value="Значение8">Haskel</option>
+                                    <option value="Значение9">Clojure</option>
+                                    <option value="Значение10">Prolog</option>
+                                    <option value="Значение11">Scala</option>
+                                </select>
+                                <div class="form-text">Для выбора нескольких вариантов удерживайте Ctrl (Cmd на Mac)</div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check-1" name="check-1" checked>
+                                    <label class="form-check-label" for="check-1">
+                                        С контрактом ознакомлен(а)
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-purple">Сохранить</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </div>
-        </section>
-
-        <!-- Форма -->
-        <section id="form-section" class="content-section">
-            <h2>Форма</h2>
-            <form action="/" method="POST">
-                <label>
-                    Впишите ФИО:<br />
-                    <input name="field-name-1" value="ФИО" placeholder="Введите ваше ФИО"/>
-                </label><br />
-                
-                <label>
-                    Впишите номер телефона:<br />
-                    <input name="phone" type="tel" placeholder="+79998543251"/>
-                </label><br />
-
-                <label>
-                    Введите email:<br />
-                    <input name="field-email" type="email" placeholder="Введите вашу почту" />
-                </label><br />
-
-                <label>
-                    Дата рождения:<br />
-                    <input name="field-date" value="2019-08-13" type="date" />
-                </label><br />
-
-                <label>
-                    Биография:<br />
-                    <textarea name="field-name-2">город и тп</textarea>
-                </label><br />
-
-                <label>
-                    Любимый язык программирования:
-                    <br />
-                    <select name="field-name-4[]" multiple="multiple">
-                        <option value="Значение1" >Pascal</option>
-                        <option value="Значение2" >C</option>
-                        <option value="Значение3" >C++</option>
-                        <option value="Значение4" >JavaScript</option>
-                        <option value="Значение5" >PHP</option>
-                        <option value="Значение6" >Python</option>
-                        <option value="Значение7" >Java</option>
-                        <option value="Значение8" >Haskel</option>
-                        <option value="Значение9" >Clojure</option>
-                        <option value="Значение10" >Prolog</option>
-                        <option value="Значение11" >Scala</option>
-                    </select>
-                </label><br />
-
-                Пол:<br />
-                <label><input type="radio" checked="checked" name="radio-group-1" value="Значение1" />
-                    женский</label>
-                <label><input type="radio" name="radio-group-1" value="Значение2" />
-                    мужской</label><br />
-
-                Подпись:<br />
-                <label><input type="checkbox" checked="checked" name="check-1" />
-                    С контрактом ознакомлен(а)</label><br />
-
-                <input type="submit" value="Сохранить" />
-            </form>
-        </section>
+        </div>
     </main>
 
     <!-- ПОДВАЛ -->
-    <footer>
-        <p>&copy; Сергей Синица </p>
+    <footer class="bg-purple text-white text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; Сергей Синица</p>
+        </div>
     </footer>
 
-    <script>
-        // JavaScript для мобильного меню
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.main-nav').classList.toggle('nav-open');
-        });
-    </script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
   
 
