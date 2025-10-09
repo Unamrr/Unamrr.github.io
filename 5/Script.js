@@ -10,7 +10,11 @@ function click1() {
     price = 100 * quantity;
   } else if (product == "v2") {
     price = 200 * quantity;
-  } else {
+  } 
+  } else if (product == "v3") {
+    price = 200 * quantity;
+} 
+else {
     price = 500 * quantity;
   }
   r.innerHTML = price;
