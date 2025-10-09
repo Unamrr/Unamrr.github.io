@@ -9,13 +9,18 @@ function click1() {
   if (product == "v1") {
     price = 100 * quantity;
   } else if (product == "v2") {
-    price = 200 * quantity;
+    price = 450 * quantity;
   } 
   } else if (product == "v3") {
-    price = 200 * quantity;
+    price = 65 * quantity;
 } 
+  else if (product == "v4") {
+    price = 310 * quantity;}
+
+   else if (product == "v5") {
+    price = 150 * quantity;}
 else {
-    price = 500 * quantity;
+    price = 300 * quantity;
   }
   r.innerHTML = price;
   let s = document.getElementsByName("select1");
