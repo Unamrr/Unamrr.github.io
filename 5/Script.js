@@ -1,12 +1,24 @@
-function click1() {
+function click1(event) {
   event.preventDefault();
-  let f1 = document.getElementsByName("quantity");
-  let f2 = document.getElementsByName("product");
-  let r = document.getElementById("result");
-  let quantity = f1[0].value;
-  let product = f2[0].value;
-  let price = 0;
   
+  let quantityInput = document.getElementsByName("quantity")[0];
+  let productSelect = document.getElementsByName("product")[0];
+  let resultDiv = document.getElementById("result");
+  
+  let quantity = quantityInput.value;
+  let product = productSelect.value;
+  
+  // ПРОВЕРКА РЕГУЛЯРНЫМ ВЫРАЖЕНИЕМ (обязательно!)
+  const numberRegex = /^\d+$/;
+  if (!numberRegex.test(quantity)) {
+    resultDiv.innerHTML = "Ошибка! Введите только цифры";
+    return false;
+  }
+  
+  // ПРЕОБРАЗОВАНИЕ В ЧИСЛО
+  quantity = parseInt(quantity);
+  
+  let price = 0;
   if (product == "v1") {
     price = 100 * quantity;
   } else if (product == "v2") {
@@ -21,14 +33,12 @@ function click1() {
     price = 300 * quantity;
   }
   
-  r.innerHTML = price;
-  let s = document.getElementsByName("select1");
-  console.log(s[0].value);
+  resultDiv.innerHTML = price + " руб.";
   return false;
 }
 
 window.addEventListener('DOMContentLoaded', function (event) {
   console.log("DOM fully loaded and parsed");
-  let b = document.getElementById("button1");
-  b.addEventListener("click", click1);
+  let button = document.getElementById("button1");
+  button.addEventListener("click", click1);
 });
