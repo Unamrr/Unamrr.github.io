@@ -6,27 +6,27 @@ function click1() {
   let quantity = f1[0].value;
   let product = f2[0].value;
   let price = 0;
+  
   if (product == "v1") {
     price = 100 * quantity;
   } else if (product == "v2") {
     price = 450 * quantity;
-  } 
   } else if (product == "v3") {
     price = 65 * quantity;
-} 
-  else if (product == "v4") {
-    price = 310 * quantity;}
-
-   else if (product == "v5") {
-    price = 150 * quantity;}
-else {
+  } else if (product == "v4") {
+    price = 310 * quantity;
+  } else if (product == "v5") {
+    price = 150 * quantity;
+  } else {
     price = 300 * quantity;
   }
+  
   r.innerHTML = price;
   let s = document.getElementsByName("select1");
   console.log(s[0].value);
   return false;
 }
+
 window.addEventListener('DOMContentLoaded', function (event) {
   console.log("DOM fully loaded and parsed");
   let b = document.getElementById("button1");
