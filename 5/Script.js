@@ -8,14 +8,14 @@ function click1(event) {
   let quantity = quantityInput.value;
   let product = productSelect.value;
   
-  // ПРОВЕРКА РЕГУЛЯРНЫМ ВЫРАЖЕНИЕМ (обязательно!)
+ 
   const numberRegex = /^\d+$/;
   if (!numberRegex.test(quantity)) {
     resultDiv.innerHTML = "Ошибка! Введите только цифры";
     return false;
   }
   
-  // ПРЕОБРАЗОВАНИЕ В ЧИСЛО
+ 
   quantity = parseInt(quantity);
   
   let price = 0;
