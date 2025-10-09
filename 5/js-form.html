@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости заказа - Задание 5</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Калькулятор стоимости заказа</h1>
+    
+    <div>
+        <label for="quantity">Количество:</label>
+        <input id="quantity" name="quantity" type="text">
+        <span id="error-message" style="color: red;"></span>
+    </div>
+    
+    <div>
+        <label for="product">Товар:</label>
+        <select id="product" name="product">
+            <option value="100">Морковь - 100 р.</option>
+            <option value="200">Огурцы - 200 р.</option>
+            <option value="500">Апельсины - 500 р.</option>
+        </select>
+    </div>
+    
+    <button id="calculate-btn">Рассчитать стоимость</button>
+    
+    <div>
+        <strong>Стоимость заказа: <span id="result">0</span> руб.</strong>
+    </div>
+</body>
+</html>
