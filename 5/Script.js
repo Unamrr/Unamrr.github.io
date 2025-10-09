@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
         const quantity = quantityInput.value;
         const productPrice = parseFloat(productSelect.value);
         
-        // ПРОВЕРКА РЕГУЛЯРНЫМ ВЫРАЖЕНИЕМ (обязательное требование)
+        // ПРОВЕРКА РЕГУЛЯРНЫМ ВЫРАЖЕНИЕМ
         const numberRegex = /^\d+$/;
         
         if (!numberRegex.test(quantity)) {
@@ -28,8 +28,8 @@ window.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Преобразуем в число и считаем
-        const quantityNum = parseInt(quantity);
+        // ПРЕОБРАЗОВАНИЕ СТРОКИ В ЧИСЛО С ПОМОЩЬЮ parseInt()
+        const quantityNum = parseInt(quantity, 10);
         const totalPrice = productPrice * quantityNum;
         
         // Выводим результат
