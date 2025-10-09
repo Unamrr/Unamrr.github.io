@@ -1,34 +1,16 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор стоимости заказа</title>
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <h1>Калькулятор стоимости заказа</h1>
-    
-    <div>
-        <label>Количество:</label>
-        <input name="quantity" type="text">
-    </div>
-    
-    <div>
-        <label>Товар:</label>
-        <select name="product">
+<script src="Script.js" defer>
+</script> 
+
+<div id="result"></div>
+  Количество: 
+  <input name="quantity" type="text">
+ 
+  <select name="product">
             <option value="v1">Яблоки 100 р.</option>
             <option value="v2">Киви 450 р.</option>
             <option value="v3">Арбузы 65 р.</option>
             <option value="v4">Ананасы 310 р.</option>
             <option value="v5">Помидоры 150 р.</option>
             <option value="v6">Авокадо 300 р.</option>
-        </select>
-    </div>
-    
-    <button id="button1">OK</button>
-    
-    
-    <div id="result" style="margin-top: 20px; font-size: 18px; font-weight: bold;"></div>
-</body>
-</html>
+  </select>
+  <button id="button1" onclick="return click1();">OK</button>
