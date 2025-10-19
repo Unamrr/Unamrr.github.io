@@ -5,13 +5,13 @@ function getPrices() {
   return {
     prodTypes: [100, 150, 200],
     prodOptions: {
-      option1: 5,
-      option2: 10,
-      option3: 15
+      option1: 200,
+      option2: 500,
+      option3: 150
     },
     prodProperties: {
-      prop1: 3,
-      prop2: 7
+      prop1: 10,
+      prop2: 20
     }
   };
 }
