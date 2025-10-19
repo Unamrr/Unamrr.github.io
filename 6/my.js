@@ -1,17 +1,16 @@
 "use strict";
 
-// Функция, возвращающая все базовые цены
 function getPrices() {
   return {
-    prodTypes: [100, 300, 800],
+    prodTypes: [800, 300, 100],  // Пицца:800, Обувь:300, Мармелад:100
     prodOptions: {
-      option1: 200,
-      option2: 500,
-      option3: 150
+      option1: 200,  // Пляжная обувь
+      option2: 500,  // Спортивная обувь  
+      option3: 150   // Домашняя обувь
     },
     prodProperties: {
-      prop1: 10,
-      prop2: 20
+      prop1: 10,  // Кислый мармелад
+      prop2: 20   // С остринкой
     }
   };
 }
