@@ -3,7 +3,7 @@
 // Функция, возвращающая все базовые цены
 function getPrices() {
   return {
-    prodTypes: [100, 150, 200],
+    prodTypes: [800, 300, 100],
     prodOptions: {
       option1: 200,
       option2: 500,
