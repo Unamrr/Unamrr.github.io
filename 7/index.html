@@ -262,35 +262,35 @@
             const images = [
                 {
                     url: 'https://i.pinimg.com/736x/1b/1d/84/1b1d845d9b0dc88b36099bae9e1ce7c4.jpg',
-                    caption: 'Цветок 1'
+                    caption: 'Розовые цветы'
                 },
                 {
                     url: 'https://i.pinimg.com/originals/98/fd/47/98fd47d15e018164f66216e1b85d02d9.jpg',
-                    caption: 'Цветок 2'
+                    caption: 'Букет цветов'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/d1/7f/50/d17f503378a7e99b0c5db5523c07d4e3.jpg',
-                    caption: 'Цветок 3'
+                    caption: 'Фиолетовые цветы'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/5e/ec/b7/5eecb74db247b3c5c2b55b49a736f96a.jpg',
-                    caption: 'Цветок 4'
+                    caption: 'Желтые цветы'
                 },
                 {
                     url: 'https://i.pinimg.com/originals/f4/40/e1/f440e1422bc809ee4f21881774aa67a3.jpg',
-                    caption: 'Цветок 5'
+                    caption: 'Полевые цветы'
                 },
                 {
                     url: 'https://i.pinimg.com/originals/4d/0a/f8/4d0af8c31df1179a34faa9b54bd8175e.jpg',
-                    caption: 'Цветок 6'
+                    caption: 'Белые цветы'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/1c/c2/d7/1cc2d75c5d77d5c49e0f1e632519b7a5.jpg',
-                    caption: 'Цветок 7'
+                    caption: 'Красные цветы'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/87/a7/0b/87a70b7af13c64eabe6bbc312fc2ce75.jpg',
-                    caption: 'Цветок 8'
+                    caption: 'Разноцветные цветы'
                 }
             ];
             
@@ -303,26 +303,6 @@
             
             let currentPage = 0;
             let itemsPerPage = 3;
-            
-            // Функция для определения количества элементов на странице в зависимости от ширины экрана
-            function updateItemsPerPage() {
-                const oldItemsPerPage = itemsPerPage;
-                
-                if (window.innerWidth <= 768) {
-                    itemsPerPage = 1;
-                } else if (window.innerWidth <= 992) {
-                    itemsPerPage = 2;
-                } else {
-                    itemsPerPage = 3;
-                }
-                
-                // Пересчитываем текущую страницу при изменении количества элементов на странице
-                if (oldItemsPerPage !== itemsPerPage) {
-                    currentPage = Math.floor((currentPage * oldItemsPerPage) / itemsPerPage);
-                }
-                
-                updateGallery();
-            }
             
             // Инициализация галереи
             function initGallery() {
@@ -340,6 +320,10 @@
                     const img = document.createElement('img');
                     img.src = image.url;
                     img.alt = image.caption;
+                    img.onerror = function() {
+                        console.log('Ошибка загрузки изображения:', image.url);
+                        this.src = 'https://via.placeholder.com/400x300/fa89c1/ffffff?text=Цветок+' + (index + 1);
+                    };
                     
                     const caption = document.createElement('div');
                     caption.className = 'image-caption';
@@ -352,6 +336,26 @@
                 });
                 
                 updateItemsPerPage();
+            }
+            
+            // Функция для определения количества элементов на странице
+            function updateItemsPerPage() {
+                const oldItemsPerPage = itemsPerPage;
+                
+                if (window.innerWidth <= 768) {
+                    itemsPerPage = 1;
+                } else if (window.innerWidth <= 992) {
+                    itemsPerPage = 2;
+                } else {
+                    itemsPerPage = 3;
+                }
+                
+                // Пересчитываем текущую страницу
+                if (oldItemsPerPage !== itemsPerPage) {
+                    currentPage = Math.floor((currentPage * oldItemsPerPage) / itemsPerPage);
+                }
+                
+                updateGallery();
             }
             
             // Создание точек навигации
@@ -375,18 +379,6 @@
                 }
             }
             
-            // Обновление активной точки
-            function updateDots() {
-                const dots = document.querySelectorAll('.dot');
-                dots.forEach((dot, index) => {
-                    if (index === currentPage) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-            }
-            
             // Обновление галереи при изменении размера окна
             window.addEventListener('resize', updateItemsPerPage);
             
@@ -394,7 +386,7 @@
             function updateGallery() {
                 const totalPages = Math.ceil(images.length / itemsPerPage);
                 
-                // Ограничиваем текущую страницу в допустимых пределах
+                // Ограничиваем текущую страницу
                 if (currentPage >= totalPages) {
                     currentPage = totalPages - 1;
                 }
