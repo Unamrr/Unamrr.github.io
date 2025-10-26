@@ -245,7 +245,7 @@
                     <span>Страница</span>
                     <span class="page-indicator" id="currentPage">1</span>
                     <span>из</span>
-                    <span class="page-indicator" id="totalPages">3</span>
+                    <span class="page-indicator" id="totalPages">6</span>
                 </div>
                 <button class="arrow" id="nextBtn">&#10095;</button>
             </div>
@@ -357,7 +357,8 @@
             // Создание точек навигации
             function createDots() {
                 dotsContainer.innerHTML = '';
-                const totalPages = Math.ceil(images.length / itemsPerPage);
+                // Количество страниц = общее количество изображений - количество видимых изображений + 1
+                const totalPages = images.length - itemsPerPage + 1;
                 
                 for (let i = 0; i < totalPages; i++) {
                     const dot = document.createElement('div');
@@ -380,7 +381,8 @@
             
             // Обновление отображения галереи
             function updateGallery() {
-                const totalPages = Math.ceil(images.length / itemsPerPage);
+                // Количество страниц = общее количество изображений - количество видимых изображений + 1
+                const totalPages = images.length - itemsPerPage + 1;
                 
                 // Ограничиваем текущую страницу в допустимых пределах
                 if (currentPage >= totalPages) {
@@ -390,7 +392,7 @@
                     currentPage = 0;
                 }
                 
-                // Вычисляем смещение для галереи
+                // Вычисляем смещение для галереи - теперь сдвигаем на один элемент за раз
                 const offset = -currentPage * (100 / itemsPerPage);
                 gallery.style.transform = `translateX(${offset}%)`;
                 
@@ -415,7 +417,7 @@
             });
             
             nextBtn.addEventListener('click', function() {
-                const totalPages = Math.ceil(images.length / itemsPerPage);
+                const totalPages = images.length - itemsPerPage + 1;
                 if (currentPage < totalPages - 1) {
                     currentPage++;
                     updateGallery();
