@@ -110,8 +110,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #e9ecef;
+            background-color: white;
         }
         
         .arrow {
@@ -263,52 +262,52 @@
             const images = [
                 {
                     url: 'https://i.pinimg.com/736x/1b/1d/84/1b1d845d9b0dc88b36099bae9e1ce7c4.jpg',
-                    
+                    caption: 'Цветок 1'
                 },
                 {
                     url: 'https://i.pinimg.com/originals/98/fd/47/98fd47d15e018164f66216e1b85d02d9.jpg',
-                   
+                    caption: 'Цветок 2'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/d1/7f/50/d17f503378a7e99b0c5db5523c07d4e3.jpg',
-                    
+                    caption: 'Цветок 3'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/5e/ec/b7/5eecb74db247b3c5c2b55b49a736f96a.jpg',
-                    
+                    caption: 'Цветок 4'
                 },
                 {
                     url: 'https://i.pinimg.com/originals/f4/40/e1/f440e1422bc809ee4f21881774aa67a3.jpg',
-                    
+                    caption: 'Цветок 5'
                 },
                 {
                     url: 'https://i.pinimg.com/originals/4d/0a/f8/4d0af8c31df1179a34faa9b54bd8175e.jpg',
-                    
+                    caption: 'Цветок 6'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/1c/c2/d7/1cc2d75c5d77d5c49e0f1e632519b7a5.jpg',
-                   
+                    caption: 'Цветок 7'
                 },
                 {
                     url: 'https://i.pinimg.com/736x/87/a7/0b/87a70b7af13c64eabe6bbc312fc2ce75.jpg',
-
+                    caption: 'Цветок 8'
                 }
             ];
             
             const gallery = document.getElementById('gallery');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
-            const pager = document.getElementById('pager');
             const currentPageElement = document.getElementById('currentPage');
             const totalPagesElement = document.getElementById('totalPages');
             const dotsContainer = document.getElementById('dots');
             
             let currentPage = 0;
             let itemsPerPage = 3;
-            let totalPages = Math.ceil(images.length / itemsPerPage);
             
             // Функция для определения количества элементов на странице в зависимости от ширины экрана
             function updateItemsPerPage() {
+                const oldItemsPerPage = itemsPerPage;
+                
                 if (window.innerWidth <= 768) {
                     itemsPerPage = 1;
                 } else if (window.innerWidth <= 992) {
@@ -316,9 +315,13 @@
                 } else {
                     itemsPerPage = 3;
                 }
-                totalPages = Math.ceil(images.length / itemsPerPage);
+                
+                // Пересчитываем текущую страницу при изменении количества элементов на странице
+                if (oldItemsPerPage !== itemsPerPage) {
+                    currentPage = Math.floor((currentPage * oldItemsPerPage) / itemsPerPage);
+                }
+                
                 updateGallery();
-                createDots();
             }
             
             // Инициализация галереи
@@ -349,12 +352,12 @@
                 });
                 
                 updateItemsPerPage();
-                createDots();
             }
             
             // Создание точек навигации
             function createDots() {
                 dotsContainer.innerHTML = '';
+                const totalPages = Math.ceil(images.length / itemsPerPage);
                 
                 for (let i = 0; i < totalPages; i++) {
                     const dot = document.createElement('div');
@@ -366,7 +369,6 @@
                     dot.addEventListener('click', () => {
                         currentPage = i;
                         updateGallery();
-                        updateDots();
                     });
                     
                     dotsContainer.appendChild(dot);
@@ -390,6 +392,8 @@
             
             // Обновление отображения галереи
             function updateGallery() {
+                const totalPages = Math.ceil(images.length / itemsPerPage);
+                
                 // Ограничиваем текущую страницу в допустимых пределах
                 if (currentPage >= totalPages) {
                     currentPage = totalPages - 1;
@@ -411,7 +415,7 @@
                 nextBtn.disabled = currentPage === totalPages - 1;
                 
                 // Обновляем точки навигации
-                updateDots();
+                createDots();
             }
             
             // Обработчики событий для кнопок
@@ -423,6 +427,7 @@
             });
             
             nextBtn.addEventListener('click', function() {
+                const totalPages = Math.ceil(images.length / itemsPerPage);
                 if (currentPage < totalPages - 1) {
                     currentPage++;
                     updateGallery();
