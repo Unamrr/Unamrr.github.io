@@ -7,38 +7,28 @@ class FeedbackForm {
         this.openFormBtn = document.querySelector('.open-form-btn');
         
         this.STORAGE_KEY = 'feedbackFormData';
-        // ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ URL ИЗ FORMCARRY ИЛИ ДРУГОГО СЕРВИСА
-     this.FORMCARRY_URL = 'https://formspree.io/f/YOUR_EMAIL';
         this.init();
     }
 
     init() {
-        // Восстановление данных из LocalStorage
         this.restoreFormData();
-        
-        // Обработчики событий
         this.openFormBtn.addEventListener('click', () => this.openPopup());
         this.closeBtn.addEventListener('click', () => this.closePopup());
         this.feedbackForm.addEventListener('submit', (e) => this.handleSubmit(e));
-        
-        // Сохранение данных при изменении
         this.feedbackForm.addEventListener('input', () => this.saveFormData());
         
-        // Обработка кнопки "Назад" в браузере
         window.addEventListener('popstate', (e) => {
             if (e.state && e.state.popupOpen) {
                 this.closePopup();
             }
         });
 
-        // Закрытие по клику вне формы
         this.popupOverlay.addEventListener('click', (e) => {
             if (e.target === this.popupOverlay) {
                 this.closePopup();
             }
         });
 
-        // Закрытие по ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.popupOverlay.style.display === 'flex') {
                 this.closePopup();
@@ -48,11 +38,8 @@ class FeedbackForm {
 
     openPopup() {
         this.popupOverlay.style.display = 'flex';
-        // Добавляем состояние в History API
         history.pushState({ popupOpen: true }, '', '#feedback');
         this.adjustFormForMobile();
-        
-        // Фокус на первом поле
         setTimeout(() => {
             document.getElementById('fullName').focus();
         }, 100);
@@ -60,18 +47,16 @@ class FeedbackForm {
 
     closePopup() {
         this.popupOverlay.style.display = 'none';
-        // Возвращаем предыдущее состояние
         if (history.state && history.state.popupOpen) {
             history.back();
         }
     }
 
     adjustFormForMobile() {
-        // Автоматическая адаптация для мобильных устройств
         if (window.innerWidth <= 768) {
             const formElements = this.feedbackForm.querySelectorAll('input, textarea, button');
             formElements.forEach(element => {
-                element.style.fontSize = '16px'; // Предотвращает масштабирование в iOS
+                element.style.fontSize = '16px';
             });
         }
     }
@@ -87,7 +72,6 @@ class FeedbackForm {
         }
         
         data.privacyPolicy = document.getElementById('privacyPolicy').checked;
-        
         localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
     }
 
@@ -96,7 +80,6 @@ class FeedbackForm {
         if (savedData) {
             try {
                 const data = JSON.parse(savedData);
-                
                 Object.keys(data).forEach(key => {
                     const element = document.getElementById(key);
                     if (element) {
@@ -120,7 +103,6 @@ class FeedbackForm {
     }
 
     showMessage(message, type = 'success') {
-        // Удаляем предыдущие сообщения
         const existingMessage = this.popupOverlay.querySelector('.message');
         if (existingMessage) {
             existingMessage.remove();
@@ -129,10 +111,8 @@ class FeedbackForm {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${type}`;
         messageDiv.textContent = message;
-
         this.feedbackForm.insertBefore(messageDiv, this.submitBtn);
 
-        // Автоскрытие сообщения
         setTimeout(() => {
             if (messageDiv.parentNode) {
                 messageDiv.remove();
@@ -143,7 +123,6 @@ class FeedbackForm {
     async handleSubmit(e) {
         e.preventDefault();
         
-        // Валидация формы
         if (!this.feedbackForm.checkValidity()) {
             this.showMessage('Пожалуйста, заполните все обязательные поля правильно', 'error');
             return;
@@ -154,31 +133,41 @@ class FeedbackForm {
 
         try {
             const formData = new FormData(this.feedbackForm);
-            const data = Object.fromEntries(formData.entries());
+            
+            const data = {
+                access_key: 'dc2276da-7f06-4f69-9e35-c53ce3e8447f',
+                subject: 'Новое сообщение с формы обратной связи',
+                name: formData.get('fullName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                company: formData.get('organization'),
+                message: formData.get('message'),
+                from_name: 'Сайт обратной связи'
+            };
 
-            // Отправка данных на Formcarry
-            const response = await fetch(this.FORMCARRY_URL, {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
-                    'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             });
 
-            if (response.ok) {
-                this.showMessage('Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.', 'success');
+            const result = await response.json();
+            
+            if (result.success) {
+                this.showMessage('✅ Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.', 'success');
                 this.clearFormData();
                 setTimeout(() => {
                     this.closePopup();
                 }, 2000);
             } else {
-                throw new Error(`Ошибка сервера: ${response.status}`);
+                throw new Error(result.message || 'Ошибка отправки формы');
             }
 
         } catch (error) {
             console.error('Ошибка отправки формы:', error);
-            this.showMessage('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами другим способом.', 'error');
+            this.showMessage('❌ Произошла ошибка при отправке: ' + error.message, 'error');
         } finally {
             this.submitBtn.disabled = false;
             this.submitBtn.textContent = 'Отправить';
@@ -186,12 +175,10 @@ class FeedbackForm {
     }
 }
 
-// Инициализация формы при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     new FeedbackForm();
 });
 
-// Автоматическое открытие формы если в URL есть хэш
 window.addEventListener('load', () => {
     if (window.location.hash === '#feedback') {
         setTimeout(() => {
