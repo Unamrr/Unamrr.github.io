@@ -8,8 +8,7 @@ class FeedbackForm {
         
         this.STORAGE_KEY = 'feedbackFormData';
         // ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ URL ИЗ FORMCARRY ИЛИ ДРУГОГО СЕРВИСА
-        this.FORMCARRY_URL = 'https://formcarry.com/s/ВАШ_ID_ФОРМЫ';
-        
+     this.FORMCARRY_URL = 'https://formspree.io/f/YOUR_EMAIL';
         this.init();
     }
 
