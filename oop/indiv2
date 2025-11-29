@@ -1,0 +1,41 @@
+public class GruzAuto extends Automobil {
+   
+    private double gruzopod;
+
+    public GruzAuto(double gruzopod){
+        super(marka,  moshn, double v_dvig);
+        this.gruzopod=gruzopod;
+    }
+}
+public class Automobil {
+    private String marka;
+    private double moshn;
+    private double v_dvig;
+
+    public Automobil(String marka, double moshn, double v_dvig){
+        this.marka=marka;
+        this.v_dvig=v_dvig;
+        this.moshn=moshn;
+
+    }
+
+    public void setMarka(String marka){
+        this.marka=marka;
+    }
+    public void setMoshn(double moshn){
+        this.moshn = moshn;
+    }
+    public void setV_dvig(double v_dvig){
+        this.v_dvig=v_dvig;
+    }
+    public String getMarka(){
+        return marka;
+    }
+    public double getMoshn(){
+        return moshn;
+    }
+    public double getV_dvig(){
+        return v_dvig;
+    }
+
+}
