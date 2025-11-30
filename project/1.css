@@ -13,18 +13,12 @@
 /* Мобильная версия */
 @media (max-width: 991px) {
     #competention .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 колонки */
-        gap: 15px;
-        margin-top: 20px; /* отступ от розовой части */
+        display: flex;
+        flex-wrap: wrap;
     }
     
     #competention .col-6 {
-        width: 100%;
-    }
-    
-    /* Убедитесь что розовая часть выше */
-    .mobile-pink-image {
-        margin-bottom: 0;
+        flex: 0 0 48%; /* 2 колонки */
+        margin: 1%;
     }
 }
