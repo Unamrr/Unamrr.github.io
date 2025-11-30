@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 4 </title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel = "stylesheet" href = "1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Дополнительные кастомные стили */
+        .round-logo {
+            border: 3px solid #4CAF50;
+            object-fit: cover;
+        }
+        
+        .navbar-brand h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .content-section h2 {
+            color: #a800e6;
+            border-bottom: 2px solid #a800e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .links-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .links-list li {
+            background: #f8f8f8;
+            border-radius: 5px;
+        }
+        
+        .links-list a {
+            color: #a800e6;
+            text-decoration: none;
+        }
+        
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .link-image {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Кастомные цвета для Bootstrap */
+        .bg-purple {
+            background-color: #a800e6 !important;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        table th {
+            background-color: #a800e6;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .btn-purple {
+            background-color: #a800e6;
+            border-color: #a800e6;
+            color: white;
+        }
+        
+        .btn-purple:hover {
+            background-color: #8a00bf;
+            border-color: #8a00bf;
+            color: white;
+        }
+        
+        /* Адаптивные улучшения */
+        @media (max-width: 576px) {
+            .navbar-brand {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .round-logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .round-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .navbar-brand h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- ШАПКА -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+            <div class="container">
+                <!-- Логотип и название -->
+                <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                    <img src="flowers.webp" alt="Логотип" class="round-logo rounded-circle" width="60" height="60">
+                    <h1 class="h4 mb-0">Задание 4</h1>
+                </a>
+                
+                <!-- Кнопка меню для мобильных -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Навигация -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#list-section">Список гиперссылок</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#table-section">Таблица</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#form-section">Форма</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Компетенции -->
+     <section id = "table-section" class = "col-12 col-lg-8 order-3 order-lg-2">
+        <h2 class="h4"> 13 лет совершенствует компетенции в Друпал поддержке</h2>
+        <p class = "razr">Разрабатываем и оптимизируем модули, расширяем функциональность сайтов, обновляем дизайн </p>
+        <div class = "conteiner" id = "competention">
+            <div class="d-lg-none mobile-pink-image">
+            <img src="img/photo_1.jpg" alt="Компетенции" class="img-fluid w-100">
+        </div>
+            <div class = "row">
+                <div id = "competence1" class = "col-6 col-lg-3">
+                    <img src = "img/competency-1.svg">
+                    <p class = "t1">Добавление информации на сайт, создание новых разделов</p>
+                </div>
+                <div class = "col-6 col-lg-3">
+                    <img src = "img/competency-2.svg">
+                    <p class = "t1">Разработка и оптимизация модулей сайта</p>
+                </div>
+                <div class = "col-6 col-lg-3">
+                    <img src = "img/competency-3.svg">
+                    <p class = "t1">Интеграция с CRM, 1C, платежными системами, любыми веб-сервисами</p>
+                </div>
+                <div class = "col-6 col-lg-3">
+                    <img src = "img/competency-4.svg">
+                    <p class = "t1">Любые доработки функционала и дизайна</p>
+                </div>
+                <div class = "col-6 col-lg-3">
+                    <img src = "img/competency-5.svg">
+                    <p class = "t1">Аудит и мониторинг безопасности Drupal сайтов</p>
+                </div>
+                <div class = "col-6 col-lg-3">
+                    <img src = "img/competency-6.svg">
+                    <p class = "t1">Миграция, импорт контента и апгрейд Drupal</p>
+                </div>
+                <div class = "col-6 col-lg-3">
+                    <img src = "img/competency-7.svg">
+                    <p class = "t1">Оптимизация и ускорение Drupal-сайтов</p>
+                </div>
+                <div class = "col-6 col-lg-3">
+                    <img src = "img/competency-8.svg">
+                    <p class = "t1">Веб-маркетинг, консультации и работы по SEO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer class="bg-purple text-white text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; Сергей Синица</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+  
