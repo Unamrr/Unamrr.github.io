@@ -10,19 +10,21 @@
 .t1 {
     color:grey;
     padding-top: 30px;
-}
 /* Мобильная версия */
 @media (max-width: 991px) {
-    .mobile-pink-image {
-        margin-bottom: 20px;
-    }
-    
     #competention .row {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 колонки */
+        gap: 15px;
+        margin-top: 20px; /* отступ от розовой части */
     }
     
     #competention .col-6 {
         width: 100%;
+    }
+    
+    /* Убедитесь что розовая часть выше */
+    .mobile-pink-image {
+        margin-bottom: 0;
     }
 }
