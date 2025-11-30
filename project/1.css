@@ -1,0 +1,28 @@
+#competention > div > div {
+    background-image:url(img/photo_1.jpg);
+    background-repeat: no-repeat;
+    padding-left: 58px;
+    background-size: 125px;
+    padding-bottom: 20px;
+    background-position: 0 10px;
+
+}
+.t1 {
+    color:grey;
+    padding-top: 30px;
+}
+/* Мобильная версия */
+@media (max-width: 991px) {
+    .mobile-pink-image {
+        margin-bottom: 20px;
+    }
+    
+    #competention .row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #competention .col-6 {
+        width: 100%;
+    }
+}
