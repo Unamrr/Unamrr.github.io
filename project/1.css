@@ -23,7 +23,7 @@ html, body {
     font-family: 'Montserrat', 'Roboto', sans-serif !important;
 }
 #competention > div > div {
-    background-image: url(img/photo_1.jpg);
+    background-image: url(./photo_1.jpg);
     background-repeat: no-repeat;
     background-size: 125px;
     padding-bottom: 20px;
@@ -117,7 +117,7 @@ html, body {
 
 /* Розовый фон для КАЖДОГО отдельного блока с компетенцией */
 #competention .row .col-6 {
-    background-image: url(img/photo_1.jpg);
+    background-image: url(./photo_1.jpg);
     background-repeat: no-repeat;
     background-size: 125px;
     background-position: -30px 10px;
