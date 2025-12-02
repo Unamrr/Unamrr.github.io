@@ -223,4 +223,9 @@ html, body {
 .faq-question.active .faq-text {
     color: #ff0000;
 }
+#form-section {
+	background-color: #000000;
+	color: #ffffff;
+	
+}
 
