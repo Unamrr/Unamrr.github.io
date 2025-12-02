@@ -1,8 +1,168 @@
- <section id = "table-section" class = "col-12 col-lg-8 order-3 order-lg-2">
-        <h2 class="h4"> 13 лет совершенствует компетенции в Друпал поддержке</h2>
-        <p class = "razr">Разрабатываем и оптимизируем модули, расширяем функциональность сайтов, обновляем дизайн </p>
-        <div class = "container" id = "competention">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 4 </title>
+    <!-- Bootstrap 5 CSS -->
+    
+    <link rel = "stylesheet" href = "1.js">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href = "1.css">
+    <style>
+        /* Дополнительные кастомные стили */
+        .round-logo {
+            border: 3px solid #4CAF50;
+            object-fit: cover;
+        }
+        
+        .navbar-brand h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .content-section h2 {
+            color: #a800e6;
+            border-bottom: 2px solid #a800e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .links-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .links-list li {
+            background: #f8f8f8;
+            border-radius: 5px;
+        }
+        
+        .links-list a {
+            color: #a800e6;
+            text-decoration: none;
+        }
+        
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .link-image {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Кастомные цвета для Bootstrap */
+        .bg-purple {
+            background-color: #a800e6 !important;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        table th {
+            background-color: #a800e6;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .btn-purple {
+            background-color: #a800e6;
+            border-color: #a800e6;
+            color: white;
+        }
+        
+        .btn-purple:hover {
+            background-color: #8a00bf;
+            border-color: #8a00bf;
+            color: white;
+        }
+        
+        /* Адаптивные улучшения */
+        @media (max-width: 576px) {
+            .navbar-brand {
+                flex-direction: column;
+                text-align: center;
+            }
             
+            .round-logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .round-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .navbar-brand h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- ШАПКА -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+            <div class="container">
+                <!-- Логотип и название -->
+                <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                    <img src="flowers.webp" alt="Логотип" class="round-logo rounded-circle" width="60" height="60">
+                    <h1 class="h4 mb-0">Задание 4</h1>
+                </a>
+                
+                <!-- Кнопка меню для мобильных -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Навигация -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#list-section">Список гиперссылок</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#table-section">Таблица</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#form-section">Форма</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+<main>
+    <!-- Компетенции -->
+     <section id="table-section" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8">
+                <!-- Заголовок и подзаголовок по левому краю -->
+                <div class="mb-4 col-lg-8 col-xl-6 px-0">
+                    <h2 class="h4 text-start fw-bold mb-3" style="color: #333; font-size: 30px;">13 лет совершенствует компетенции в Друпал <br>поддержке!</h2>
+                    <p class="text-start mb-0" style="color: #666; font-size: 14px; line-height: 1.5;">
+                        Разрабатываем и оптимизируем модули, расширяем функциональность сайтов, обновляем дизайн
+                    </p>
+                </div>
+                
+            <div id="competention" >
             <div class = "row">
                 <div id = "competence1" class = "col-6 col-lg-3">
                     <img class = "i1"src = "competency-1.svg">
@@ -38,5 +198,270 @@
                 </div>
             </div>
         </div>
+                </div>
+            </div>
+        </div>
     </section>
     
+    <!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">FAQ</h2>
+        
+        <!-- FAQ список -->
+        <div class="faq-list">
+            <!-- Вопрос 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">1.</span>
+                    <span class="faq-text">Кто непосредственно занимается поддержкой?</span>
+                </div>
+                <div class="faq-answer">
+                    Сайты поддерживают штатные сотрудники ООО «Инитиаб», г. Краснодар, прошедшие специальное обучение и имеющие опыт работы с Друпал от 4 до 15 лет: 8 web-разработчиков, 2 специалиста по SEO, 4 системных администратора.
+                </div>
+            </div>
+            
+            <!-- Вопрос 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">2.</span>
+                    <span class="faq-text">Как организована работа поддержки?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 2 -->
+                </div>
+            </div>
+            
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">3.</span>
+                    <span class="faq-text">Что происходит, когда отработаны все предоплаченные часы за месяц?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">4.</span>
+                    <span class="faq-text">Что происходит, когда не отработаны все предоплаченные часы за месяц?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">5.</span>
+                    <span class="faq-text">Как происходит оценка и согласование планируемого времени на выполнение заявок?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">6.</span>
+                    <span class="faq-text">Сколько программистов выделяется на проект?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">7.</span>
+                    <span class="faq-text">Как подать заявку на внесение изменений на сайте?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">8.</span>
+                    <span class="faq-text">Как подать заявку на добавление пользователя, изменение настроек веб-сервера и других задач по администрированию?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">9.</span>
+                    <span class="faq-text">В течение какого времени начинается работа по заявке?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">10.</span>
+                    <span class="faq-text">В какое время работает поддержка?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">11.</span>
+                    <span class="faq-text">Подходят ли услуги поддержки, если необходимо произвести обновление ядра Drupal или модулей?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">12.</span>
+                    <span class="faq-text">Можно ли пообщаться со специалистом голосом или в мессенджере?</span>
+                </div>
+                <div class="faq-answer" style="display: none;">
+                    <!-- Ответ на вопрос 3 -->
+                </div>
+            </div>
+            <!-- Остальные вопросы (4-12) по аналогии -->
+            
+        </div>
+    </div>
+</section> 
+
+<section id="form-section">
+    <div class="container">
+	    <div class= "row">
+			<div id="text" class="col-12 col-md-6">
+				 <h1> Оставить заяику на поддержку сайта</h1>
+    				<p> Срочно нужна доддержка сайтф? Ваша команда не успевает спавится самостояльно или предыдущий подрядчик не спавиться 
+        					с работой? Тогда вам точно к нам! Просто оставтье заявку и наш менеджер с вами свяжется!
+					</p>
+				<h1> 8 800 222-26-73</h1>
+				<h5>info@drupal-coder.ru</h5>
+			</div>
+			<div id="form" class="col-12 col-md-6">
+				<h2 class="h4">Форма</h2>
+				<form action="/" method="POST" class="row g-3">
+					<div class="col-12">
+						<label for="field-name-1" class="form-label">Впишите ФИО:</label>
+						<input type="text" class="form-control" id="field-name-1" name="field-name-1" value="ФИО" placeholder="Введите ваше ФИО">
+					</div>
+					
+					<div >
+						<label for="phone" class="form-label">Впишите номер телефона:</label>
+						<input type="tel" class="form-control" id="phone" name="phone" placeholder="+79998543251">
+					</div>
+					
+					<div >
+						<label for="field-email" class="form-label">Введите email:</label>
+						<input type="email" class="form-control" id="field-email" name="field-email" placeholder="Введите вашу почту">
+					</div>
+					
+					<div >
+						<label for="field-date" class="form-label">Дата рождения:</label>
+						<input type="date" class="form-control" id="field-date" name="field-date" value="2019-08-13">
+					</div>
+					
+					<div>
+						<label class="form-label">Пол:</label>
+						<div class="mt-1">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" id="female" name="radio-group-1" value="Значение1" checked>
+								<label class="form-check-label" for="female">женский</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" id="male" name="radio-group-1" value="Значение2">
+								<label class="form-check-label" for="male">мужской</label>
+							</div>
+						</div>
+					</div>
+					
+					<div >
+						<label for="field-name-2" class="form-label">Биография:</label>
+						<textarea class="form-control" id="field-name-2" name="field-name-2" rows="3">город и тп</textarea>
+					</div>
+					
+					<div >
+						<label for="field-name-4" class="form-label">Любимый язык программирования:</label>
+						<select class="form-select" id="field-name-4" name="field-name-4[]" multiple size="6">
+							<option value="Значение1">Pascal</option>
+							<option value="Значение2">C</option>
+							<option value="Значение3">C++</option>
+							<option value="Значение4">JavaScript</option>
+							<option value="Значение5">PHP</option>
+							<option value="Значение6">Python</option>
+							<option value="Значение7">Java</option>
+							<option value="Значение8">Haskel</option>
+							<option value="Значение9">Clojure</option>
+							<option value="Значение10">Prolog</option>
+							<option value="Значение11">Scala</option>
+						</select>
+						<div class="form-text">Для выбора нескольких вариантов удерживайте Ctrl (Cmd на Mac)</div>
+					</div>
+					
+					<div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="check-1" name="check-1" checked>
+							<label class="form-check-label" for="check-1">
+								С контрактом ознакомлен(а)
+							</label>
+						</div>
+					</div>
+					
+					<div>
+						<button type="submit" class="btn btn-purple">Сохранить</button>
+					</div>
+				</form>
+			</div>
+            </div>
+		</div>
+	</div>			
+</section>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer class="bg-purple text-white text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; Сергей Синица</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            const isVisible = answer.style.display === 'block';
+            
+            // Скрываем все ответы
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.style.display = 'none';
+            });
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+            });
+            
+            // Показываем/скрываем текущий
+            if (!isVisible) {
+                answer.style.display = 'block';
+                this.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+   
+  
