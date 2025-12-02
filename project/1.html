@@ -336,8 +336,90 @@
             
         </div>
     </div>
-</section>
+</section> 
 
+<section id="form-section">
+    <div class="container">
+	    <div class= "row">
+			<div id="text" class="col-12 col-md-6">23231233</div>
+			<div id="form" class="col-12 col-md-6">
+				<h2 class="h4">Форма</h2>
+				<form action="/" method="POST" class="row g-3">
+					<div class="col-12">
+						<label for="field-name-1" class="form-label">Впишите ФИО:</label>
+						<input type="text" class="form-control" id="field-name-1" name="field-name-1" value="ФИО" placeholder="Введите ваше ФИО">
+					</div>
+					
+					<div >
+						<label for="phone" class="form-label">Впишите номер телефона:</label>
+						<input type="tel" class="form-control" id="phone" name="phone" placeholder="+79998543251">
+					</div>
+					
+					<div >
+						<label for="field-email" class="form-label">Введите email:</label>
+						<input type="email" class="form-control" id="field-email" name="field-email" placeholder="Введите вашу почту">
+					</div>
+					
+					<div >
+						<label for="field-date" class="form-label">Дата рождения:</label>
+						<input type="date" class="form-control" id="field-date" name="field-date" value="2019-08-13">
+					</div>
+					
+					<div>
+						<label class="form-label">Пол:</label>
+						<div class="mt-1">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" id="female" name="radio-group-1" value="Значение1" checked>
+								<label class="form-check-label" for="female">женский</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" id="male" name="radio-group-1" value="Значение2">
+								<label class="form-check-label" for="male">мужской</label>
+							</div>
+						</div>
+					</div>
+					
+					<div >
+						<label for="field-name-2" class="form-label">Биография:</label>
+						<textarea class="form-control" id="field-name-2" name="field-name-2" rows="3">город и тп</textarea>
+					</div>
+					
+					<div >
+						<label for="field-name-4" class="form-label">Любимый язык программирования:</label>
+						<select class="form-select" id="field-name-4" name="field-name-4[]" multiple size="6">
+							<option value="Значение1">Pascal</option>
+							<option value="Значение2">C</option>
+							<option value="Значение3">C++</option>
+							<option value="Значение4">JavaScript</option>
+							<option value="Значение5">PHP</option>
+							<option value="Значение6">Python</option>
+							<option value="Значение7">Java</option>
+							<option value="Значение8">Haskel</option>
+							<option value="Значение9">Clojure</option>
+							<option value="Значение10">Prolog</option>
+							<option value="Значение11">Scala</option>
+						</select>
+						<div class="form-text">Для выбора нескольких вариантов удерживайте Ctrl (Cmd на Mac)</div>
+					</div>
+					
+					<div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="check-1" name="check-1" checked>
+							<label class="form-check-label" for="check-1">
+								С контрактом ознакомлен(а)
+							</label>
+						</div>
+					</div>
+					
+					<div>
+						<button type="submit" class="btn btn-purple">Сохранить</button>
+					</div>
+				</form>
+			</div>
+            </div>
+		</div>
+	</div>			
+</section>
     </main>
 
     <!-- ПОДВАЛ -->
