@@ -261,4 +261,14 @@ html, body {
         font-size: 14px;
     }
 }
-
+#form-section {
+	background-color: #000000;
+	color: #ffffff;}
+.text1{
+    solid:bold;
+    color: white;
+    font-size:30px;
+}
+.text2{
+    size: 15px;
+    color:grey;}
