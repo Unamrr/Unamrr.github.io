@@ -229,7 +229,7 @@ html, body {
     width: 32px; /* Уменьшаем размер */
     height: 32px;
     line-height: 32px;
-    border-radius: 50%;
+    border-radius: 20%;
     background-color: transparent; /* Прозрачный фон по умолчанию */
     border: 2px solid #d32f2f; /* Красная обводка */
     color: #d32f2f; /* Красный цвет иконок */
