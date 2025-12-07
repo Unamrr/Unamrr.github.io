@@ -223,6 +223,50 @@ html, body {
 .faq-question.active .faq-text {
     color: #ff0000;
 }
+/* Стили для иконок в подвале */
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.social-icons a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.social-icons i {
+    font-size: 18px;
+}
+
+.footer-text {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 576px) {
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        margin: 0 3px;
+    }
+    
+    .social-icons i {
+        font-size: 16px;
+    }
+    
+    .footer-text {
+        font-size: 12px;
+    }
+}
 #form-section {
 	background-color: #000000;
 	color: #ffffff;
