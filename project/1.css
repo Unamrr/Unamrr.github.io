@@ -262,8 +262,8 @@ html, body {
     .social-icons i {
         font-size: 14px;
     }
-}
-section#form-section {
+	
+	#form-section {
     background-color: #000000;
     color: #ffffff;
     padding: 20px; /* Добавьте отступы для наглядности */
