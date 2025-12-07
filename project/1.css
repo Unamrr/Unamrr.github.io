@@ -263,20 +263,9 @@ html, body {
         font-size: 14px;
     }
 }
-#form-section {
+section#form-section {
     background-color: #000000;
     color: #ffffff;
     padding: 20px; /* Добавьте отступы для наглядности */
 }
 
-.text1 {
-    font-weight: bold;
-    color: white;
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.text2 {
-    font-size: 15px;
-    color: #808080; /* grey в hex */
-}
