@@ -231,8 +231,10 @@ html, body {
     line-height: 32px;
     border-radius: 20%;
     background-color: transparent; /* Прозрачный фон по умолчанию */
-    border: 2px solid #d32f2f; /* Красная обводка */
-    color: #d32f2f; /* Красный цвет иконок */
+    border: 2px solid #ff0000; /* Красная обводка */
+    color: #form-section {
+	background-color: #ff0000;
+	color: #ff0000; /* Красный цвет иконок */
     transition: all 0.3s ease;
     margin: 0 8px;
 }
