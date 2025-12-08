@@ -442,4 +442,114 @@ a.info {
 ul.ul {
     margin-top: 100px;
 }
+  /* Дополнительные кастомные стили */
+        .round-logo {
+            border: 3px solid #4CAF50;
+            object-fit: cover;
+        }
+        
+        .navbar-brand h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .content-section h2 {
+            color: #a800e6;
+            border-bottom: 2px solid #a800e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .links-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .links-list li {
+            background: #f8f8f8;
+            border-radius: 5px;
+        }
+        
+        .links-list a {
+            color: #a800e6;
+            text-decoration: none;
+        }
+        
+        .links-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .link-image {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Кастомные цвета для Bootstrap */
+        .bg-purple {
+
+    background: linear-gradient(254.72deg, rgba(255, 255, 255, 0.276) -114.85%, rgba(255, 255, 255, 0) 69.04%), 
+		url(./D-flying.svg) no-repeat top center, 
+		url(./D-footer.svg) no-repeat bottom right, #040613;
+    padding: 117px 0 54px;
+    color: #fff;
+    font-family: Montserrat, serif;
+}
+
+
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        table th {
+            background-color: #a800e6;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .btn-purple {
+            background-color: black;
+            border-color: black;
+            color: white;
+        }
+        
+        .btn-purple:hover {
+            background-color: #8a00bf;
+            border-color: #8a00bf;
+            color: white;
+        }
+        
+        /* Адаптивные улучшения */
+        @media (max-width: 576px) {
+            .navbar-brand {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .round-logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .round-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .navbar-brand h1 {
+                font-size: 2rem;
+            }
+        }
+    
 
