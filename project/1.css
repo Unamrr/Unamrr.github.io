@@ -425,4 +425,15 @@ html, body {
     color: #ffffff;
     padding: 20px; /* Добавьте отступы для наглядности */
 }
+a.info {
+    text-decoration: underline !important;
+    weight-font: 600;
+}
+.tel {
+    font-size: 30px;
+    font-weight: 600;
+}
+ul.ul {
+    margin-top: 100px;
+}
 
