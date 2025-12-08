@@ -386,9 +386,9 @@ html, body {
     display: inline-block;
     width: 32px; /* Уменьшаем размер */
     height: 32px;
-    line-height: 32px;
+
     border-radius: 20%;
-    background-color: transparent; /* Прозрачный фон по умолчанию */
+    background-color: #ff0000; /* Прозрачный фон по умолчанию */
     border: 2px solid #ff0000; /* Красная обводка */
     color: #ff0000; /* Красный цвет иконок */
     transition: all 0.3s ease;
