@@ -381,3 +381,48 @@ html, body {
                 padding: 40px 0;
             }
         }
+/* Стили для иконок в подвале - красные с эффектом как на фото */
+.social-icons a {
+    display: inline-block;
+    width: 32px; /* Уменьшаем размер */
+    height: 32px;
+    line-height: 32px;
+    border-radius: 20%;
+    background-color: transparent; /* Прозрачный фон по умолчанию */
+    border: 2px solid #ff0000; /* Красная обводка */
+    color: #ff0000; /* Красный цвет иконок */
+    transition: all 0.3s ease;
+    margin: 0 8px;
+}
+
+.social-icons a:hover {
+    background-color: #000; /* Черный фон при наведении */
+    border-color: #d32f2f; /* Красная обводка остается */
+    color: #d32f2f; /* Иконка остается красной */
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+.social-icons i {
+    font-size: 16px; /* Уменьшаем размер иконок */
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 576px) {
+    .social-icons a {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        margin: 0 5px;
+    }
+    
+    .social-icons i {
+        font-size: 14px;
+    }
+}
+
+#form-section {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px; /* Добавьте отступы для наглядности */
+}
+
