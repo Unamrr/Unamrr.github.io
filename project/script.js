@@ -148,3 +148,142 @@ class FeedbackForm {
 document.addEventListener('DOMContentLoaded', () => {
     new FeedbackForm();
 });
+// Карусель отзывов
+class ReviewsCarousel {
+    constructor() {
+        this.currentIndex = 0;
+        this.reviews = document.querySelectorAll('.review-item');
+        this.dots = document.querySelectorAll('.dot');
+        this.autoSlideInterval = null;
+        this.autoSlideDelay = 6000; // 6 секунд
+        
+        this.init();
+    }
+    
+    init() {
+        // Показываем первый отзыв
+        this.showReview(this.currentIndex);
+        
+        // Добавляем обработчики событий
+        this.addEventListeners();
+        
+        // Запускаем автопрокрутку
+        this.startAutoSlide();
+    }
+    
+    showReview(index) {
+        // Скрываем все отзывы
+        this.reviews.forEach(review => {
+            review.classList.remove('active');
+            review.style.opacity = '0';
+            review.style.transform = 'translateX(30px)';
+        });
+        
+        // Убираем активный класс у всех точек
+        this.dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Показываем выбранный отзыв
+        this.reviews[index].classList.add('active');
+        this.dots[index].classList.add('active');
+        
+        // Анимация появления
+        setTimeout(() => {
+            this.reviews[index].style.opacity = '1';
+            this.reviews[index].style.transform = 'translateX(0)';
+        }, 50);
+        
+        this.currentIndex = index;
+    }
+    
+    nextReview() {
+        let nextIndex = this.currentIndex + 1;
+        if (nextIndex >= this.reviews.length) {
+            nextIndex = 0;
+        }
+        this.showReview(nextIndex);
+    }
+    
+    prevReview() {
+        let prevIndex = this.currentIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = this.reviews.length - 1;
+        }
+        this.showReview(prevIndex);
+    }
+    
+    goToReview(index) {
+        if (index >= 0 && index < this.reviews.length) {
+            this.showReview(index);
+        }
+    }
+    
+    startAutoSlide() {
+        this.stopAutoSlide();
+        this.autoSlideInterval = setInterval(() => {
+            this.nextReview();
+        }, this.autoSlideDelay);
+    }
+    
+    stopAutoSlide() {
+        if (this.autoSlideInterval) {
+            clearInterval(this.autoSlideInterval);
+            this.autoSlideInterval = null;
+        }
+    }
+    
+    addEventListeners() {
+        // Останавливаем автопрокрутку при взаимодействии
+        const carousel = document.getElementById('reviewsCarousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => this.stopAutoSlide());
+            carousel.addEventListener('mouseleave', () => this.startAutoSlide());
+            carousel.addEventListener('touchstart', () => this.stopAutoSlide());
+        }
+        
+        // Добавляем обработчики для стрелок и точек
+        document.querySelectorAll('.nav-btn, .dot').forEach(element => {
+            element.addEventListener('click', () => {
+                this.stopAutoSlide();
+                setTimeout(() => this.startAutoSlide(), 10000);
+            });
+        });
+        
+        // Добавляем обработчики клавиатуры
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                this.prevReview();
+                this.stopAutoSlide();
+            } else if (e.key === 'ArrowRight') {
+                this.nextReview();
+                this.stopAutoSlide();
+            }
+        });
+    }
+}
+
+// Глобальные функции для вызова из HTML
+let reviewsCarousel;
+
+function initReviewsCarousel() {
+    reviewsCarousel = new ReviewsCarousel();
+}
+
+function nextReview() {
+    if (reviewsCarousel) reviewsCarousel.nextReview();
+}
+
+function prevReview() {
+    if (reviewsCarousel) reviewsCarousel.prevReview();
+}
+
+function goToReview(index) {
+    if (reviewsCarousel) reviewsCarousel.goToReview(index);
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', initReviewsCarousel);
+
+// Если используются стрелки в HTML с onclick
+window.nextReview = nextReview;
+window.prevReview = prevReview;
+window.goToReview = goToReview;
