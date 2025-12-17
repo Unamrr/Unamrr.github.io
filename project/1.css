@@ -867,7 +867,7 @@ ul.ul {
         height: 8px;
     }
 }  /*ОТЗЫВЫ*/
-/* body {
+/ body {
             background-color: #f8f9fa;
             padding: 40px 20px;
             color: #333;
@@ -875,7 +875,7 @@ ul.ul {
             display: flex;
             justify-content: center;
             align-items: center;
-        }*/
+}
         
         .reviews-container {
             max-width: 1200px;
