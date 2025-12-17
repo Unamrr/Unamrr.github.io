@@ -866,5 +866,342 @@ ul.ul {
         width: 8px;
         height: 8px;
     }
-}  
-
+}  /*ОТЗЫВЫ*/
+/* body {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }*/
+        
+        .reviews-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 60px;
+            color: #222;
+            letter-spacing: 1px;
+        }
+        
+        /* БЕЛЫЙ БЛОК С ОТЗЫВОМ */
+        .review-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            padding: 50px;
+            min-height: 550px;
+            display: none;
+            position: relative;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .review-card.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .review-logo {
+            margin-bottom: 15px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .review-logo img {
+            max-height: 60px;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        .review-company {
+            font-size: 28px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 5px;
+        }
+        
+        .review-site {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .review-content {
+            color: #000;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        
+        .review-author {
+            color: #666;
+            font-size: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .author-location, .author-position {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* СЕРЫЙ БЛОК С КОНТРОЛАМИ ПОД ЛИНИЕЙ */
+        .review-controls {
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* СТИЛИ ДЛЯ НОМЕРОВ СТРАНИЦ */
+        .page-numbers {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+            color: #777;
+        }
+        
+        .current-page {
+            font-weight: bold;
+            color: #222;
+            font-size: 20px;
+        }
+        
+        .total-pages {
+            color: #999;
+        }
+        
+        .page-separator {
+            margin: 0 5px;
+            color: #ccc;
+        }
+        
+        /* СТРЕЛОЧКИ */
+        .control-arrows {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .control-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            color: #555;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .control-arrow:hover {
+            background: #f5f5f5;
+            transform: scale(1.05);
+        }
+        
+        /* ДЕСКТОПНАЯ ВЕРСИЯ - БЛОК СПРАВА */
+        .desktop-side-controls {
+            display: none;
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: 80px;
+        }
+        
+        .desktop-side-controls .page-numbers {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 14px;
+            gap: 10px;
+        }
+        
+        .desktop-side-controls .current-page {
+            font-size: 24px;
+        }
+        
+        .desktop-side-controls .control-arrows {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .desktop-side-controls .control-arrow {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+        }
+        
+        /* Вертикальная линия для десктопной версии */
+        .desktop-side-controls::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #e0e0e0;
+        }
+        
+        /* Специальные стили для некоторых отзывов */
+        .company-ciel {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .stroymarkets-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d00;
+            margin-bottom: 10px;
+        }
+        
+        .stroymarkets-subtitle {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        /* АДАПТИВНОСТЬ */
+        @media (min-width: 992px) {
+            .review-card {
+                padding-right: 80px; /* Место для боковых контролов */
+            }
+            
+            .desktop-side-controls {
+                display: flex;
+            }
+            
+            /* В десктопной версии скрываем контролы под отзывом */
+            .review-controls {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .review-card {
+                padding: 40px;
+            }
+            
+            .desktop-side-controls {
+                right: -80px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .review-card {
+                padding: 30px;
+                min-height: 500px;
+            }
+            
+            .desktop-side-controls {
+                display: none;
+            }
+            
+            .review-controls {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+            
+            .review-card {
+                padding: 25px;
+            }
+            
+            .review-company {
+                font-size: 24px;
+            }
+            
+            .review-content {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+            
+            .review-controls {
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+            
+            .control-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .review-card {
+                padding: 20px;
+                min-height: 450px;
+            }
+            
+            .review-company {
+                font-size: 22px;
+            }
+            
+            .review-content {
+                font-size: 15px;
+            }
+            
+            .control-arrows {
+                gap: 10px;
+            }
+            
+            .control-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .page-numbers {
+                font-size: 14px;
+            }
+            
+            .current-page {
+                font-size: 18px;
+            }
+		}
