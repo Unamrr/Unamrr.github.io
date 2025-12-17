@@ -1097,10 +1097,7 @@ ul.ul {
         display: flex;
     }
     
-    /* В десктопной версии скрываем контролы под отзывом */
-    .review-controls {
-        display: none;
-    }
+    
 }
 
 @media (max-width: 1200px) {
