@@ -282,115 +282,7 @@
         </div>
     </div>
 </section>
-<!-- Секция с отзывами -->
-<section id="reviews-section" class="py-5">
-    <div class="container">
-        <!-- Заголовок -->
-        <h2 class="text-center mb-5 section-title">Отзывы</h2>
-        
-        <!-- Контейнер карусели -->
-        <div class="reviews-container">
-            <!-- Карусель отзывов -->
-            <div class="reviews-carousel-wrapper">
-                <div class="reviews-carousel" id="reviewsCarousel">
-                    <!-- Отзыв 1 -->
-                    <div class="review-item active">
-                        <div class="review-card">
-                            <!-- Логотип и название компании -->
-                            <div class="review-header">
-                                <div class="company-logo">
-                                    <img src="ciel-logo.png" alt="CIEL parfum" class="logo-img">
-                                </div>
-                                <h3 class="company-name">CIEL parfum</h3>
-                            </div>
-                            
-                            <!-- Текст отзыва -->
-                            <div class="review-content">
-                                <div class="review-text">
-                                    <p>Долгие поиски единственного и неповторимого мастера на многострадальный сайт&nbsp;www.cielparfum.com, который был собран крайне некомпетентным программистом и раз в месяц стабильно грозил погибнуть, привели меня на сайт и, в итоге, к ребятам из Drupal-coder. И вот уже практически полгода как не проходит и дня, чтобы я не поудивлялась и не порадовалась своему везению! Починили все, что не работало - от поиска до отображения меню. Провели редизайн - не отходя от желаемого, но со своими существенными и качественными дополнениями. Осуществили ряд проектов - конкурсы, тесты и тд. А уж мелких починок и доработок - не счесть! И главное - все качественно и быстро (не взирая на не самый "быстрый" тариф). Есть вопросы - замечательный Алексей всегда подскажет, поддержит, отремонтирует и/или просто сделает с нуля. Есть задумка для реализации - замечательный Сергей обсудит и предложит идеальный вариант. Есть проблема - замечательные Надежда и Роман починят, поправят, сделают! Ребята доказали, что эта CMS - мощная и грамотная система управления. Надеюсь, что наше сотрудничество затянется надолго! Спасибо!!!</p>
-                                </div>
-                                
-                                <!-- Автор отзыва -->
-                                <div class="review-author">
-                                    
-                                    <p class="author-position">С уважением, Наталья Сушкова руководитель Отдела веб-проектов Группы компаний «Си Эль парфюм»&nbsp;</p>
-                                    <a href="http://www.cielparfum.com/" class="company-link" target="_blank">http://www.cielparfum.com/</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Отзыв 2 -->
-                    <div class="review-item">
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="company-logo">
-                                    <img src="personal-writer-logo.png" alt="Personal Writer" class="logo-img">
-                                </div>
-                                <h3 class="company-name">Personal Writer</h3>
-                            </div>
-                            
-                            <div class="review-content">
-                                <div class="review-text">
-                                    <p>Сергей — профессиональный, высококвалифицированный программист с огромным опытом в ИТ. Я долгое время общаюсь с топ-фрилансерами (все первая двадцатка) на веблансере и могу сказать, что с СЕРГЕЕМ ОНИ И РЯДОМ НЕ ВАЛЯЛИСЬ.</p>
-                                    <p>Работаем с Сергеем до сих пор. С ним приятно работать, я доволен.</p>
-                                </div>
-                                
-                                <div class="review-author">
-                                    <p class="author-name"><strong>Сергей Чепурко</strong></p>
-                                    <p class="author-position">руководитель проекта www.personal-writer.com / www.writers-united.org</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Отзыв 3 (можно добавить больше) -->
-                    <div class="review-item">
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="company-logo">
-                                    <img src="company3-logo.png" alt="Компания 3" class="logo-img">
-                                </div>
-                                <h3 class="company-name">Компания 3</h3>
-                            </div>
-                            
-                            <div class="review-content">
-                                <div class="review-text">
-                                    <p>Еще один отличный отзыв о работе нашей команды. Клиент был доволен качеством работы, сроками и профессионализмом наших специалистов.</p>
-                                    <p>Мы всегда стремимся к высочайшему качеству обслуживания и индивидуальному подходу к каждому проекту.</p>
-                                </div>
-                                
-                                <div class="review-author">
-                                    <p class="author-name"><strong>Иван Петров</strong></p>
-                                    <p class="author-position">Директор, Компания "ТехноЛидер"</p>
-                                    <a href="#" class="company-link">www.techcompany.ru</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Навигационные стрелки -->
-                <div class="carousel-nav">
-                    <button class="nav-btn prev-btn" onclick="prevReview()" aria-label="Предыдущий отзыв">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <!-- Индикаторы точек -->
-                    <div class="nav-dots">
-                        <span class="dot active" onclick="goToReview(0)" aria-label="Отзыв 1"></span>
-                        <span class="dot" onclick="goToReview(1)" aria-label="Отзыв 2"></span>
-                        <span class="dot" onclick="goToReview(2)" aria-label="Отзыв 3"></span>
-                    </div>
-                    
-                    <button class="nav-btn next-btn" onclick="nextReview()" aria-label="Следующий отзыв">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <!-- Отзывы -->
 <section class="reviews-container" aria-label="Отзывы клиентов">
         <h1 class="section-title">Отзывы</h1>
@@ -398,7 +290,7 @@
         <!-- Отзыв 1: Наша Газета -->
         <article class="review-card active" id="review1">
             <div class="review-logo">
-                <img src="logo_nashagazeta.png" alt="Логотип Наша Газета">
+                <img src="./nasagazeta_ch.png">
             </div>
             <h2 class="review-company">Наша Газета</h2>
             <p class="review-site">bashagazeta.ch</p>
@@ -452,7 +344,7 @@
         <!-- Отзыв 2: CIEL parfum -->
         <article class="review-card" id="review2">
             <div class="review-logo">
-                <img src="logo_ciel.png" alt="Логотип CIEL parfum">
+                <img src="./logo_0.png">
             </div>
             <h2 class="review-company company-ciel">CIEL parfum</h2>
             <p class="review-site">cielparfum.com</p>
@@ -505,7 +397,7 @@
         <!-- Отзыв 3: Section 16 -->
         <article class="review-card" id="review3">
             <div class="review-logo">
-                <img src="logo_section16.png" alt="Логотип Section 16">
+                <img src="./logo_2.png" alt="Логотип Section 16">
             </div>
             <h2 class="review-company">Section 16</h2>
             <p class="review-site">Serebro.Go</p>
@@ -557,7 +449,7 @@
         <!-- Отзыв 4: Строймаркеты -->
         <article class="review-card" id="review4">
             <div class="review-logo">
-                <img src="logo_stroymarkets.png" alt="Логотип Строймаркеты">
+                <img src="./farbors_ru.png" >
             </div>
             <div class="stroymarkets-title">СТРОЙМАРКЕТЫ</div>
             <div class="stroymarkets-subtitle">ТО, ЧТО НАДО!</div>
@@ -608,7 +500,7 @@
         <!-- Отзыв 5: PCRNA -->
         <article class="review-card" id="review5">
             <div class="review-logo">
-                <img src="logo_pcrna.png" alt="Логотип PCRNA">
+                <img src="./lcpma_rus_v4.png" >
             </div>
             <h2 class="review-company">PCRNA.TSU.RU</h2>
             <p class="review-site">pcrna.tsu.ru</p>
@@ -660,7 +552,7 @@
         <!-- Отзыв 6: Estee Design -->
         <article class="review-card" id="review6">
             <div class="review-logo">
-                <img src="logo_estee.png" alt="Логотип Estee Design">
+                <img src="./logo_estee.png" >
             </div>
             <h2 class="review-company">Estee Design</h2>
             <p class="review-site">estee-design.ru</p>
@@ -713,7 +605,7 @@
         <!-- Отзыв 7: Кабельщик -->
         <article class="review-card" id="review7">
             <div class="review-logo">
-                <img src="logo_cableman.png" alt="Логотип Кабельщик">
+                <img src="./cableman_ru.png" >
             </div>
             <h2 class="review-company">Кабельщик</h2>
             <p class="review-site">Кабельщик.ру</p>
@@ -765,7 +657,7 @@
         <!-- Отзыв 8: Personal Writer -->
         <article class="review-card" id="review8">
             <div class="review-logo">
-                <img src="logo_writer.png" alt="Логотип Personal Writer">
+                <img src="./logo.png" >
             </div>
             <h2 class="review-company">Personal Writer</h2>
             <p class="review-site">personal-writer.com</p>
