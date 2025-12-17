@@ -1013,96 +1013,64 @@ form.addEventListener('submit', async (e) => {
     }
 });</script>
 <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.review-card');
-            const prevButtons = document.querySelectorAll('.prev-btn');
-            const nextButtons = document.querySelectorAll('.next-btn');
-            const currentPageElements = document.querySelectorAll('.current-page');
-            const totalPagesElements = document.querySelectorAll('.total-pages');
-            let currentCard = 0;
-            const totalCards = cards.length;
-            
-            // Установка общего количества страниц
-            totalPagesElements.forEach(el => {
-                el.textContent = formatPageNumber(totalCards);
-            });
-            
-            // Функция форматирования номера (01, 02, ...)
-            function formatPageNumber(num) {
-                return num.toString().padStart(2, '0');
-            }
-            
-            // Функция показа карточки
-            function showCard(index) {
-                // Скрываем все карточки
-                cards.forEach(card => {
-                    card.classList.remove('active');
-                });
-                
-                // Показываем нужную карточку
-                cards[index].classList.add('active');
-                
-                // Обновляем номер страницы во всех блоках
-                currentPageElements.forEach(el => {
-                    el.textContent = formatPageNumber(index + 1);
-                });
-                
-                currentCard = index;
-            }
-            
-            // Следующая карточка
-            function nextCard() {
-                let nextIndex = currentCard + 1;
-                if (nextIndex >= totalCards) {
-                    nextIndex = 0;
-                }
-                showCard(nextIndex);
-            }
-            
-            // Предыдущая карточка
-            function prevCard() {
-                let prevIndex = currentCard - 1;
-                if (prevIndex < 0) {
-                    prevIndex = totalCards - 1;
-                }
-                showCard(prevIndex);
-            }
-            
-            // Обработчики для кнопок
-            prevButtons.forEach(button => {
-                button.addEventListener('click', prevCard);
-            });
-            
-            nextButtons.forEach(button => {
-                button.addEventListener('click', nextCard);
-            });
-            
-            // Управление с клавиатуры
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    prevCard();
-                } else if (e.key === 'ArrowRight') {
-                    nextCard();
-                }
-            });
-            
-            // Автоматическая прокрутка (опционально)
-            // let autoSlide = setInterval(nextCard, 8000);
-            
-            // Остановка авто-прокрутки при наведении
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    // clearInterval(autoSlide);
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    // autoSlide = setInterval(nextCard, 8000);
-                });
-            });
-            
-            // Инициализация
-            showCard(0);
+<script>
+// Упрощенный слайдер отзывов
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Слайдер инициализирован...');
+    
+    const cards = document.querySelectorAll('.review-card');
+    const prevBtns = document.querySelectorAll('.prev-btn');
+    const nextBtns = document.querySelectorAll('.next-btn');
+    const pageNumbers = document.querySelectorAll('.current-page');
+    
+    let currentIndex = 0;
+    const total = cards.length;
+    
+    // Функция обновления слайдера
+    function updateSlider() {
+        console.log('Переключение на карточку:', currentIndex);
+        
+        // Скрыть все карточки
+        cards.forEach(card => {
+            card.classList.remove('active');
         });
+        
+        // Показать текущую
+        if (cards[currentIndex]) {
+            cards[currentIndex].classList.add('active');
+        }
+        
+        // Обновить номер страницы
+        const pageNum = (currentIndex + 1).toString().padStart(2, '0');
+        pageNumbers.forEach(el => {
+            el.textContent = pageNum;
+        });
+    }
+    
+    // Обработчики для кнопок "назад"
+    prevBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Нажата кнопка назад');
+            currentIndex = (currentIndex - 1 + total) % total;
+            updateSlider();
+        });
+    });
+    
+    // Обработчики для кнопок "вперед"
+    nextBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Нажата кнопка вперед');
+            currentIndex = (currentIndex + 1) % total;
+            updateSlider();
+        });
+    });
+    
+    // Инициализация
+    updateSlider();
+    console.log('Слайдер готов! Всего карточек:', total);
+});
 </script>
 
 </body>
