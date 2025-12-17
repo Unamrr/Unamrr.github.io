@@ -1193,67 +1193,82 @@ ul.ul {
 }
 
 
-/* SECTION */
+/* ===== SECTION FORME ===== */
 #forme-section {
-    background: radial-gradient(circle at right, #1c2230 0%, #0b0f1a 60%);
-    padding: 100px 0;
-    color: #ffffff;
+    position: relative;
+    background: radial-gradient(
+        circle at top right,
+        #242a3a 0%,
+        #121622 55%,
+        #0b0f1a 100%
+    );
     overflow: hidden;
+}
+
+/* COLONNE IMAGE */
+#forme-section .image-col {
+    position: relative;
+    padding: 90px 40px;
+    z-index: 2;
+}
+
+/* CACHE CLAIR SOUS L’IMAGE */
+#forme-section .image-col::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff; /* adapte si ton fond de page n'est pas blanc */
+    z-index: 1;
 }
 
 /* IMAGE */
 #forme-section .laptop {
+    position: relative;
+    z-index: 2;
     max-width: 100%;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.35));
+}
+
+/* COLONNE TEXTE */
+#forme-section .content-col {
+    padding: 100px 80px;
+    color: #ffffff;
 }
 
 /* TITRE */
 #forme-section .titre2 {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 700;
-    margin-bottom: 40px;
-    line-height: 1.2;
+    margin-bottom: 48px;
 }
 
-/* CONTAINER DES TEXTES */
+/* FEATURES */
+#forme-section .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+}
+
+/* ITEM */
 #forme-section .test-container {
     position: relative;
-    padding-left: 24px;
-    margin-bottom: 20px;
+    padding-left: 18px;
 }
 
-/* BARRE ROUGE VERTICALE */
+/* BARRE ROUGE */
 #forme-section .test-container::before {
     content: "";
     position: absolute;
     left: 0;
     top: 4px;
     width: 3px;
-    height: 100%;
-    background-color: #ff3b3b;
-    border-radius: 2px;
+    height: calc(100% - 4px);
+    background: #ff3b3b;
 }
 
 /* TEXTE */
 #forme-section .mots {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
-    color: #e5e7eb;
-    margin: 0;
-    max-width: 480px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    #forme-section {
-        padding: 60px 0;
-    }
-
-    #forme-section .titre2 {
-        font-size: 28px;
-    }
-
-    #forme-section .mots {
-        font-size: 15px;
-    }
+    color: #d1d5db;
 }
