@@ -945,7 +945,7 @@ ul.ul {
 .review-author {
     color: #666;
     font-size: 15px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #ffffff;
     padding-top: 20px;
     margin-top: 30px;
 	margin-left:40px;
@@ -1127,7 +1127,7 @@ ul.ul {
     }
     
     .desktop-side-controls {
-        display: none;
+        display: flex;
     }
     
     .review-controls {
