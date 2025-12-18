@@ -869,10 +869,16 @@ ul.ul {
 }  /*ОТЗЫВЫ*/
 /* Стили для секции отзывов */
 .reviews-container {
-    max-width: 1200px;
-    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 60px 20px;
+    position: relative;
+    padding-top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    background: url(./right-quote-sign.svg) no-repeat left top;
+    background-size: 250px;
+    width: auto;
 }
 
 .section-title {
@@ -1165,11 +1171,7 @@ ul.ul {
         font-size: 16px;
     }
 }
-#reviews{
-	background-size: 26%;
-    padding-top: 90px;
-	background-image: url(./right-quote-sign.svg)no-repeat left top;
-}
+
 
 @media (max-width: 480px) {
     .section-title {
@@ -1207,10 +1209,10 @@ ul.ul {
     }
 }
 i.fas.fa-chevron-right:before {
-    content: "→";
+    content: url(./arrow-right.svg);
 }
 i.fas.fa-chevron-left:before {
-    content: "← ";
+    content: url(./arrow-left.svg);
 }
 
 
