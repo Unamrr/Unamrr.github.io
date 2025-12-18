@@ -725,7 +725,7 @@
         </div>
         
         <!-- Первая карусель -->
-        <div class="clients-carousel carousel-1">
+        <div class="clients-carousel" id="carousel1">
             <div class="client-logo">
                 <img src="./kubs.jpg" alt="Кубанский университет">
             </div>
@@ -743,8 +743,8 @@
             </div>
         </div>
         
-        <!-- Вторая карусель (движется в обратную сторону) -->
-        <div class="clients-carousel carousel-2">
+        <!-- Вторая карусель -->
+        <div class="clients-carousel" id="carousel2">
             <div class="client-logo">
                 <img src="./kubs.jpg" alt="Кубанский университет">
             </div>
@@ -1022,70 +1022,95 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
 $(document).ready(function(){
-    // Функция для инициализации карусели
-    function initCarousel(selector, reverse) {
-        var $carousel = $(selector);
+    // Функция для создания дубликатов логотипов
+    function prepareCarousel($carousel) {
         var $slides = $carousel.find('.client-logo');
+        var originalCount = $slides.length;
         
-        // Добавляем копии для бесконечной прокрутки
-        $slides.clone().appendTo($carousel);
-        $slides.clone().appendTo($carousel);
-        
-        var slickOptions = {
-            autoplay: true,
-            autoplaySpeed: reverse ? 2200 : 2000, // Разная скорость для разнообразия
-            pauseOnHover: false,
-            arrows: false,
-            centerMode: true,
-            centerPadding: '15%',
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            infinite: true,
-            speed: 600,
-            cssEase: 'linear',
-            rtl: reverse, // Вторая карусель в обратную сторону
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 4,
-                        centerPadding: '12%'
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        centerPadding: '10%'
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        centerPadding: '15%'
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        centerPadding: '25%'
-                    }
+        // Добавляем дубликаты для плавной прокрутки
+        if (originalCount < 8) {
+            // Копируем все существующие слайды
+            var clones = $slides.clone();
+            $carousel.append(clones);
+            
+            // Добавляем ещё одну копию, если нужно
+            if (originalCount < 4) {
+                $carousel.append($slides.clone());
+            }
+        }
+    }
+    
+    // Настройки для каруселей
+    var slickOptions = {
+        autoplay: true,
+        autoplaySpeed: 2500,
+        pauseOnHover: false,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '10%',
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        infinite: true,
+        speed: 600,
+        cssEase: 'linear',
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                    centerPadding: '8%'
                 }
-            ]
-        };
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    centerPadding: '6%'
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    centerPadding: '10%'
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    centerPadding: '20%'
+                }
+            }
+        ]
+    };
+    
+    // Инициализируем первую карусель
+    if ($('#carousel1').length) {
+        var $carousel1 = $('#carousel1');
+        prepareCarousel($carousel1);
         
-        $carousel.slick(slickOptions);
+        // Клонируем настройки для первой карусели
+        var options1 = $.extend({}, slickOptions);
+        options1.autoplaySpeed = 2000; // Быстрее
+        $carousel1.slick(options1);
     }
     
-    // Инициализируем обе карусели
-    if ($('.carousel-1').length) {
-        initCarousel('.carousel-1', false); // Первая - обычное направление
-    }
-    
-    if ($('.carousel-2').length) {
-        initCarousel('.carousel-2', true); // Вторая - обратное направление
+    // Инициализируем вторую карусель
+    if ($('#carousel2').length) {
+        var $carousel2 = $('#carousel2');
+        prepareCarousel($carousel2);
+        
+        // Клонируем настройки для второй карусели
+        var options2 = $.extend({}, slickOptions);
+        options2.autoplaySpeed = 2200; // Чуть медленнее
+        options2.rtl = false; // ОБЯЗАТЕЛЬНО false!
+        $carousel2.slick(options2);
+        
+        // Запускаем в обратном направлении через небольшой setTimeout
+        setTimeout(function() {
+            $carousel2.slick('slickNext'); // Сразу прокручиваем
+        }, 100);
     }
 });
 </script>
