@@ -1168,7 +1168,7 @@ ul.ul {
 #reviews{
 	background-size: 26%;
     padding-top: 90px;
-	background-image: url(./);
+	background-image: url(./right-quote-sign.svg)no-repeat left top;
 }
 
 @media (max-width: 480px) {
