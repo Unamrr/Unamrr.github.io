@@ -1280,4 +1280,139 @@ i.fas.fa-chevron-left:before {
         font-size: 15px;
     }
 }
+/* === СЕКЦИЯ "С НАМИ РАБОТАЮТ" === */
+
+.clients-section {
+    background-color: #fff;
+    padding: 80px 0;
+    margin: 60px 0;
+    position: relative;
+}
+
+.clients-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.clients-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.clients-description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+/* Стили для карусели */
+.clients-carousel {
+    margin: 0 auto 30px auto;
+    position: relative;
+}
+
+.clients-carousel .slick-slide {
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.client-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.client-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: #e0e0e0;
+}
+
+.client-logo img {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Стили для стрелок (скрыты как в примере) */
+.slick-arrow {
+    display: none !important;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .clients-section {
+        padding: 60px 0;
+    }
+    
+    .client-logo {
+        height: 120px;
+        padding: 15px;
+    }
+    
+    .client-logo img {
+        max-height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .clients-section {
+        padding: 40px 0;
+        margin: 40px 0;
+    }
+    
+    .clients-title {
+        font-size: 28px;
+    }
+    
+    .clients-description {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    
+    .client-logo {
+        height: 100px;
+        padding: 10px;
+    }
+    
+    .client-logo img {
+        max-height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clients-title {
+        font-size: 24px;
+    }
+    
+    .clients-description {
+        font-size: 15px;
+    }
+    
+    .client-logo {
+        height: 90px;
+    }
+}
 
