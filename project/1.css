@@ -1313,18 +1313,19 @@ i.fas.fa-chevron-left:before {
 
 /* Общие стили для каруселей */
 .clients-carousel {
-    margin: 0 auto 30px auto; /* Отступ между каруселями */
+    margin: 0 auto 30px auto;
     position: relative;
+    overflow: hidden; /* Важно! */
 }
 
-/* Отступ между каруселями */
-.carousel-2 {
-    margin-top: 20px;
+/* Вторая карусель */
+#carousel2 {
+    margin-top: 10px;
 }
 
 /* ПРОСТРАНСТВО МЕЖДУ ЛОГОТИПАМИ */
 .clients-carousel .slick-slide {
-    padding: 0 5px;
+    padding: 0 8px; /* Увеличил до 8px */
     box-sizing: border-box;
 }
 
@@ -1332,58 +1333,61 @@ i.fas.fa-chevron-left:before {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    height: 150px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 25px;
+    height: 140px; /* Немного меньше */
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #eee;
-    margin: 0 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    margin: 0 2px; /* Меньше внешнего отступа */
 }
 
 .client-logo:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    border-color: #ddd;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #dee2e6;
 }
 
 /* ЛОГОТИПЫ В ЦВЕТЕ */
 .client-logo img {
     max-width: 100%;
-    max-height: 100px;
+    max-height: 80px; /* Меньше */
     width: auto;
     height: auto;
     object-fit: contain;
-    opacity: 0.9;
-    transition: all 0.4s ease;
+    opacity: 1; /* Полная непрозрачность */
+    transition: all 0.3s ease;
 }
 
 .client-logo:hover img {
-    opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
-/* Разные эффекты для каруселей */
-.carousel-1 .client-logo {
-    background-color: #f9f9f9;
+/* Разный фон для каруселей для визуального разделения */
+#carousel1 .client-logo {
+    background-color: #f8f9fa;
 }
 
-.carousel-2 .client-logo {
-    background-color: #f5f5f5;
-}
-
-.carousel-1 .client-logo:hover {
-    background-color: #fff;
-}
-
-.carousel-2 .client-logo:hover {
-    background-color: #fff;
+#carousel2 .client-logo {
+    background-color: #f1f3f5;
 }
 
 /* Убираем стандартные стрелки */
 .slick-arrow {
     display: none !important;
+}
+
+/* Исправляем для slick slider */
+.slick-list {
+    padding: 10px 0 !important;
+    margin: 0 -8px; /* Компенсируем padding слайдов */
+}
+
+.slick-track {
+    display: flex;
+    align-items: center;
+    min-width: 100%;
 }
 
 /* Адаптивность */
@@ -1393,16 +1397,16 @@ i.fas.fa-chevron-left:before {
     }
     
     .client-logo {
-        height: 140px;
-        padding: 20px;
+        height: 130px;
+        padding: 12px;
     }
     
     .client-logo img {
-        max-height: 90px;
+        max-height: 75px;
     }
     
     .clients-carousel .slick-slide {
-        padding: 0 4px;
+        padding: 0 6px;
     }
 }
 
@@ -1417,16 +1421,11 @@ i.fas.fa-chevron-left:before {
     }
     
     .client-logo {
-        height: 130px;
-        padding: 18px;
+        height: 120px;
     }
     
     .client-logo img {
-        max-height: 85px;
-    }
-    
-    .clients-carousel {
-        margin-bottom: 20px;
+        max-height: 70px;
     }
 }
 
@@ -1443,19 +1442,24 @@ i.fas.fa-chevron-left:before {
     .view-header {
         font-size: 16px;
         margin-bottom: 35px;
+        padding: 0 15px;
     }
     
     .client-logo {
-        height: 120px;
-        padding: 15px;
+        height: 110px;
+        padding: 10px;
     }
     
     .client-logo img {
-        max-height: 75px;
+        max-height: 65px;
     }
     
     .clients-carousel .slick-slide {
-        padding: 0 3px;
+        padding: 0 4px;
+    }
+    
+    .slick-list {
+        margin: 0 -4px;
     }
 }
 
@@ -1470,30 +1474,18 @@ i.fas.fa-chevron-left:before {
     
     .view-header {
         font-size: 15px;
-        padding: 0 15px;
     }
     
     .client-logo {
-        height: 110px;
-        padding: 12px;
-        margin: 0 3px;
+        height: 100px;
+        padding: 8px;
     }
     
     .client-logo img {
-        max-height: 65px;
+        max-height: 55px;
     }
     
     .clients-carousel {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
-}
-
-/* Дополнительные стили для плавности */
-.slick-list {
-    padding: 10px 0 !important;
-}
-
-.slick-track {
-    display: flex;
-    align-items: center;
 }
