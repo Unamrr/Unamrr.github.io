@@ -724,9 +724,27 @@
             Десятки компаний доверяют нам самое ценное, что у них есть в интернете – свои сайты. Мы делаем всё, чтобы наше сотрудничество было долгим.
         </div>
         
-        <!-- ОДНА карусель с 4 логотипами -->
-        <div class="clients-carousel" id="clients-carousel">
-            <!-- Только 4 уникальных логотипа -->
+        <!-- Первая карусель -->
+        <div class="clients-carousel carousel-1">
+            <div class="client-logo">
+                <img src="./kubs.jpg" alt="Кубанский университет">
+            </div>
+            
+            <div class="client-logo">
+                <img src="./gaz.jpg" alt="Газпром">
+            </div>
+            
+            <div class="client-logo">
+                <img src="./atom.jpg" alt="Росатом">
+            </div>
+            
+            <div class="client-logo">
+                <img src="./vtb.jpg" alt="ВТБ">
+            </div>
+        </div>
+        
+        <!-- Вторая карусель (движется в обратную сторону) -->
+        <div class="clients-carousel carousel-2">
             <div class="client-logo">
                 <img src="./kubs.jpg" alt="Кубанский университет">
             </div>
@@ -745,7 +763,6 @@
         </div>
     </div>
 </section>
-
     <!-- FAQ Section -->
 <section class="py-5">
     <div class="container">
@@ -1000,14 +1017,14 @@
     <!-- Bootstrap 5 JS -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    <script src="script.js"></script>
-	<!-- jQuery -->
+	<!-- Скрипты -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
 $(document).ready(function(){
-    if ($('#clients-carousel').length) {
-        // Автоматически дублируем 4 логотипа для плавной карусели
-        var $carousel = $('#clients-carousel');
+    // Функция для инициализации карусели
+    function initCarousel(selector, reverse) {
+        var $carousel = $(selector);
         var $slides = $carousel.find('.client-logo');
         
         // Добавляем копии для бесконечной прокрутки
@@ -1016,16 +1033,17 @@ $(document).ready(function(){
         
         var slickOptions = {
             autoplay: true,
-            autoplaySpeed: 2000, // Быстрее для малого кол-ва
+            autoplaySpeed: reverse ? 2200 : 2000, // Разная скорость для разнообразия
             pauseOnHover: false,
             arrows: false,
             centerMode: true,
-            centerPadding: '15%', // Больше отступов по краям
+            centerPadding: '15%',
             slidesToShow: 5,
             slidesToScroll: 1,
             infinite: true,
             speed: 600,
-            cssEase: 'linear', // Плавнее
+            cssEase: 'linear',
+            rtl: reverse, // Вторая карусель в обратную сторону
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1059,6 +1077,15 @@ $(document).ready(function(){
         };
         
         $carousel.slick(slickOptions);
+    }
+    
+    // Инициализируем обе карусели
+    if ($('.carousel-1').length) {
+        initCarousel('.carousel-1', false); // Первая - обычное направление
+    }
+    
+    if ($('.carousel-2').length) {
+        initCarousel('.carousel-2', true); // Вторая - обратное направление
     }
 });
 </script>
