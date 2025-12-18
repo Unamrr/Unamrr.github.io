@@ -716,129 +716,35 @@
        
     </section>
 
- <section class="clients-section">
+<section class="clients-section">
+    <div class="container">
         <h3 class="block-title">С нами работают</h3>
         
         <div class="view-header">
             Десятки компаний доверяют нам самое ценное, что у них есть в интернете – свои сайты. Мы делаем всё, чтобы наше сотрудничество было долгим.
         </div>
         
-        <!-- Первая карусель с логотипами -->
-        <div class="clients-carousel" id="carousel1">
-            <!-- Логотип 1 -->
+        <!-- ОДНА карусель с 4 логотипами -->
+        <div class="clients-carousel" id="clients-carousel">
+            <!-- Только 4 уникальных логотипа -->
             <div class="client-logo">
-              <img src = "./kubs.jpg">
+                <img src="./kubs.jpg" alt="Кубанский университет">
             </div>
             
-            <!-- Логотип 2 -->
             <div class="client-logo">
- 				<img src = "./gaz.jpg">
-			</div>
-            
-            <!-- Логотип 3 -->
-            <div class="client-logo">
-				 <img src = "./atom.jpg">
+                <img src="./gaz.jpg" alt="Газпром">
             </div>
             
-            <!-- Логотип 4 -->
             <div class="client-logo">
-                <img src = "./vtb.jpg">
+                <img src="./atom.jpg" alt="Росатом">
             </div>
             
-            <!-- Логотип 5 -->
             <div class="client-logo">
-                 <img src = "./kubs.jpg">
-            </div>
-            
-            <!-- Логотип 6 -->
-            <div class="client-logo">
-                 <img src = "./gaz.jpg">
-            </div>
-            
-            <!-- Логотип 7 -->
-            <div class="client-logo">
-				<img src = "./vtb.jpg"> 
-            </div>
-            
-            <!-- Логотип 8 -->
-            <div class="client-logo">
-               <img src = "./atom.jpg">
-            </div>
-            
-            <!-- Логотип 9 -->
-            <div class="client-logo">
-                 <img src = "./kubs.jpg">
-            </div>
-            
-            <!-- Логотип 10 -->
-            <div class="client-logo">
-                 <img src = "./atom.jpg">
-            </div>
-            
-            <!-- Логотип 11 -->
-            <div class="client-logo">
-              <img src = "./gaz.jpg">
-            </div>
-            
-            <!-- Логотип 12 -->
-            <div class="client-logo">
-                 <img src = "./vtb.jpg">
+                <img src="./vtb.jpg" alt="ВТБ">
             </div>
         </div>
-        
-        <!-- Вторая карусель (дополнительная, как в примере) -->
-        <div class="clients-carousel second-carousel" id="carousel2">
-            <!-- Логотипы для второй карусели -->
-            <div class="client-logo">
-                 <img src = "./vtb.jpg">
-            </div>
-            
-            <div class="client-logo">
-                <img src = "./gaz.jpg">
-            </div>
-            
-            <div class="client-logo">
-                <img src = "./kubs.jpg">
-            </div>
-            
-            <div class="client-logo">
-               <img src = "./atom.jpg">
-            </div>
-            
-            <div class="client-logo">
-                <img src = "./vtb.jpg">
-            </div>
-            
-            <div class="client-logo">
-                 <img src = "./gaz.jpg">
-            </div>
-            
-            <div class="client-logo">
-                <img src = "./kubs.jpg">
-            </div>
-            
-            <div class="client-logo">
-               <img src = "./atom.jpg">
-            </div>
-            
-            <div class="client-logo">
-                 <img src = "./vtb.jpg">
-            </div>
-            
-            <div class="client-logo">
-                 <img src = "./gaz.jpg">
-            </div>
-            
-            <div class="client-logo">
-                 <img src = "./kubs.jpg">
-            </div>
-            
-            <div class="client-logo">
-                <img src = "./atom.jpg">
-            </div>
-        </div>
-    </section>
-
+    </div>
+</section>
 
     <!-- FAQ Section -->
 <section class="py-5">
@@ -1096,44 +1002,63 @@
    <script src="script.js"></script>
 	<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Slick Slider JS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-<!-- Ваш скрипт для карусели -->
 <script>
 $(document).ready(function(){
-    if ($('.clients-carousel').length) {
+    if ($('#clients-carousel').length) {
+        // Автоматически дублируем 4 логотипа для плавной карусели
+        var $carousel = $('#clients-carousel');
+        var $slides = $carousel.find('.client-logo');
+        
+        // Добавляем копии для бесконечной прокрутки
+        $slides.clone().appendTo($carousel);
+        $slides.clone().appendTo($carousel);
+        
         var slickOptions = {
             autoplay: true,
-            autoplaySpeed: 3000,
+            autoplaySpeed: 2000, // Быстрее для малого кол-ва
             pauseOnHover: false,
             arrows: false,
             centerMode: true,
-            centerPadding: '10%',
+            centerPadding: '15%', // Больше отступов по краям
             slidesToShow: 5,
             slidesToScroll: 1,
             infinite: true,
-            speed: 500,
+            speed: 600,
+            cssEase: 'linear', // Плавнее
             responsive: [
                 {
-                    breakpoint: 1024,
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 4,
+                        centerPadding: '12%'
+                    }
+                },
+                {
+                    breakpoint: 992,
                     settings: {
                         slidesToShow: 3,
                         centerPadding: '10%'
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 768,
                     settings: {
                         slidesToShow: 2,
-                        centerPadding: '10%'
+                        centerPadding: '15%'
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        centerPadding: '25%'
                     }
                 }
             ]
         };
         
-        $('.clients-carousel').slick(slickOptions);
+        $carousel.slick(slickOptions);
     }
 });
 </script>
