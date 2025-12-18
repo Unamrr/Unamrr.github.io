@@ -1311,15 +1311,20 @@ i.fas.fa-chevron-left:before {
     margin: 0 auto 50px;
 }
 
-/* Стили для карусели */
+/* Общие стили для каруселей */
 .clients-carousel {
-    margin: 0 auto;
+    margin: 0 auto 30px auto; /* Отступ между каруселями */
     position: relative;
 }
 
-/* ПРОСТРАНСТВО МЕЖДУ ЛОГОТИПАМИ 5-10px */
+/* Отступ между каруселями */
+.carousel-2 {
+    margin-top: 20px;
+}
+
+/* ПРОСТРАНСТВО МЕЖДУ ЛОГОТИПАМИ */
 .clients-carousel .slick-slide {
-    padding: 0 5px; /* 5px с каждой стороны = 10px между */
+    padding: 0 5px;
     box-sizing: border-box;
 }
 
@@ -1343,20 +1348,37 @@ i.fas.fa-chevron-left:before {
     border-color: #ddd;
 }
 
-/* УБИРАЕМ СЕРЫЙ ФИЛЬТЕР - ЛОГОТИПЫ В ЦВЕТЕ */
+/* ЛОГОТИПЫ В ЦВЕТЕ */
 .client-logo img {
     max-width: 100%;
     max-height: 100px;
     width: auto;
     height: auto;
     object-fit: contain;
-    opacity: 0.9; /* Легкая прозрачность */
+    opacity: 0.9;
     transition: all 0.4s ease;
 }
 
 .client-logo:hover img {
-    opacity: 1; /* Полная непрозрачность при наведении */
+    opacity: 1;
     transform: scale(1.05);
+}
+
+/* Разные эффекты для каруселей */
+.carousel-1 .client-logo {
+    background-color: #f9f9f9;
+}
+
+.carousel-2 .client-logo {
+    background-color: #f5f5f5;
+}
+
+.carousel-1 .client-logo:hover {
+    background-color: #fff;
+}
+
+.carousel-2 .client-logo:hover {
+    background-color: #fff;
 }
 
 /* Убираем стандартные стрелки */
@@ -1364,7 +1386,7 @@ i.fas.fa-chevron-left:before {
     display: none !important;
 }
 
-/* Улучшаем адаптивность */
+/* Адаптивность */
 @media (max-width: 1200px) {
     .clients-section {
         padding: 60px 0;
@@ -1401,6 +1423,10 @@ i.fas.fa-chevron-left:before {
     
     .client-logo img {
         max-height: 85px;
+    }
+    
+    .clients-carousel {
+        margin-bottom: 20px;
     }
 }
 
@@ -1455,6 +1481,10 @@ i.fas.fa-chevron-left:before {
     
     .client-logo img {
         max-height: 65px;
+    }
+    
+    .clients-carousel {
+        margin-bottom: 15px;
     }
 }
 
