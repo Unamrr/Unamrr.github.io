@@ -1165,6 +1165,11 @@ ul.ul {
         font-size: 16px;
     }
 }
+#reviews{
+	background-size: 26%;
+    padding-top: 90px;
+	background-image: url(./);
+}
 
 @media (max-width: 480px) {
     .section-title {
