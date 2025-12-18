@@ -1086,7 +1086,12 @@ ul.ul {
     margin-bottom: 15px;
     font-style: italic;
 }
+@media (min-width: 992px) {
+    .review-controls {
+        display: flex;
 
+    }
+}
 /* АДАПТИВНОСТЬ */
 @media (min-width: 992px) {
     .review-card {
