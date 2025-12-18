@@ -907,6 +907,7 @@ ul.ul {
 
 .review-logo {
     margin-bottom: 15px;
+	margin-left: 40px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -1102,7 +1103,7 @@ ul.ul {
         display: flex;
     }
     
-        .review-controls {
+    .review-controls {
         display: flex;
     }
 }
