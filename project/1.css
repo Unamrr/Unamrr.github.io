@@ -1193,6 +1193,12 @@ ul.ul {
         font-size: 18px;
     }
 }
+i.fas.fa-chevron-right:before {
+    content: "→";
+}
+i.fas.fa-chevron-left:before {
+    content: "← ";
+}
 
 
 /* SECTION */
