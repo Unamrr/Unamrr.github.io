@@ -1632,257 +1632,109 @@ i.fas.fa-chevron-left:before {
         box-sizing: border-box;
         box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
     }
-}/* === ПРОСТЫЕ КЕЙСЫ === */
-
-.simple-cases {
-    padding: 60px 20px;
-    background: #fff;
-}
-
-.container {
+}.exact-cases {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 40px 20px;
 }
 
-.main-title {
+.exact-cases h1 {
     font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    color: #333;
+    margin-bottom: 30px;
 }
 
-/* Первый большой кейс */
-.case-first {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 40px;
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.case-image-large {
-    flex: 1;
-}
-
-.case-image-large img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.case-content-large {
-    flex: 1;
-    padding: 20px 0;
-}
-
-.case-content-large h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #2c3e50;
-}
-
-.case-date {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.case-text {
-    color: #555;
-    line-height: 1.5;
-}
-
-/* Второй ряд - 3 маленьких кейса */
-.cases-row {
-    display: flex;
+.cases-grid-exact {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, auto);
     gap: 20px;
-    margin-bottom: 40px;
 }
 
-.case-small {
-    flex: 1;
-    background: #f8f9fa;
-    padding: 20px;
+.case-exact {
     border-radius: 8px;
+    overflow: hidden;
 }
 
-.case-image-small {
-    height: 180px;
-    margin-bottom: 15px;
-}
-
-.case-image-small img {
+.case-exact img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 5px;
+    display: block;
 }
 
-.case-small h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #2c3e50;
-    min-height: 90px;
+/* Расположение как на скриншоте */
+.case-1 {
+    grid-column: 1 / 7;   /* Занимает 6 колонок */
+    grid-row: 1 / 3;      /* Занимает 2 строки */
+    height: 500px;        /* Высота 2 строк */
 }
 
-.percent {
-    font-size: 48px;
-    font-weight: bold;
-    color: #3498db;
-    text-align: right;
-    margin: 10px 0;
+.case-2 {
+    grid-column: 7 / 10;  /* 3 колонки */
+    grid-row: 1;          /* 1 строка */
+    height: 240px;        /* Половина от case-1 */
 }
 
-.date-small {
-    color: #666;
-    font-size: 14px;
-    margin: 10px 0;
+.case-3 {
+    grid-column: 10 / 13; /* 3 колонки */
+    grid-row: 1;          /* 1 строка */
+    height: 240px;
 }
 
-.divider {
-    height: 1px;
-    background: #ddd;
-    margin: 15px 0;
+.case-4 {
+    grid-column: 7 / 10;  /* 3 колонки */
+    grid-row: 2;          /* 2 строка */
+    height: 240px;
 }
 
-/* Третий ряд - 2 средних кейса */
-.case-medium {
-    flex: 2;
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    gap: 20px;
+.case-5 {
+    grid-column: 10 / 13; /* 3 колонки */
+    grid-row: 2;          /* 2 строка */
+    height: 240px;
 }
 
-.case-image-medium {
-    flex: 1;
-}
-
-.case-image-medium img {
-    width: 100%;
+.case-6 {
+    grid-column: 1 / 4;   /* 3 колонки */
+    grid-row: 3;          /* Новая строка */
     height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.case-content-medium {
-    flex: 2;
-}
-
-.case-content-medium h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #2c3e50;
-}
-
-.date-medium {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.text-small {
-    color: #777;
-    font-size: 14px;
-}
-
-/* Кейс HACK */
-.case-hack {
-    flex: 1;
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    gap: 15px;
-}
-
-.case-image-hack {
-    flex: 1;
-}
-
-.case-image-hack img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.case-content-hack {
-    flex: 1;
-}
-
-.case-content-hack h3 {
-    font-size: 22px;
-    font-weight: bold;
-    color: #e74c3c;
-    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 /* Адаптивность */
 @media (max-width: 992px) {
-    .case-first {
-        flex-direction: column;
+    .cases-grid-exact {
+        grid-template-columns: 1fr 1fr;
     }
     
-    .case-image-large img {
-        height: 250px;
+    .case-1 {
+        grid-column: 1 / 3;
+        grid-row: 1;
+        height: 300px;
     }
     
-    .cases-row {
-        flex-wrap: wrap;
-    }
-    
-    .case-small {
-        flex: calc(50% - 10px);
-        min-width: 300px;
-    }
-    
-    .case-medium,
-    .case-hack {
-        flex: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 28px;
-    }
-    
-    .case-content-large h2 {
-        font-size: 20px;
-    }
-    
-    .case-small h3 {
-        font-size: 16px;
-        min-height: auto;
-    }
-    
-    .percent {
-        font-size: 36px;
+    .case-2,
+    .case-3,
+    .case-4,
+    .case-5,
+    .case-6 {
+        grid-column: auto;
+        grid-row: auto;
+        height: 200px;
     }
 }
 
 @media (max-width: 576px) {
-    .simple-cases {
-        padding: 40px 15px;
+    .cases-grid-exact {
+        grid-template-columns: 1fr;
     }
     
-    .case-small {
-        flex: 100%;
-    }
-    
-    .case-medium {
-        flex-direction: column;
-    }
-    
-    .case-hack {
-        flex-direction: column;
+    .case-1,
+    .case-2,
+    .case-3,
+    .case-4,
+    .case-5,
+    .case-6 {
+        grid-column: 1;
+        height: 200px;
     }
 }
