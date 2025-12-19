@@ -1224,7 +1224,23 @@ i.fas.fa-chevron-left:before {
 
 
 /* =========================
-   SECTION FORME-SECTION
+   BASE
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+/* =========================
+   SECTION
 ========================= */
 #forme-section {
     position: relative;
@@ -1270,7 +1286,7 @@ i.fas.fa-chevron-left:before {
 #forme-section .content-col {
     padding: 110px 80px 110px 60px;
     color: #ffffff;
-    transform: translateY(-30px);
+    transform: translateY(-30px); /* texte légèrement plus haut que l'image */
 }
 
 /* TITRE */
@@ -1313,7 +1329,7 @@ i.fas.fa-chevron-left:before {
     border-radius: 2px;
 }
 
-/* TEXTE - DESKTOP */
+/* TEXTE */
 #forme-section .mots {
     margin: 0;
     font-size: 13px;
@@ -1322,7 +1338,7 @@ i.fas.fa-chevron-left:before {
     overflow: hidden;
 }
 
-/* Hauteur exacte des paragraphes sur desktop */
+/* Hauteur exacte des paragraphes */
 #forme-section .test-container:not(.last) .mots {
     max-height: 78px;  /* 4 lignes exactes */
 }
@@ -1357,14 +1373,13 @@ i.fas.fa-chevron-left:before {
     #forme-section .laptop {
         left: 0;
         bottom: 0;
-        max-width: 70%;
+        max-width: 70%; /* réduit l'image sur mobile */
     }
 
     /* Contenu au bord */
     #forme-section .content-col {
         padding: 0;
         order: 2;
-        transform: translateY(0);
     }
 
     #forme-section .titre2 {
@@ -1383,48 +1398,26 @@ i.fas.fa-chevron-left:before {
     }
 
     #forme-section .test-container {
-        padding-left: 22px;
-        position: relative;
+        padding-left: 0;
     }
 
-    /* Barre rouge sur mobile */
-    #forme-section .test-container::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 3px;
-        height: 100%;
-        background-color: #ff3b3b;
-        border-radius: 2px;
-    }
-
-    /* IMPORTANT: Style pour tous les paragraphes sur mobile */
-    #forme-section .features .test-container .mots {
-        margin: 0;
-        font-size: 13px;
-        line-height: 1.5 !important;
-        color: #d6dae3;
+    /* MODIFICATION PRINCIPALE ICI */
+    /* Tous les paragraphes à 4 lignes sur mobile */
+    #forme-section .test-container .mots {
+        max-height: 78px; /* 4 lignes exactes (13px × 1.5 × 4 = 78px) */
         overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
+    }
+    
+    /* Dernier paragraphe à 2 lignes sur mobile */
+    #forme-section .test-container:last-child .mots {
+        max-height: 39px; /* 2 lignes exactes (13px × 1.5 × 2 = 39px) */
     }
 
-    /* 4 lignes pour tous les paragraphes sauf le dernier */
-    #forme-section .features .test-container:not(.last) .mots {
-        max-height: 78px; /* 4 lignes (13px × 1.5 × 4) */
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
+    #forme-section .mots {
+        font-size: 13px;
+        line-height: 1.5;
     }
 
-    /* 2 lignes pour le dernier paragraphe seulement */
-    #forme-section .features .test-container.last .mots {
-        max-height: 39px; /* 2 lignes (13px × 1.5 × 2) */
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-    }
-
-    /* Texte orange sur mobile */
     #forme-section .test-container.special .orange-line {
         margin-top: 5px;
         display: block;
@@ -1439,7 +1432,6 @@ i.fas.fa-chevron-left:before {
 @media (max-width: 576px) {
     #forme-section {
         padding: 20px 0;
-        min-height: auto;
     }
     
     #forme-section .titre2 {
@@ -1451,32 +1443,33 @@ i.fas.fa-chevron-left:before {
         padding: 0;
     }
     
-    #forme-section .features .test-container .mots {
+    #forme-section .mots {
         font-size: 13px;
-        line-height: 1.5 !important;
+        line-height: 1.5;
     }
     
     #forme-section .features {
         row-gap: 32px;
     }
     
-    /* Répéter les mêmes règles pour les très petits écrans */
-    #forme-section .features .test-container:not(.last) .mots {
-        max-height: 78px;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
+    /* APPLIQUER LES MÊMES RÈGLES POUR TRÈS PETITS ÉCRANS */
+    /* Tous les paragraphes à 4 lignes */
+    #forme-section .test-container .mots {
+        max-height: 78px; /* 4 lignes exactes */
+        overflow: hidden;
     }
     
-    #forme-section .features .test-container.last .mots {
-        max-height: 39px;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
+    /* Dernier paragraphe à 2 lignes */
+    #forme-section .test-container:last-child .mots {
+        max-height: 39px; /* 2 lignes exactes */
     }
     
     #forme-section .laptop {
-        max-width: 90%;
+        max-width: 90%; /* image encore plus petite */
     }
 }
+
+
 
 /* === СЕКЦИЯ "С НАМИ РАБОТАЮТ" === */
 
