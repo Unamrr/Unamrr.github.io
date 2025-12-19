@@ -1491,8 +1491,8 @@ i.fas.fa-chevron-left:before {
 }
 
 /*TARIF SECTION */
-/* ===== BASE ===== */
 .tarif-section {
+    font-family: "Inter", sans-serif;
     color: #222;
     text-align: center;
     padding: 40px 0;
@@ -1623,5 +1623,3 @@ i.fas.fa-chevron-left:before {
         box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
     }
 }
-
-
