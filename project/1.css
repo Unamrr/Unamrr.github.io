@@ -1568,14 +1568,16 @@ i.fas.fa-chevron-left:before {
 
 /* Bouton */
 .tarif-card .tarif-btn {
-    background: #fff;
-    color: #ff0000;
-    border: 1px solid #ff0000;
-    padding: 14px 0;
+     display: inline-block;
     width: 100%;
+    padding: 14px 0;
+    text-align: center;
+    background: #ffffff;
+    color: #ff0000;
+    border: 2px solid #ff0000;
     border-radius: 6px;
     font-size: 15px;
-	text-decoration: none;
+    text-decoration: none;
     cursor: pointer;
     transition: 0.2s;
 }
