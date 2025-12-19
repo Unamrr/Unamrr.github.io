@@ -2168,76 +2168,96 @@ img, svg{
 	
 
 
-/* =========================
-   SECTION TÂCHES (любые задачи)
-========================= */
-/* Styles pour la section des tâches rapides */
-#tasks-section .row {
-    display: flex;
+.services-timing {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.services-timing h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: 600;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-left: 4px solid #4285f4;
+}
+
+.service-icon {
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.service-icon img {
+  opacity: 0.8;
+}
+
+.time-badge {
+  background: #4285f4;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  min-width: 70px;
+  text-align: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.service-description h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 600px) {
+  .service-item {
     flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-#tasks-section .suite {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-#tasks-section .task-title {
+  }
+  
+  .service-icon {
+    order: 1;
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+  
+  .time-badge {
+    order: 2;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  
+  .service-description {
+    order: 3;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .services-timing h2 {
+    font-size: 22px;
+  }
+  
+  .service-description h3 {
     font-size: 18px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 5px;
-    text-align: left;
-}
-
-#tasks-section .task-desc {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-    text-align: left;
-    margin: 0;
-}
-
-/* FORCER 1 colonne sur mobile */
-@media (max-width: 991px) {
-    #tasks-section .col-12 {
-        width: 100% !important;
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-    }
-    
-    #tasks-section .row {
-        flex-direction: column !important;
-        display: flex !important;
-    }
-    
-    #tasks-section .suite {
-        width: 50px;
-        height: 50px;
-    }
-    
-    #tasks-section .task-title {
-        font-size: 16px;
-    }
-    
-    #tasks-section .task-desc {
-        font-size: 13px;
-    }
-}
-
-/* FORCER 3 colonnes sur desktop */
-@media (min-width: 992px) {
-    #tasks-section .col-lg-4 {
-        width: 33.333% !important;
-        flex: 0 0 33.333% !important;
-        max-width: 33.333% !important;
-    }
-    
-    #tasks-section .row {
-        flex-direction: row !important;
-        display: flex !important;
-    }
+  }
 }
