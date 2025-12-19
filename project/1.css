@@ -1223,41 +1223,98 @@ i.fas.fa-chevron-left:before {
 }
 
 
+/* =========================
+   BASE
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
 /* SECTION */
 #forme-section {
-    background: radial-gradient(circle at right, #1c2230 0%, #0b0f1a 60%);
-    padding: 100px 0;
-    color: #ffffff;
+    position: relative;
+    background: radial-gradient(
+        80% 100% at 70% 50%,
+        #2a3144 0%,
+        #161b2a 45%,
+        #0b0f1a 75%
+    );
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+#forme-section .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* IMAGE */
+#forme-section .image-col {
+    position: relative;
+    padding-top: 160px;
+}
+
 #forme-section .laptop {
+    position: relative;
     max-width: 100%;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+    left: -60px;
+    bottom: -30px;
+    z-index: 2;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
+}
+
+/* TEXTE */
+#forme-section .content-col {
+    padding: 110px 80px 110px 60px;
+    color: #ffffff;
+    transform: translateY(-30px); /* texte légèrement plus haut que l'image */
 }
 
 /* TITRE */
 #forme-section .titre2 {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 700;
-    margin-bottom: 40px;
-    line-height: 1.2;
+    line-height: 1.25;
+    margin-bottom: 48px;
+    color: #ffffff;
 }
 
-/* CONTAINER DES TEXTES */
+/* FEATURES — 2 COLONNES DESKTOP */
+#forme-section .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 56px;
+    row-gap: 32px;
+    max-width: 520px;
+}
+
+/* BLOC TEXTE */
 #forme-section .test-container {
     position: relative;
-    padding-left: 24px;
-    margin-bottom: 20px;
+    padding-left: 22px;
+    display: flex;
+    align-items: flex-start;
 }
 
-/* BARRE ROUGE VERTICALE */
+/* BARRE ROUGE */
 #forme-section .test-container::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 4px;
+    top: 0;
     width: 3px;
     height: 100%;
     background-color: #ff3b3b;
@@ -1266,27 +1323,137 @@ i.fas.fa-chevron-left:before {
 
 /* TEXTE */
 #forme-section .mots {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #e5e7eb;
     margin: 0;
-    max-width: 480px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #d6dae3;
+    overflow: hidden;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    #forme-section {
-        padding: 60px 0;
+/* Hauteur exacte des paragraphes */
+#forme-section .test-container:not(.last) .mots {
+    max-height: 78px;  /* 4 lignes exactes */
+}
+
+#forme-section .test-container.last .mots {
+    max-height: 39px;  /* 2 lignes exactes */
+}
+
+/* Texte orange pour la dernière ligne du deuxième paragraphe depuis le bas */
+#forme-section .test-container.special .orange-line {
+    color: #e0640c;
+    font-weight: 600;
+    display: block;
+    margin-top: 5px;
+}
+
+/* MOBILE — 1 COLONNE */
+@media (max-width: 991px) {
+    #forme-section .row {
+        flex-direction: column;
+    }
+
+    /* Image au bord et plus petite */
+    #forme-section .image-col {
+        padding-top: 0;
+        text-align: left;
+        order: 1;
+    }
+
+    #forme-section .laptop {
+        left: 0;
+        bottom: 0;
+        max-width: 70%; /* réduit l'image sur mobile */
+    }
+
+    /* Contenu au bord */
+    #forme-section .content-col {
+        padding: 0;
+        order: 2;
     }
 
     #forme-section .titre2 {
-        font-size: 28px;
+        font-size: 26px;
+        margin: 0 0 36px 0;
+        text-align: left;
+        padding: 0;
+    }
+
+    #forme-section .features {
+        grid-template-columns: 1fr;
+        row-gap: 36px;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #forme-section .test-container {
+        padding-left: 0;
+    }
+
+    #forme-section .test-container .mots {
+        max-height: 78px; 
+        overflow: hidden;
+    }
+    
+    /* Dernier paragraphe à 2 lignes sur mobile */
+    #forme-section .test-container:last-child .mots {
+        max-height: 39px; 
     }
 
     #forme-section .mots {
-        font-size: 15px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    #forme-section .test-container.special .orange-line {
+        margin-top: 5px;
+        display: block;
+        font-weight: 600;
+        color: #e0640c;
     }
 }
+
+/*   TRÈS PETITS ÉCRANS */
+@media (max-width: 576px) {
+    #forme-section {
+        padding: 20px 0;
+    }
+    
+    #forme-section .titre2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    #forme-section .content-col {
+        padding: 0;
+    }
+    
+    #forme-section .mots {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    #forme-section .features {
+        row-gap: 32px;
+    }
+    
+    #forme-section .test-container .mots {
+        max-height: 78px; 
+        overflow: hidden;
+    }
+    
+    /* Dernier paragraphe à 2 lignes */
+    #forme-section .test-container:last-child .mots {
+        max-height: 39px; 
+    }
+    
+    #forme-section .laptop {
+        max-width: 90%; 
+    }
+}
+
+
 /* === СЕКЦИЯ "С НАМИ РАБОТАЮТ" === */
 
 .clients-section {
