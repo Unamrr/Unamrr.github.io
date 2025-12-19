@@ -1635,6 +1635,7 @@ i.fas.fa-chevron-left:before {
 }
 
 /* Основные стили */
+/* ОСНОВНЫЕ СТИЛИ */
 * {
     margin: 0;
     padding: 0;
@@ -1644,162 +1645,191 @@ i.fas.fa-chevron-left:before {
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #f5f5f5;
-    padding: 20px;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Основной контейнер */
 .cases-split {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
+/* ЗАГОЛОВОК */
 .cases-split h1 {
     text-align: center;
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 40px;
-    padding-top: 20px;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #222;
 }
 
-/* Контейнер для двух колонок */
+/* ОСНОВНОЙ КОНТЕЙНЕР */
 .two-columns {
     display: flex;
-    gap: 20px;
-    height: 800px;
+    gap: 40px;
+    min-height: 800px;
 }
 
-/* ЛЕВАЯ КОЛОНКА - фиксированная ширина */
+/* ЛЕВАЯ КОЛОНКА (30% ширины) */
 .left-column {
-    flex: 0 0 300px;
-    width: 300px;
-    min-width: 300px;
-    max-width: 300px;
+    flex: 0 0 30%;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
 }
 
-/* Элементы левой колонки */
-.img-top-left {
-    height: 200px;
-    border-radius: 8px;
+/* Изображения в левой колонке */
+.left-column > div {
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.img-top-left {
+    height: 220px;
 }
 
 .img-middle-left {
-    height: 250px;
-    border-radius: 8px;
-    overflow: hidden;
+    height: 280px;
 }
 
 .img-bottom-left {
-    height: 470px;
-    border-radius: 8px;
-    overflow: hidden;
+    flex: 1;
+    min-height: 350px;
 }
 
-/* ПРАВАЯ КОЛОНКА - занимает остальное пространство */
+/* ПРАВАЯ КОЛОНКА (70% ширины) */
 .right-column {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
-/* Верхняя часть правой колонки */
+/* Верхняя большая картинка */
 .top-right {
     flex: 1;
-    height: auto;
-    border-radius: 8px;
+    min-height: 400px;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-/* Нижняя часть правой колонки */
+/* Нижняя часть - 2 колонки */
 .bottom-right {
-    flex: 1;
     display: flex;
-    gap: 20px;
-    height: 390px;
-    min-height: 390px;
+    gap: 30px;
+    height: 400px;
 }
 
-/* ОШИБКА В HTML: у вас ДВА .bottom-right-left */
-.bottom-right-left {
+/* Левая часть нижнего блока (одна картинка) */
+.bottom-right-left:first-child {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Правая часть нижнего блока (две картинки вертикально) */
+.bottom-right-left:last-child {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
-/* Малые элементы внутри .bottom-right-left */
 .small-top {
     flex: 1;
-    min-height: 150px;
-    max-height: 50%;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .small-bottom {
     flex: 1;
-    min-height: 150px;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Общие стили для ВСЕХ изображений */
+/* СТИЛИ ДЛЯ ВСЕХ ИЗОБРАЖЕНИЙ */
 .cases-split img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .cases-split img:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+}
+
+/* ТЕКСТОВЫЙ КОНТЕНТ (который виден на скриншоте) */
+.case-content {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.case-content h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.case-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.case-content h3 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    font-weight: 600;
 }
 
 /* АДАПТИВНОСТЬ */
-
-/* Для планшетов (до 992px) */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .two-columns {
         flex-direction: column;
-        height: auto;
+        gap: 30px;
     }
     
     .left-column {
         flex: 0 0 auto;
-        width: 100%;
         max-width: 100%;
-        min-width: 100%;
-        flex-direction: row; /* Картинки в ряд на планшете */
+        flex-direction: row;
     }
     
     .img-top-left,
     .img-middle-left,
     .img-bottom-left {
         flex: 1;
-        height: 300px;
+        height: 250px;
     }
     
     .bottom-right {
         flex-direction: column;
         height: auto;
-        min-height: auto;
-    }
-    
-    .cases-split h1 {
-        font-size: 28px;
     }
 }
 
-/* Для мобильных (до 768px) */
 @media (max-width: 768px) {
+    .cases-split h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
     .left-column {
-        flex-direction: column; /* Картинки в колонку на мобильных */
+        flex-direction: column;
     }
     
     .img-top-left,
@@ -1809,47 +1839,10 @@ body {
     }
     
     .top-right {
-        height: 300px;
+        min-height: 300px;
     }
     
-    .bottom-right {
-        height: auto;
-    }
-    
-    .small-top,
-    .small-bottom {
-        height: 150px;
-    }
-    
-    .cases-split h1 {
+    .case-content h2 {
         font-size: 24px;
-        margin-bottom: 20px;
     }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .cases-split {
-        padding: 10px;
-    }
-    
-    .two-columns {
-        gap: 15px;
-    }
-    
-    .img-top-left,
-    .img-middle-left,
-    .img-bottom-left {
-        height: 150px;
-    }
-}/* Для фиксированной правой структуры */
-.bottom-right-single {
-    flex: 1; /* p5.jpg */
-}
-
-.bottom-right-double {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
