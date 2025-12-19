@@ -25,10 +25,16 @@ html, body {
 #competention > div > div {
     background-image: url(./photo_1.jpg);
     background-repeat: no-repeat;
-    background-size: 125px;
+    background-size: 111px;
     padding-bottom: 20px;
-    background-position: -30px 10px; /* Сдвиг фона влево */
-    padding-left: 0; /* Убираем отступ слева */
+    background-position: -9px 18px;
+    padding-left: 500px;
+}
+#competention > div > div {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    z-index: 1;
 }
 
 /* Иконки сдвигаем влево вместе с фоном */
@@ -45,7 +51,7 @@ html, body {
     text-align: left;
     line-height: 1.4;
     font-size: 14px;
-    margin-left: 0; /* Текст не двигаем */
+    margin-left: -10px;
 }
 
 /* Заголовок и описание */
@@ -84,6 +90,7 @@ html, body {
 /* Отступы между строками */
 .mb-4 {
     margin-bottom: 1.5rem !important;
+    margin-left: 25px;
 }
 
 /* 2 колонки для мобильной версии */
