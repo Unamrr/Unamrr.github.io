@@ -1786,3 +1786,60 @@ i.fas.fa-chevron-left:before {
     margin-bottom: 8px;
     color: #555;
 }
+.bottom-right-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.top-right {
+    height: 1800px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.right-column {
+    flex: 1;
+    display: flex
+;
+    flex-direction: column;
+    gap: 20px;
+}
+.img-top-left {
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.left-column {
+    flex: 1;
+    display: flex
+;
+    /* flex-direction: column; */
+    /* gap: 20px; */
+    flex: 0 0 300px;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* size: 100px; */
+    /* width: 100px; */
+}
+.two-columns {
+    display: flex;
+    gap: 20px;
+    height: 800px;
+}
+.cases-split h1 {
+    margin-left: 250px;
+    /* font-size: 36px; */
+    margin-bottom: 40px;
+    color: #333;
+    /* align-items: center; */
+}
+.cases-split {
+    max-width: 1000px;
+    /* max-height: 1000px; */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
