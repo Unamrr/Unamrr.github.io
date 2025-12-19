@@ -1634,187 +1634,42 @@ i.fas.fa-chevron-left:before {
     }
 }
 
-/* Основной контейнер с фиксированной шириной и ограничением по высоте */
-.cases-split {
-    max-width: 800px; /* Ваше ограничение по ширине */
-    height: 600px; /* Фиксируем высоту. Можете подобрать свою (например, 70vh) */
-    display: flex;
-    gap: 30px; /* Расстояние между колонками */
-    font-family: sans-serif;
-    overflow: hidden; /* Скрываем всё, что выходит за пределы этого блока */
-    border-radius: 8px; /* Опционально: скругленные углы */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Опционально: легкая тень для объема */
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Левый столбец (список кейсов) - теперь уже */
-.cases-list {
-    flex: 0 0 40%; /* Фиксированная ширина в 40% от родителя. Не растягивается, не сжимается */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Скрываем переполнение внутри этого столбца */
-}
-
-/* Заголовок в левом столбце */
-.cases-list h2 {
-    margin: 0 0 20px 0;
-    font-size: 1.8em;
-    color: #333;
-    flex-shrink: 0; /* Заголовок не будет сжиматься */
-}
-
-/* Контейнер для карточек кейсов с прокруткой */
-.cases-list-container {
-    flex-grow: 1; /* Занимает все доступное пространство по высоте */
-    overflow-y: auto; /* Включаем вертикальную прокрутку ТОЛЬКО для списка */
-    padding-right: 10px; /* Отступ, чтобы скроллбар не налезал на текст */
-}
-
-/* Стили для скроллбара в левой колонке (опционально, для красоты) */
-.cases-list-container::-webkit-scrollbar {
-    width: 6px;
-}
-.cases-list-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-.cases-list-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-.cases-list-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* Правая колонка (детали кейса) - теперь шире */
-.case-detail {
-    flex: 0 0 60%; /* Фиксированная ширина в 60% от родителя */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Скрываем переполнение внутри этого столбца */
-}
-
-/* Контейнер для содержимого в правой колонке с прокруткой */
-.case-detail-container {
-    flex-grow: 1; /* Занимает все доступное пространство по высоте */
-    overflow-y: auto; /* Включаем вертикальную прокрутку для деталей, если контент не помещается */
-    padding-right: 10px;
-}
-
-/* Стили для карточек кейсов в списке (левая колонка) */
-.case-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.case-card:hover {
-    background-color: #f9f9f9;
-    border-color: #007bff; /* Цвет акцента, можно изменить */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.case-card.active {
-    background-color: #e8f4ff; /* Светлый фон для активного кейса */
-    border-color: #007bff;
-    border-left-width: 4px; /* Акцентная полоска слева */
-}
-
-.case-card h3 {
-    margin: 0 0 8px 0;
-    font-size: 1.1em;
-    color: #007bff;
-}
-
-.case-card .date {
-    font-size: 0.85em;
-    color: #666;
-    margin-bottom: 8px;
-}
-
-.case-card .description {
-    font-size: 0.95em;
-    color: #555;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Ограничиваем текст двумя строками */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Стили для детального отображения кейса (правая колонка) */
-.case-detail h2 {
-    margin: 0 0 15px 0;
-    color: #333;
-    font-size: 1.8em;
-}
-
-.case-detail .date {
-    color: #666;
-    font-size: 0.9em;
-    margin-bottom: 20px;
-}
-
-.case-detail .full-description {
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 25px;
-}
-
-.case-detail .features {
-    background: #f8f9fa;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f5;
     padding: 20px;
-    border-radius: 8px;
-    border-left: 4px solid #007bff;
 }
 
-.case-detail .features h4 {
-    margin-top: 0;
+/* Основной контейнер */
+.cases-split {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cases-split h1 {
+    text-align: center;
+    font-size: 36px;
     color: #333;
+    margin-bottom: 40px;
+    padding-top: 20px;
 }
 
-.case-detail .features ul {
-    padding-left: 20px;
-    margin-bottom: 0;
-}
-
-.case-detail .features li {
-    margin-bottom: 8px;
-    color: #555;
-}
-.bottom-right-left {
-    flex: 1;
+/* Контейнер для двух колонок */
+.two-columns {
     display: flex;
-    flex-direction: column;
     gap: 20px;
+    height: 800px;
 }
-.top-right {
-    height: 1800px;
-    border-radius: 8px;
-    overflow: hidden;
-}
-.right-column {
-    flex: 1;
-    display: flex
-;
-    flex-direction: column;
-    gap: 20px;
-}
-.img-top-left {
-    height: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-}
+
+/* ЛЕВАЯ КОЛОНКА - фиксированная ширина */
 .left-column {
-    flex: 1;
-    display: flex
-;
-    /* flex-direction: column; */
-    /* gap: 20px; */
     flex: 0 0 300px;
     width: 300px;
     min-width: 300px;
@@ -1822,24 +1677,179 @@ i.fas.fa-chevron-left:before {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* size: 100px; */
-    /* width: 100px; */
 }
-.two-columns {
+
+/* Элементы левой колонки */
+.img-top-left {
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img-middle-left {
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img-bottom-left {
+    height: 470px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ПРАВАЯ КОЛОНКА - занимает остальное пространство */
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Верхняя часть правой колонки */
+.top-right {
+    flex: 1;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Нижняя часть правой колонки */
+.bottom-right {
+    flex: 1;
     display: flex;
     gap: 20px;
-    height: 800px;
+    height: 390px;
+    min-height: 390px;
 }
-.cases-split h1 {
-    margin-left: 250px;
-    /* font-size: 36px; */
-    margin-bottom: 40px;
-    color: #333;
-    /* align-items: center; */
+
+/* ОШИБКА В HTML: у вас ДВА .bottom-right-left */
+.bottom-right-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-.cases-split {
-    max-width: 1000px;
-    /* max-height: 1000px; */
-    margin: 0 auto;
-    padding: 40px 20px;
+
+/* Малые элементы внутри .bottom-right-left */
+.small-top {
+    flex: 1;
+    min-height: 150px;
+    max-height: 50%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.small-bottom {
+    flex: 1;
+    min-height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Общие стили для ВСЕХ изображений */
+.cases-split img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.cases-split img:hover {
+    transform: scale(1.02);
+}
+
+/* АДАПТИВНОСТЬ */
+
+/* Для планшетов (до 992px) */
+@media (max-width: 992px) {
+    .two-columns {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .left-column {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        flex-direction: row; /* Картинки в ряд на планшете */
+    }
+    
+    .img-top-left,
+    .img-middle-left,
+    .img-bottom-left {
+        flex: 1;
+        height: 300px;
+    }
+    
+    .bottom-right {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .cases-split h1 {
+        font-size: 28px;
+    }
+}
+
+/* Для мобильных (до 768px) */
+@media (max-width: 768px) {
+    .left-column {
+        flex-direction: column; /* Картинки в колонку на мобильных */
+    }
+    
+    .img-top-left,
+    .img-middle-left,
+    .img-bottom-left {
+        height: 200px;
+    }
+    
+    .top-right {
+        height: 300px;
+    }
+    
+    .bottom-right {
+        height: auto;
+    }
+    
+    .small-top,
+    .small-bottom {
+        height: 150px;
+    }
+    
+    .cases-split h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .cases-split {
+        padding: 10px;
+    }
+    
+    .two-columns {
+        gap: 15px;
+    }
+    
+    .img-top-left,
+    .img-middle-left,
+    .img-bottom-left {
+        height: 150px;
+    }
+}/* Для фиксированной правой структуры */
+.bottom-right-single {
+    flex: 1; /* p5.jpg */
+}
+
+.bottom-right-double {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
