@@ -1224,6 +1224,65 @@ i.fas.fa-chevron-left:before {
 
 
 /* =========================
+   SECTION FORME-SECTION
+========================= */
+#forme-section {
+    position: relative;
+    background: radial-gradient(
+        80% 100% at 70% 50%,
+        #2a3144 0%,
+        #161b2a 45%,
+        #0b0f1a 75%
+    );
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+#forme-section .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* =========================
+   IMAGE
+========================= */
+#forme-section .image-col {
+    position: relative;
+    padding-top: 160px;
+}
+
+#forme-section .laptop {
+    position: relative;
+    max-width: 100%;
+    left: -60px;
+    bottom: -30px;
+    z-index: 2;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
+}
+
+/* =========================
+   TEXTE
+========================= */
+#forme-section .content-col {
+    padding: 110px 80px 110px 60px;
+    color: #ffffff;
+    transform: translateY(-30px);
+}
+
+/* TITRE */
+#forme-section .titre2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 48px;
+    color: #ffffff;
+}
+
+/* =========================
    FEATURES — 2 COLONNES DESKTOP
 ========================= */
 #forme-section .features {
@@ -1254,7 +1313,7 @@ i.fas.fa-chevron-left:before {
     border-radius: 2px;
 }
 
-/* TEXTE */
+/* TEXTE - DESKTOP */
 #forme-section .mots {
     margin: 0;
     font-size: 13px;
@@ -1298,14 +1357,14 @@ i.fas.fa-chevron-left:before {
     #forme-section .laptop {
         left: 0;
         bottom: 0;
-        max-width: 70%; /* réduit l'image sur mobile */
+        max-width: 70%;
     }
 
     /* Contenu au bord */
     #forme-section .content-col {
         padding: 0;
         order: 2;
-        transform: translateY(0); /* Supprimer le décalage sur mobile */
+        transform: translateY(0);
     }
 
     #forme-section .titre2 {
@@ -1365,7 +1424,7 @@ i.fas.fa-chevron-left:before {
         line-clamp: 2;
     }
 
-    /* Texte orange */
+    /* Texte orange sur mobile */
     #forme-section .test-container.special .orange-line {
         margin-top: 5px;
         display: block;
@@ -1380,7 +1439,7 @@ i.fas.fa-chevron-left:before {
 @media (max-width: 576px) {
     #forme-section {
         padding: 20px 0;
-        min-height: auto; /* Ajuster sur mobile */
+        min-height: auto;
     }
     
     #forme-section .titre2 {
@@ -1415,7 +1474,7 @@ i.fas.fa-chevron-left:before {
     }
     
     #forme-section .laptop {
-        max-width: 90%; /* image encore plus petite */
+        max-width: 90%;
     }
 }
 
