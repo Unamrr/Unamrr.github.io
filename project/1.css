@@ -1633,3 +1633,270 @@ i.fas.fa-chevron-left:before {
         box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
     }
 }
+/* === СЕКЦИЯ ПОСЛЕДНИЕ КЕЙСЫ === */
+
+.cases-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.cases-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cases-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* Сетка кейсов */
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    gap: 25px;
+}
+
+/* Главный кейс (занимает 2 колонки в ширину и 2 ряда в высоту) */
+.case-card-main {
+    grid-column: 1 / 7; /* Занимает колонки 1-6 */
+    grid-row: 1 / 3; /* Занимает строки 1-3 */
+}
+
+/* Остальные кейсы */
+.case-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Картинки кейсов */
+.case-image {
+    height: 220px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.case-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.case-card:hover .case-img {
+    transform: scale(1.05);
+}
+
+/* Контент кейсов */
+.case-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.case-date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.case-description {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Проценты (для второго кейса) */
+.case-percent {
+    font-size: 48px;
+    font-weight: 700;
+    color: #3498db;
+    text-align: right;
+    margin: 10px 0;
+}
+
+/* Разделители (серые линии) */
+.case-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 20px 0;
+    width: 100%;
+}
+
+/* Позиционирование остальных кейсов */
+.case-card-with-percent {
+    grid-column: 7 / 10;
+    grid-row: 1;
+}
+
+.case-card-with-date {
+    grid-column: 10 / 13;
+    grid-row: 1;
+}
+
+.case-card:nth-child(4) {
+    grid-column: 7 / 10;
+    grid-row: 2;
+}
+
+.case-card:nth-child(5) {
+    grid-column: 10 / 13;
+    grid-row: 2;
+}
+
+.case-card-hack {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    margin-top: 25px;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    
+    .case-card-main {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+    
+    .case-card-with-percent,
+    .case-card-with-date,
+    .case-card:nth-child(4),
+    .case-card:nth-child(5),
+    .case-card-hack {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    
+    .case-card-hack {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .cases-section {
+        padding: 60px 0;
+    }
+    
+    .cases-title {
+        font-size: 32px;
+    }
+    
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-card-main {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .case-image {
+        height: 200px;
+    }
+    
+    .case-title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cases-section {
+        padding: 40px 0;
+    }
+    
+    .cases-title {
+        font-size: 28px;
+    }
+    
+    .case-content {
+        padding: 20px;
+    }
+    
+    .case-image {
+        height: 180px;
+    }
+}
+
+/* Специальные стили для каждого кейса */
+/* Увеличиваем высоту для главного кейса */
+.case-card-main .case-image {
+    height: 460px; /* 220px * 2 + gap */
+}
+
+/* Меньше высота для кейсов с процентами и датами */
+.case-card-with-percent .case-image,
+.case-card-with-date .case-image {
+    height: 180px;
+}
+
+/* Центрирование процентов */
+.case-percent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 60px;
+}
+
+/* Стиль для HACK кейса */
+.case-card-hack .case-title {
+    font-size: 24px;
+    color: #e74c3c;
+}
+
+.case-card-hack .case-description {
+    font-size: 14px;
+    color: #777;
+}/* Автоподгонка размеров */
+.case-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Для горизонтальных изображений */
+.case-card-main .case-img {
+    object-fit: contain;
+    object-position: top;
+    background-color: #f8f8f8;
+}
+
+/* Для вертикальных */
+.case-card-with-percent .case-img,
+.case-card-with-date .case-img {
+    object-fit: contain;
+    padding: 10px;
+    background-color: white;
+}
