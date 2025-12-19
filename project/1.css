@@ -2040,3 +2040,69 @@ img, svg{
 
 
 }
+
+
+/* =========================
+   TASKS SECTION
+========================= */
+.tasks-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.suite {
+    max-width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.tasks-section .titre {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.tasks-section .sous-titre {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .tasks-section {
+        padding: 40px 0;
+    }
+    
+    .tasks-section h2 {
+        font-size: 28px !important;
+        padding: 0 15px;
+    }
+    
+    .suite {
+        max-width: 80px;
+        height: 80px;
+    }
+    
+    .tasks-section .titre {
+        font-size: 18px;
+    }
+    
+    .tasks-section .sous-titre {
+        font-size: 13px;
+        max-width: 160px;
+    }
+}
