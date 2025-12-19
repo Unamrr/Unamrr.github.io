@@ -2040,6 +2040,11 @@ img, svg{
 
 
 /* Styles pour la disposition comme sur l'image */
+#competention .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .suite {
     width: 60px;
     height: 60px;
@@ -2063,14 +2068,12 @@ img, svg{
     margin: 0;
 }
 
-/* Mobile - 1 colonne (col-12) */
+/* Mobile - empilés verticalement */
 @media (max-width: 991px) {
     #competention .col-12 {
         width: 100%;
-    }
-    
-    #competention .d-flex {
-        margin-bottom: 20px;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
     
     .suite {
@@ -2084,14 +2087,24 @@ img, svg{
     
     .sous-titre {
         font-size: 13px;
+        line-height: 1.4;
+    }
+    
+    /* Forcer l'empilement vertical */
+    #competention .row {
+        flex-direction: column;
     }
 }
 
-/* Desktop - 3 colonnes (col-lg-4) */
+/* Desktop - 3 colonnes côte à côte */
 @media (min-width: 992px) {
     #competention .col-lg-4 {
-        width: 33.333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        width: 33.333333%;
+    }
+    
+    #competention .row {
+        flex-direction: row;
     }
 }
-
-
