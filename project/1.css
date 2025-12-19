@@ -1632,109 +1632,143 @@ i.fas.fa-chevron-left:before {
         box-sizing: border-box;
         box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
     }
-}.exact-cases {
+}
+
+.cases-split {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-.exact-cases h1 {
+.cases-split h1 {
     font-size: 36px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    color: #333;
 }
 
-.cases-grid-exact {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, auto);
+/* Два столбца */
+.two-columns {
+    display: flex;
     gap: 20px;
 }
 
-.case-exact {
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ЛЕВЫЙ СТОЛБЕЦ - 3 картинки */
+.img-top-left {
+    height: 200px; /* p1 - ноутбук (меньше) */
     border-radius: 8px;
     overflow: hidden;
 }
 
-.case-exact img {
+.img-middle-left {
+    height: 250px; /* p2 - кэширование (больше) */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img-bottom-left {
+    height: 470px; /* p3 = 200px + 250px + 20px gap */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ПРАВЫЙ СТОЛБЕЦ - верхняя половина */
+.top-right {
+    height: 300px; /* p4 - большая */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ПРАВЫЙ СТОЛБЕЦ - нижняя половина */
+.bottom-right {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.bottom-right-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bottom-right-right {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Мелкие картинки в левой части нижней половины */
+.small-top {
+    height: 150px; /* p6 */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.small-bottom {
+    flex: 1; /* p7 - занимает оставшееся место */
+    min-height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Общие стили для всех изображений */
+.cases-split img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* Расположение как на скриншоте */
-.case-1 {
-    grid-column: 1 / 7;   /* Занимает 6 колонок */
-    grid-row: 1 / 3;      /* Занимает 2 строки */
-    height: 500px;        /* Высота 2 строк */
-}
-
-.case-2 {
-    grid-column: 7 / 10;  /* 3 колонки */
-    grid-row: 1;          /* 1 строка */
-    height: 240px;        /* Половина от case-1 */
-}
-
-.case-3 {
-    grid-column: 10 / 13; /* 3 колонки */
-    grid-row: 1;          /* 1 строка */
-    height: 240px;
-}
-
-.case-4 {
-    grid-column: 7 / 10;  /* 3 колонки */
-    grid-row: 2;          /* 2 строка */
-    height: 240px;
-}
-
-.case-5 {
-    grid-column: 10 / 13; /* 3 колонки */
-    grid-row: 2;          /* 2 строка */
-    height: 240px;
-}
-
-.case-6 {
-    grid-column: 1 / 4;   /* 3 колонки */
-    grid-row: 3;          /* Новая строка */
-    height: 200px;
-    margin-top: 20px;
-}
-
 /* Адаптивность */
 @media (max-width: 992px) {
-    .cases-grid-exact {
-        grid-template-columns: 1fr 1fr;
+    .two-columns {
+        flex-direction: column;
     }
     
-    .case-1 {
-        grid-column: 1 / 3;
-        grid-row: 1;
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+    
+    .img-bottom-left {
         height: 300px;
     }
     
-    .case-2,
-    .case-3,
-    .case-4,
-    .case-5,
-    .case-6 {
-        grid-column: auto;
-        grid-row: auto;
-        height: 200px;
+    .top-right {
+        height: 250px;
     }
 }
 
-@media (max-width: 576px) {
-    .cases-grid-exact {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .bottom-right {
+        flex-direction: column;
     }
     
-    .case-1,
-    .case-2,
-    .case-3,
-    .case-4,
-    .case-5,
-    .case-6 {
-        grid-column: 1;
+    .bottom-right-left,
+    .bottom-right-right {
+        width: 100%;
+    }
+    
+    .bottom-right-right {
         height: 200px;
+    }
+    
+    .cases-split h1 {
+        font-size: 28px;
     }
 }
