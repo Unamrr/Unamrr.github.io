@@ -1567,7 +1567,7 @@ i.fas.fa-chevron-left:before {
 }
 
 /* Bouton */
-.tarif-card button {
+.tarif-card .tarif-btn {
     background: #fff;
     color: #ff0000;
     border: 1px solid #ff0000;
@@ -1579,7 +1579,7 @@ i.fas.fa-chevron-left:before {
     transition: 0.2s;
 }
 
-.tarif-card button:hover {
+.tarif-card .tarif-btn:hover {
     background: #ff0000;
     color: #fff;
 }
