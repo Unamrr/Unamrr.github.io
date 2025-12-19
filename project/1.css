@@ -1575,6 +1575,7 @@ i.fas.fa-chevron-left:before {
     width: 100%;
     border-radius: 6px;
     font-size: 15px;
+	text-decoration: none;
     cursor: pointer;
     transition: 0.2s;
 }
