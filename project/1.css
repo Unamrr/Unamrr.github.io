@@ -2132,20 +2132,24 @@ img, svg{
 	
 
 
-/* Styles pour la disposition comme sur l'image */
-#competention .row {
+/* =========================
+   SECTION TÂCHES (любые задачи)
+========================= */
+/* Styles pour la section des tâches rapides */
+#tasks-section .row {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
-.suite {
+#tasks-section .suite {
     width: 60px;
     height: 60px;
     object-fit: contain;
     flex-shrink: 0;
 }
 
-.titre {
+#tasks-section .task-title {
     font-size: 18px;
     font-weight: 700;
     color: #333;
@@ -2153,7 +2157,7 @@ img, svg{
     text-align: left;
 }
 
-.sous-titre {
+#tasks-section .task-desc {
     font-size: 14px;
     color: #666;
     line-height: 1.5;
@@ -2161,43 +2165,43 @@ img, svg{
     margin: 0;
 }
 
-/* Mobile - empilés verticalement */
+/* FORCER 1 colonne sur mobile */
 @media (max-width: 991px) {
-    #competention .col-12 {
-        width: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
+    #tasks-section .col-12 {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
     }
     
-    .suite {
+    #tasks-section .row {
+        flex-direction: column !important;
+        display: flex !important;
+    }
+    
+    #tasks-section .suite {
         width: 50px;
         height: 50px;
     }
     
-    .titre {
+    #tasks-section .task-title {
         font-size: 16px;
     }
     
-    .sous-titre {
+    #tasks-section .task-desc {
         font-size: 13px;
-        line-height: 1.4;
-    }
-    
-    /* Forcer l'empilement vertical */
-    #competention .row {
-        flex-direction: column;
     }
 }
 
-/* Desktop - 3 colonnes côte à côte */
+/* FORCER 3 colonnes sur desktop */
 @media (min-width: 992px) {
-    #competention .col-lg-4 {
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-        width: 33.333333%;
+    #tasks-section .col-lg-4 {
+        width: 33.333% !important;
+        flex: 0 0 33.333% !important;
+        max-width: 33.333% !important;
     }
     
-    #competention .row {
-        flex-direction: row;
+    #tasks-section .row {
+        flex-direction: row !important;
+        display: flex !important;
     }
 }
