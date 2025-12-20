@@ -1387,32 +1387,49 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-</script>
-		<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const dropdownToggle = document.getElementById('adminDropdown');
-        const dropdownMenu = document.getElementById('adminMenu');
-        
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Ваш старый код для выпадающего меню
+    const dropdownToggle = document.getElementById('adminDropdown');
+    const dropdownMenu = document.getElementById('adminMenu');
+    
+    if (dropdownToggle && dropdownMenu) {
         dropdownToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
         
-        // Закрытие меню при клике вне его
         document.addEventListener('click', function(e) {
             if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
                 dropdownMenu.classList.remove('show');
             }
         });
         
-        // Закрытие меню при клике на пункт меню
         dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => {
             item.addEventListener('click', function() {
                 dropdownMenu.classList.remove('show');
             });
         });
-    });
+    }
+    
+    // НОВЫЙ КОД ДЛЯ МОБИЛЬНОГО МЕНЮ (добавьте это)
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const navbarNav = document.getElementById('navbarNav');
+    
+    if (mobileMenuButton && navbarNav) {
+        mobileMenuButton.addEventListener('click', function() {
+            navbarNav.classList.toggle('mobile-open');
+        });
+        
+        // Закрытие мобильного меню при клике вне
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuButton.contains(e.target) && !navbarNav.contains(e.target)) {
+                navbarNav.classList.remove('mobile-open');
+            }
+        });
+    }
+});
 </script>
 
 </body>
