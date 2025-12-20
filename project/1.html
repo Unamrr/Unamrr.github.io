@@ -23,93 +23,104 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- ШАПКА -->
-    <header>
-            <div class="video-background">
-                <video autoplay muted loop playsinline>
-                    <source src="video.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay"></div>
-            </div>
-            <nav class="liens-section">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#list-section">ПОДДЕРЖКА DRUPAL</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#table-section">АДМИНИСТРИРОВАНИЕ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">ПРОДВИЖЕНИЕ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">РЕКЛАМА</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">О НАС </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">ПРОЕКТЫ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">КОНТАКТЫ</a>
-                    </li>
+    <!-- ШАПКА -->
+<header>
+    <!-- Видео фон -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
+    <!-- НАВИГАЦИЯ -->
+    <nav class="navbar">
+        <!-- Логотип слева -->
+        <div class="navbar-brand">
+            <span class="logo-text">DRUPAL</span>
+        </div>
+        
+        <!-- Основное меню -->
+        <ul class="navbar-menu">
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#">
+                    АДМИНИСТРИРОВАНИЕ <span class="dropdown-arrow">▼</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">МИГРАЦИЯ</a></li>
+                    <li><a href="#">БЭКАПЫ</a></li>
+                    <li><a href="#">АУДИТ БЕЗОПАСНОСТИ</a></li>
+                    <li><a href="#">ОПТИМИЗАЦИЯ СКОРОСТИ</a></li>
+                    <li><a href="#">ПЕРЕЕЗД НА HTTPS</a></li>
                 </ul>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-            <div class="header-container">
-                <div class="container">
-                    <div class="row">
-                        <!-- Левая колонка с текстом -->
-                        <div id="text-gauche" class="header-texte ">
-                            <h1>Поддержка <br> сайтов на Drupal</h1>
-                            <p>Сопровождение и поддержка на любых версий и запущенности</p>
-                            <button >
-                                <a class="tarif-link" href=".tarif-section">Тарифы</a>
-                            </button>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ПРОДВИЖЕНИЕ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">РЕКЛАМА</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">О НАС</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ПРОЕКТЫ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">КОНТАКТЫ</a>
+            </li>
+        </ul>
+        
+        <!-- Кнопка меню для мобильных -->
+        <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    
+    <!-- ОСНОВНОЙ КОНТЕНТ ШАПКИ -->
+    <div class="header-container">
+        <div class="container">
+            <div class="header-content">
+                <!-- Левая колонка с заголовком -->
+                <div class="header-left">
+                    <h1 class="main-title">Поддержка сайтов <br>на Drupal</h1>
+                    <p class="subtitle">Сопровождение и поддержка сайтов <br>на CMS Drupal любых версий и запущенности</p>
+                    <a href="#tarif-section" class="tarif-btn">ТАРИФЫ</a>
+                </div>
+                
+                <!-- Правая колонка со статистикой -->
+                <div class="header-right">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">#1</div>
+                            <div class="stat-text">Drupal-разработчик<br>России по версии<br>Рейтинга Рунета</div>
                         </div>
-                        <!-- Справая колонка с текстом -->
-                         
-                        <div id="text-droit" class="header-texte text">
-                            <div class="texte">
-                                <h3> #1
-                                    <img id ="cup" src="cup.png">
-                                </h3>
-                                <p>Drupal-разработчник в Роосии по версии Рейтинга Рунета</p>
-                            </div>
-                            <div class="texte">
-                                <h3>3+</h3>
-                                <p>средний опыт специяоистов более 3 лет</p>
-                            </div>
-                            <div class="texte">
-                                <h3>14</h3>
-                                <p>лет опыта в  сфере Drupal</p>
-                            </div>
-                            <div class="texte">
-                                <h3>50+</h3>
-                                <p>модулей и тем в формате DrupalGive</p>
-                            </div>
-                            <div class="texte">
-                                <h3>90 000+</h3>
-                                <p>часов поддержки сайтов на </p>
-                            </div>
-                            <div class="texte">
-                                <h3>300+</h3>
-                                <p>Проектов на доддержке</p>
-                            </div>
-                    
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-text">средний опыт<br>специалистов более 3 лет</div>
                         </div>
-
+                        <div class="stat-item">
+                            <div class="stat-number">14</div>
+                            <div class="stat-text">лет опыта<br>в сфере Drupal</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-text">модулей и тем<br>в формате DrupalGive</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">90 000+</div>
+                            <div class="stat-text">часов поддержки<br>сайтов на Drupal</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">300+</div>
+                            <div class="stat-text">Проектов<br>на поддержке</div>
+                        </div>
                     </div>
                 </div>
-                <!-- Кнопка меню для мобильных -->
-                <!--
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon">bouton</span>
-                </button>-->
             </div>
-        </header>
+        </div>
+    </div>
+</header>
 <main>
     <!-- Компетенции -->
      <section id="table-section" class="py-5">
@@ -1409,6 +1420,26 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSlider();
     console.log('Слайдер готов! Всего карточек:', total);
 });
+</script>
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggler = document.querySelector('.navbar-toggler');
+        const menu = document.querySelector('header nav ul');
+        
+        if (toggler) {
+            toggler.addEventListener('click', function() {
+                menu.classList.toggle('show');
+            });
+        }
+        
+        // Закрываем меню при клике на ссылку
+        const links = document.querySelectorAll('header nav ul li a');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                menu.classList.remove('show');
+            });
+        });
+    });
 </script>
 
 </body>
