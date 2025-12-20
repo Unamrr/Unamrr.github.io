@@ -466,16 +466,16 @@ header nav.liens-section::before {
 
 /* ПРАВАЯ КОЛОНКА (55% ширины) */
 #text-droit {
-    flex: 0 0 55%;
+    flex: 0 0 50%;
     max-width: 55%;
 }
 
 /* СЕТКА 3x2 (3 строки, 2 колонки) */
 .text {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 КОЛОНКИ */
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);    /* 3 СТРОКИ */
-    gap: 40px 60px; /* 40px между строками, 60px между колонками */
+    gap: 30px 20px;
 }
 
 /* КАЖДЫЙ БЛОК СТАТИСТИКИ */
@@ -492,7 +492,7 @@ header nav.liens-section::before {
     left: 0;
     top: 5px;
     width: 3px;
-    height: 50px;
+    height: 125px;
     background: #ff0000;
     border-radius: 2px;
 }
@@ -510,13 +510,13 @@ header nav.liens-section::before {
     width: 24px;
     height: 24px;
     margin-left: 10px;
-    filter: invert(1);
+    /*filter: invert(1);*/
 }
 
 .texte p {
     margin: 0;
     padding-left: 0;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
