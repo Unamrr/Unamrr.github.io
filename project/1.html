@@ -56,7 +56,15 @@
                         <a class="nav-link" href="#form-section">РЕКЛАМА</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#form-section">О НАС </a>
+                        <a href="#" class="dropdown-toggle" id="aboutDropdown">
+                        О НАС 
+                    </a>
+                    <div class="dropdown-menu" id="aboutMenu">
+                        <a class="dropdown-item" href="#">КОМАНДА</a>
+                        <a class="dropdown-item" href="#">DRUPALGIVE</a>
+                        <a class="dropdown-item" href="#">БЛОГ</a>
+                        <a class="dropdown-item" href="#">КУРСЫ DRUPAL</a>
+                    </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#form-section">ПРОЕКТЫ</a>
@@ -1388,49 +1396,124 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Ваш старый код для выпадающего меню
-    const dropdownToggle = document.getElementById('adminDropdown');
-    const dropdownMenu = document.getElementById('adminMenu');
-    
-    if (dropdownToggle && dropdownMenu) {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Элементы меню
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mainNav = document.getElementById('mainNav');
         
-        document.addEventListener('click', function(e) {
-            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                dropdownMenu.classList.remove('show');
+        // 1. Мобильное меню
+        if (mobileMenuButton && mainNav) {
+            mobileMenuButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mainNav.classList.toggle('mobile-open');
+            });
+        }
+        
+        // 2. Функция для управления выпадающими меню
+        function setupDropdown(dropdownId, menuId) {
+            const dropdownToggle = document.getElementById(dropdownId);
+            const dropdownMenu = document.getElementById(menuId);
+            
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Закрыть другие открытые меню
+                    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                        if (menu.id !== menuId) {
+                            menu.classList.remove('show');
+                        }
+                    });
+                    
+                    // Открыть/закрыть текущее меню
+                    dropdownMenu.classList.toggle('show');
+                });
+                
+                // Закрытие при клике на пункт меню
+                dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        dropdownMenu.classList.remove('show');
+                    });
+                });
             }
-        });
+        }
         
-        dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => {
-            item.addEventListener('click', function() {
-                dropdownMenu.classList.remove('show');
+        // Настройка обоих выпадающих меню
+        setupDropdown('adminDropdown', 'adminMenu');
+        setupDropdown('aboutDropdown', 'aboutMenu');
+        
+        // 3. Закрытие всех меню при клике вне их
+        document.addEventListener('click', function(e) {
+            // Закрыть мобильное меню
+            if (mainNav && !mainNav.contains(e.target) && 
+                mobileMenuButton && !mobileMenuButton.contains(e.target)) {
+                mainNav.classList.remove('mobile-open');
+            }
+            
+            // Закрыть все выпадающие меню
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                if (!menu.contains(e.target)) {
+                    // Проверяем, не кликнули ли по кнопке этого меню
+                    const dropdownId = menu.id.replace('Menu', 'Dropdown');
+                    const dropdownToggle = document.getElementById(dropdownId);
+                    
+                    if (!dropdownToggle || !dropdownToggle.contains(e.target)) {
+                        menu.classList.remove('show');
+                    }
+                }
             });
         });
-    }
-    
-    // НОВЫЙ КОД ДЛЯ МОБИЛЬНОГО МЕНЮ (добавьте это)
-    const mobileMenuButton = document.getElementById('mobileMenuButton');
-    const navbarNav = document.getElementById('navbarNav');
-    
-    if (mobileMenuButton && navbarNav) {
-        mobileMenuButton.addEventListener('click', function() {
-            navbarNav.classList.toggle('mobile-open');
+        
+        // 4. Предотвращение закрытия при клике внутри меню
+        if (mainNav) {
+            mainNav.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+        
+        // Добавляем обработчики для всех выпадающих меню
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
         });
         
-        // Закрытие мобильного меню при клике вне
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuButton.contains(e.target) && !navbarNav.contains(e.target)) {
-                navbarNav.classList.remove('mobile-open');
-            }
+        // 5. Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Закрыть меню на мобильных
+                    if (window.innerWidth <= 992 && mainNav) {
+                        mainNav.classList.remove('mobile-open');
+                    }
+                    
+                    // Закрыть все выпадающие меню
+                    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                    
+                    // Плавная прокрутка
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
-    }
-});
-</script>
+    });
+    
+    // Добавляем плавную прокрутку для всего сайта
+    window.addEventListener('DOMContentLoaded', () => {
+        document.documentElement.style.scrollBehavior = 'smooth';
+    });
+    </script>
 
 </body>
 </html>
