@@ -2485,11 +2485,14 @@ body {
 }
 
 /* Texte orange pour la dernière ligne du deuxième paragraphe depuis le bas */
-#forme-section .test-container.special .orange-line {
+#forme-section .test-container.special {
     color: #e0640c;
     font-weight: 600;
     display: block;
     margin-top: 5px;
+}
+.orange-line {
+color: #ff0000;
 }
 
 /* =========================
