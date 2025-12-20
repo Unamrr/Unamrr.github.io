@@ -879,7 +879,7 @@ header nav.liens-section::before {
 /* Иконки сдвигаем влево вместе с фоном */
 .i1 {
     display: block;
-    margin-left: -15px !important; /* Сдвиг иконок влево */
+    margin-left: -17px !important; /* Сдвиг иконок влево */
     margin-right: auto;
 }
 
