@@ -153,17 +153,17 @@ html, body {
 }
 
 /* НАВИГАЦИЯ - ВАШ СТАРЫЙ КОД, ТОЛЬКО ИСПРАВЛЕННЫЙ */
-header nav.liens-section {
+/*header nav.liens-section {
     position: relative;
     z-index: 10;
     padding: 30px 50px;
     display: flex;
-    justify-content: space-between; /* Лого слева, меню справа */
+    justify-content: space-between; /* Лого слева, меню справа *//*
     align-items: center;
 }
 
 /* Добавляем логотип через псевдоэлемент, чтобы не менять HTML */
-header nav.liens-section::before {
+/*header nav.liens-section::before {
     content: "DRUPAL";
     font-size: 24px;
     font-weight: bold;
@@ -171,7 +171,7 @@ header nav.liens-section::before {
 }
 
 /* ОСНОВНОЕ ИСПРАВЛЕНИЕ: делаем меню в строку */
-.navbar-nav.ms-auto {
+/*.navbar-nav.ms-auto {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -201,7 +201,7 @@ header nav.liens-section::before {
 /* ВАШ ОСТАЛЬНОЙ CSS ОСТАЁТСЯ БЕЗ ИЗМЕНЕНИЙ */
 
 /* Видео фон */
-.video-background {
+/*.video-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -227,7 +227,7 @@ header nav.liens-section::before {
 }
 
 /* Header container */
-.header-container {
+/*.header-container {
     position: relative;
     z-index: 1;
 }
@@ -305,7 +305,320 @@ header nav.liens-section::before {
     }
 }
 
+*/
+/* HEADER - ОСНОВНЫЕ СТИЛИ */
+header {
+    position: relative;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
 
+/* ВИДЕО ФОН */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5); /* Затемняем видео */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Дополнительное затемнение */
+    z-index: -1;
+}
+
+/* НАВИГАЦИЯ */
+header nav.liens-section {
+    position: relative;
+    z-index: 10;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Логотип слева */
+header nav.liens-section::before {
+    content: "DRUPAL";
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Меню справа в строку */
+.navbar-nav.ms-auto {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 25px !important;
+}
+
+.navbar-nav.ms-auto .nav-item {
+    display: inline-block !important;
+    float: none !important;
+    margin: 0 !important;
+}
+
+.navbar-nav.ms-auto .nav-link {
+    display: inline !important;
+    float: none !important;
+    white-space: nowrap !important;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 8px 12px !important;
+    text-transform: uppercase !important;
+}
+
+.navbar-nav.ms-auto .nav-link:hover {
+    color: #ff0000 !important;
+}
+
+/* Кнопка меню для мобильных */
+.navbar-toggler {
+    display: none;
+}
+
+/* ОСНОВНОЙ КОНТЕНТ ШАПКИ */
+.header-container {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+}
+
+.header-container .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+/* ГЛАВНАЯ СТРОКА С 2 КОЛОНКАМИ */
+.header-container .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+    min-height: 500px;
+}
+
+/* ЛЕВАЯ КОЛОНКА (45% ширины) */
+#text-gauche {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: left;
+}
+
+#text-gauche h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#text-gauche p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+#text-gauche button {
+    border: 3px solid #ff0000;
+    background-color: transparent;
+    padding: 15px 40px;
+    border-radius: 6px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#text-gauche button:hover {
+    background-color: #ff0000;
+}
+
+#text-gauche button a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ПРАВАЯ КОЛОНКА (55% ширины) */
+#text-droit {
+    flex: 0 0 55%;
+    max-width: 55%;
+}
+
+/* СЕТКА 3x2 (3 строки, 2 колонки) */
+.text {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 КОЛОНКИ */
+    grid-template-rows: repeat(3, auto);    /* 3 СТРОКИ */
+    gap: 40px 60px; /* 40px между строками, 60px между колонками */
+}
+
+/* КАЖДЫЙ БЛОК СТАТИСТИКИ */
+.texte {
+    position: relative;
+    padding-left: 20px;
+    min-height: 90px;
+}
+
+/* КРАСНАЯ ЛИНИЯ СЛЕВА */
+.texte::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 3px;
+    height: 50px;
+    background: #ff0000;
+    border-radius: 2px;
+}
+
+.texte h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+#cup {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    filter: invert(1);
+}
+
+.texte p {
+    margin: 0;
+    padding-left: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* АДАПТИВНОСТЬ */
+
+/* Планшеты */
+@media (max-width: 992px) {
+    header nav.liens-section {
+        padding: 20px 30px;
+    }
+    
+    .header-container .container {
+        padding: 0 30px;
+    }
+    
+    .header-container .row {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    #text-gauche,
+    #text-droit {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .text {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки на планшете */
+        gap: 30px;
+    }
+    
+    .navbar-nav.ms-auto {
+        gap: 15px !important;
+    }
+    
+    .navbar-nav.ms-auto .nav-link {
+        font-size: 12px !important;
+        padding: 6px 8px !important;
+    }
+}
+
+/* Мобильные телефоны */
+@media (max-width: 768px) {
+    .header-container {
+        padding-top: 60px;
+    }
+    
+    #text-gauche h1 {
+        font-size: 36px;
+    }
+    
+    #text-gauche p {
+        font-size: 16px;
+    }
+    
+    .text {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на мобильных */
+        gap: 25px;
+    }
+    
+    .texte h3 {
+        font-size: 28px;
+    }
+    
+    .texte p {
+        font-size: 13px;
+    }
+    
+    /* Скрываем меню, показываем кнопку */
+    .navbar-nav.ms-auto {
+        display: none !important;
+    }
+    
+    .navbar-toggler {
+        display: block;
+        background: none;
+        border: 1px solid white;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    .text {
+        grid-template-columns: 1fr; /* 1 колонка на очень маленьких экранах */
+    }
+    
+    #text-gauche h1 {
+        font-size: 30px;
+    }
+    
+    #text-gauche button {
+        padding: 12px 30px;
+        margin-top: 30px;
+    }
+}
 #competention > div > div {
     background-image: url(./photo_1.jpg);
     background-repeat: no-repeat;
