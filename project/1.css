@@ -2384,17 +2384,19 @@ body {
    SECTION
 ========================= */
 #forme-section {
-   position: relative;
-    background: url('druplicon.svg') no-repeat center center;
-    background-size: cover;
-    background-color: #000000;
+    position: relative;
+}
 
-    );
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 40px 0;
+#forme-section::before {
+    content: '';
+    position: absolute;
+    top: -50px; 
+    left: 0;
+    right: 0;
+    height: calc(100% + 50px); 
+    background: url('drupal-coder.svg') no-repeat center top;
+    background-size: cover;
+    z-index: -1; 
 }
 
 #forme-section .container {
