@@ -219,7 +219,7 @@ html, body {
 /* Отступы между строками */
 .mb-4 {
     margin-bottom: 1.5rem !important;
-    margin-left: 25px;
+    /*margin-left: 25px;*/
 }
 
 /* 2 колонки для мобильной версии */
