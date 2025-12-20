@@ -1686,11 +1686,11 @@ body {
 
 /* Разный фон для каруселей для визуального разделения */
 #carousel1 .client-logo {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
 }
 
 #carousel2 .client-logo {
-    background-color: #f1f3f5;
+    background-color: #ffffff;
 }
 
 /* Убираем стандартные стрелки */
