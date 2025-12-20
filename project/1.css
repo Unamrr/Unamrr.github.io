@@ -250,7 +250,10 @@ html, body {
 }
 
 /* Основной шрифт */
-
+.mb-4\..col-lg-8.col-xs-6.px-0 {
+    margin-bottom: 30px;
+    margin-left: 26px;
+}
 /* Розовый фон для КАЖДОГО отдельного блока с компетенцией */
 #competention .row .col-6 {
     background-image: url(./photo_1.jpg);
