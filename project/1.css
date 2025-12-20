@@ -265,7 +265,7 @@ header nav.liens-section::before {
 #text-gauche button {
     border: 3px solid #ff0000;
     background-color: transparent;
-    padding: 20px 80px;
+    padding: 15px 85px;
     border-radius: 6px;
     margin-top: 50px;
 }
