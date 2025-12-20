@@ -581,7 +581,187 @@ header nav.liens-section::before {
         margin-left: 5px;
         vertical-align: middle;
     }
+/* Показываем кнопку меню только на мобильных */
+.navbar-toggler {
+    display: none !important; /* Скрываем по умолчанию */
+    background: none;
+    border: 2px solid white;
+    border-radius: 4px;
+    color: white;
+    font-size: 24px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1001;
+}
 
+/* Логотип для мобильных */
+.mobile-logo {
+    display: none;
+}
+
+/* АДАПТИВНЫЕ СТИЛИ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ */
+@media (max-width: 992px) {
+    /* Шапка на мобильных */
+    header {
+        min-height: auto;
+        overflow: visible;
+    }
+    
+    /* Навигация на мобильных */
+    header nav.liens-section {
+        padding: 20px;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    
+    /* Показываем мобильное лого и кнопку меню */
+    .mobile-logo {
+        display: block;
+        order: 1;
+        flex: 1;
+    }
+    
+    .navbar-toggler {
+        display: block !important;
+        order: 2;
+    }
+    
+    /* Скрываем логотип из before на мобильных */
+    header nav.liens-section::before {
+        display: none;
+    }
+    
+    /* Меню на мобильных - скрыто по умолчанию */
+    .navbar-nav.ms-auto {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100%;
+        order: 3;
+        margin-top: 20px;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px;
+        border-radius: 8px;
+        gap: 10px !important;
+    }
+    
+    /* Когда меню открыто */
+    .navbar-nav.ms-auto.mobile-open {
+        display: flex !important;
+    }
+    
+    .navbar-nav.ms-auto .nav-item {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0 !important;
+    }
+    
+    .navbar-nav.ms-auto .nav-link {
+        font-size: 16px !important;
+        padding: 12px !important;
+        display: block !important;
+    }
+    
+    /* Выпадающее меню на мобильных */
+    .dropdown-menu.admin-menu {
+        position: static !important;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: none;
+        min-width: auto;
+    }
+    
+    /* Основной контент на мобильных */
+    .header-container {
+        padding-top: 30px;
+        background-size: 400px auto !important;
+    }
+    
+    .header-container .container {
+        padding: 0 20px;
+    }
+    
+    /* Строка с колонками на мобильных - вертикально */
+    .header-container .row {
+        flex-direction: column;
+        gap: 40px;
+        min-height: auto;
+    }
+    
+    /* Колонки на мобильных - на всю ширину */
+    #text-gauche,
+    #text-droit {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Заголовок и текст на мобильных */
+    #text-gauche h1 {
+        font-size: 32px;
+    }
+    
+    #text-gauche p {
+        font-size: 16px;
+    }
+    
+    #text-gauche button {
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    
+    /* Сетка статистики на мобильных - 1 колонка */
+    .text {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 20px !important;
+    }
+    
+    /* Блоки статистики на мобильных */
+    .texte {
+        min-height: auto;
+        padding-left: 15px;
+    }
+    
+    .texte::before {
+        height: 60px;
+    }
+    
+    .texte h3 {
+        font-size: 28px;
+    }
+    
+    .texte p {
+        font-size: 11px;
+    }
+    
+    #cup {
+        height: 40px;
+    }
+    
+    /* Видеофон на мобильных */
+    .video-background video {
+        filter: brightness(0.4);
+    }
+    
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* Дополнительно для очень маленьких экранов */
+@media (max-width: 576px) {
+    #text-gauche h1 {
+        font-size: 28px;
+    }
+    
+    .texte h3 {
+        font-size: 24px;
+    }
+    
+    .texte p {
+        font-size: 10px;
+    }
+}
 /* АДАПТИВНОСТЬ */
 
 /* Планшеты */
