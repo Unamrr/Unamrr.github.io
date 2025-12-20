@@ -2394,7 +2394,7 @@ body {
     left: 0;
     right: 0;
     height: calc(100% + 50px); 
-    background: url('druplicon.svg') no-repeat center top;
+    background-image: url('druplicon.svg') no-repeat center top;
     background-size: cover;
 	background-color: #000000;
     z-index: -1; 
