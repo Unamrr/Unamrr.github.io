@@ -872,7 +872,10 @@ header nav.liens-section::before {
     padding-bottom: 20px;
     z-index: 1;
 }
-
+.mb-4.col-lg-8.col-xs-6.px-0 {
+    margin-bottom: 1.5rem !important;
+    margin-left: 25px;
+}
 /* Иконки сдвигаем влево вместе с фоном */
 .i1 {
     display: block;
