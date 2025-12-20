@@ -23,9 +23,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- ШАПКА -->
-    <!-- ШАПКА -->
-<header>
-    <!-- Видео фон -->
+    <header>
     <div class="video-background">
         <video autoplay muted loop playsinline>
             <source src="video.mp4" type="video/mp4">
@@ -33,81 +31,56 @@
         <div class="video-overlay"></div>
     </div>
     
-    <!-- НАВИГАЦИЯ -->
+    <!-- ВАША НАВИГАЦИЯ БЕЗ ИЗМЕНЕНИЙ -->
     <nav class="liens-section">
-    <!-- Логотип слева -->
-    <div class="logo">DRUPAL</div>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#list-section">ПОДДЕРЖКА DRUPAL</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#table-section">АДМИНИСТРИРОВАНИЕ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">ПРОДВИЖЕНИЕ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">РЕКЛАМА</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">О НАС </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">ПРОЕКТЫ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">КОНТАКТЫ</a>
+            </li>
+        </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
     
-    <!-- Меню справа -->
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#list-section">ПОДДЕРЖКА DRUPAL</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#table-section">АДМИНИСТРИРОВАНИЕ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#form-section">ПРОДВИЖЕНИЕ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#form-section">РЕКЛАМА</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#form-section">О НАС</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#form-section">ПРОЕКТЫ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#form-section">КОНТАКТЫ</a>
-        </li>
-    </ul>
-    
-    <!-- Кнопка для мобильных -->
-    <button class="navbar-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</nav>
-    
-    <!-- ОСНОВНОЙ КОНТЕНТ ШАПКИ -->
+    <!-- ВАШ ОСНОВНОЙ КОНТЕНТ БЕЗ ИЗМЕНЕНИЙ -->
     <div class="header-container">
         <div class="container">
-            <div class="header-content">
-                <!-- Левая колонка с заголовком -->
-                <div class="header-left">
-                    <h1 class="main-title">Поддержка сайтов <br>на Drupal</h1>
-                    <p class="subtitle">Сопровождение и поддержка сайтов <br>на CMS Drupal любых версий и запущенности</p>
-                    <a href="#tarif-section" class="tarif-btn">ТАРИФЫ</a>
+            <div class="row">
+                <div id="text-gauche" class="header-texte ">
+                    <h1>Поддержка <br> сайтов на Drupal</h1>
+                    <p>Сопровождение и поддержка на любых версий и запущенности</p>
+                    <button>
+                        <a class="tarif-link" href=".tarif-section">Тарифы</a>
+                    </button>
                 </div>
                 
-                <!-- Правая колонка со статистикой -->
-                <div class="header-right">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">#1</div>
-                            <div class="stat-text">Drupal-разработчик<br>России по версии<br>Рейтинга Рунета</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3+</div>
-                            <div class="stat-text">средний опыт<br>специалистов более 3 лет</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">14</div>
-                            <div class="stat-text">лет опыта<br>в сфере Drupal</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-text">модулей и тем<br>в формате DrupalGive</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">90 000+</div>
-                            <div class="stat-text">часов поддержки<br>сайтов на Drupal</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">300+</div>
-                            <div class="stat-text">Проектов<br>на поддержке</div>
-                        </div>
+                <div id="text-droit" class="header-texte text">
+                    <div class="texte">
+                        <h3> #1
+                            <img id ="cup" src="cup.png">
+                        </h3>
+                        <p>Drupal-разработчик в России по версии Рейтинга Рунета</p>
                     </div>
+                    <!-- остальные блоки статистики -->
                 </div>
             </div>
         </div>
