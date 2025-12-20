@@ -2122,10 +2122,142 @@ img, svg{
 
 /* АДАПТИВНОСТЬ */
 
+/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
 
+/* Планшеты и маленькие экраны */
+@media (max-width: 992px) {
+    .two-columns {
+        flex-direction: column;
+        gap: 20px;
+        min-height: auto;
+    }
+    
+    .left-column {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        order: 1; /* Левая колонка становится первой */
+    }
+    
+    .right-column {
+        order: 2; /* Правая колонка становится второй */
+    }
+    
+    .cases-split h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
+    .img-bottom-left {
+        height: 300px;
+    }
+    
+    .top-right {
+        height: 300px;
+        min-height: 300px;
+    }
+}
+
+/* Мобильные телефоны */
 @media (max-width: 768px) {
-    .cases-split h1 {    /**/
+    .cases-split h1 {
         font-size: 28px;
-	}
+        margin-bottom: 25px;
+    }
+    
+    /* ВСЕ картинки в колонку друг за другом */
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Все изображения одного размера */
+    .img-top-left,
+    .img-middle-left,
+    .img-bottom-left,
+    .top-right,
+    .bottom-right-left,
+    .small-top,
+    .small-bottom {
+        height: 250px !important; /* Одинаковая высота */
+        min-height: 250px !important;
+        flex: none !important;
+        width: 100% !important;
+    }
+    
+    /* Разбираем .bottom-right на отдельные картинки */
+    .bottom-right {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        height: auto !important;
+    }
+    
+    /* Порядок картинок: p1, p2, p4, p3, p5, p6, p7 */
+    .img-top-left { order: 1; }     /* p1 */
+    .img-middle-left { order: 2; }  /* p2 */
+    .top-right { order: 3; }        /* p4 */
+    .img-bottom-left { order: 4; }  /* p3 */
+    
+    /* p5 */
+    .bottom-right-left:first-child { 
+        order: 5;
+        height: 250px !important;
+    }
+    
+    /* p6 и p7 */
+    .bottom-right-left:last-child {
+        order: 6;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .small-top { order: 1; }    /* p6 */
+    .small-bottom { order: 2; } /* p7 */
+    
+    /* Убираем ненужные стили */
+    .two-columns {
+        gap: 15px;
+    }
+    
+    .cases-split {
+        padding: 20px 15px;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    .cases-split h1 {
+        font-size: 24px;
+    }
+    
+    .img-top-left,
+    .img-middle-left,
+    .img-bottom-left,
+    .top-right,
+    .bottom-right-left,
+    .small-top,
+    .small-bottom {
+        height: 200px !important;
+        min-height: 200px !important;
+    }
+    
+    .case-content h2 {
+        font-size: 20px;
+    }
+    
+    .case-content p {
+        font-size: 14px;
+    }
+}
     
 
