@@ -353,17 +353,17 @@ header nav.liens-section {
 }
 
 /* Логотип слева */
+/* Логотип слева как изображение */
 header nav.liens-section::before {
-    content: "rupal"; /* Только текст */
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    padding-left: 30px; /* Место для картинки D */
-    background: url('drupal-coder.svg') no-repeat left center;
-    background-size: 20px 20px; /* Размер картинки */
-    height: 30px;
-    display: flex;
-    align-items: center;
+    content: ""; /* Убираем текст */
+    display: inline-block;
+    width: 150px; /* Ширина логотипа */
+    height: 40px; /* Высота логотипа */
+    background-image: url('drupal-coder.svg');
+    background-repeat: no-repeat;
+    background-size: contain; /* Сохраняет пропорции */
+    background-position: left center;
+    font-size: 0; /* Скрываем возможный текст */
 }
 
 /* Меню справа в строку */
