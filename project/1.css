@@ -253,20 +253,22 @@ header nav.liens-section::before {
     font-size: 48px;
     line-height: 1.2;
     margin-bottom: 20px;
+	color: white;
 }
 
 #text-gauche p {
     font-size: 18px;
     margin-bottom: 25px;
+	color: grey;
 }
 
 #text-gauche button {
     border: 3px solid #ff0000;
     background-color: transparent;
-    padding: 14px 28px;
+    padding: 20px 80px;
     border-radius: 6px;
+    margin-top: 50px;
 }
-
 #text-gauche button a {
     color: #fff;
     text-decoration: none;
