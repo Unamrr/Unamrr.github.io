@@ -23,6 +23,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
       <!-- ШАПКА -->
+	<!-- ШАПКА -->
 	<header>
             <div class="video-background">
                 <video autoplay muted loop playsinline>
@@ -35,9 +36,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#list-section">ПОДДЕРЖКА DRUPAL</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#table-section">АДМИНИСТРИРОВАНИЕ</a>
-                    </li>
+                    <li class="nav-item dropdown">
+                <!-- Добавляем класс dropdown и data-атрибут для работы JS -->
+                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button">
+                    АДМИНИСТРИРОВАНИЕ ▼
+                </a>
+                <!-- Само выпадающее меню -->
+                <div class="dropdown-menu admin-menu" id="adminMenu">
+                    <a class="dropdown-item" href="#">МИГРАЦИЯ</a>
+                    <a class="dropdown-item" href="#">БЭКАПЫ</a>
+                    <a class="dropdown-item" href="#">АУДИТ БЕЗОПАСНОСТИ</a>
+                    <a class="dropdown-item" href="#">ОПТИМИЗАЦИЯ СКОРОСТИ</a>
+                    <a class="dropdown-item" href="#">ПЕРЕЕЗД НА HTTPS</a>
+            </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#form-section">ПРОДВИЖЕНИЕ</a>
                     </li>
@@ -110,7 +121,7 @@
                 </button>-->
             </div>
         </header>
-   
+    <header>
 	<!-- Подержка -->
 	<section class="support-section">
         <div class="container">
@@ -1373,6 +1384,32 @@ document.addEventListener('DOMContentLoaded', function() {
         links.forEach(link => {
             link.addEventListener('click', function() {
                 menu.classList.remove('show');
+            });
+        });
+    });
+</script>
+		<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownToggle = document.getElementById('adminDropdown');
+        const dropdownMenu = document.getElementById('adminMenu');
+        
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+        
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+        
+        // Закрытие меню при клике на пункт меню
+        dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                dropdownMenu.classList.remove('show');
             });
         });
     });
