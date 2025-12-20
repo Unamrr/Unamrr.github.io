@@ -129,9 +129,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#list-section">ПОДДЕРЖКА DRUPAL</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#table-section">АДМИНИСТРИРОВАНИЕ</a>
-                    </li>
+                    <li class="nav-item dropdown">
+                <!-- Добавляем класс dropdown и data-атрибут для работы JS -->
+                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button">
+                    АДМИНИСТРИРОВАНИЕ ▼
+                </a>
+                <!-- Само выпадающее меню -->
+                <div class="dropdown-menu admin-menu" id="adminMenu">
+                    <a class="dropdown-item" href="#">МИГРАЦИЯ</a>
+                    <a class="dropdown-item" href="#">БЭКАПЫ</a>
+                    <a class="dropdown-item" href="#">АУДИТ БЕЗОПАСНОСТИ</a>
+                    <a class="dropdown-item" href="#">ОПТИМИЗАЦИЯ СКОРОСТИ</a>
+                    <a class="dropdown-item" href="#">ПЕРЕЕЗД НА HTTPS</a>
+            </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#form-section">ПРОДВИЖЕНИЕ</a>
                     </li>
@@ -547,27 +557,33 @@
         });
     });
 </script>
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownToggle = document.getElementById('adminDropdown');
+        const dropdownMenu = document.getElementById('adminMenu');
+        
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+        
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+        
+        // Закрытие меню при клике на пункт меню
+        dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                dropdownMenu.classList.remove('show');
+            });
+        });
+    });
+</script>
 </body>
 </html>
 
 
-  <!--Drupal-->
-	 <section id="form-section">
-            <div class="container">
-                <div class="row">
-                    <!-- Левая колонка с текстом -->
-                    <div id="img" class="col-12 col-md-6 mb-5 mb-md-0">
-                        <img class = "i1"src = "laptop.svg">
-                    </div>
-                    
-                    <!-- Правая колонка с формой -->
-                    <div id="form" class="col-12 col-md-6">
-                       
-                    <h1 class="titre2">Экпертита в Drupal, опыт 14 лет</h1>		
-						<p class = "t1">Только системный подход-контроль версий, зезервирование и тестирование!</p>   
-                    </div>
-                </div>
-            </div>
-        </section>
-   
-  
