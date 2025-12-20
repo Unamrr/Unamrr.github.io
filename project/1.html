@@ -22,109 +22,118 @@
       
 </head>
 <body class="d-flex flex-column min-vh-100">
-      <!-- ШАПКА -->
-	<!-- ШАПКА -->
-	<header>
-            <div class="video-background">
-                <video autoplay muted loop playsinline>
-                    <source src="video.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay"></div>
-            </div>
-            <nav class="liens-section">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#list-section">ПОДДЕРЖКА DRUPAL</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a href="#" id="adminDropdown">АДМИНИСТРИРОВАНИЕ ▼</a>
-                    <div class="dropdown-menu" id="adminMenu">
-                        <a class="dropdown-item" href="#">МИГРАЦИЯ</a>
-                        <a class="dropdown-item" href="#">БЭКАПЫ</a>
-                        <a class="dropdown-item" href="#">АУДИТ БЕЗОПАСНОСТИ</a>
-                        <a class="dropdown-item" href="#">ОПТИМИЗАЦИЯ СКОРОСТИ</a>
-                        <a class="dropdown-item" href="#">ПЕРЕЕЗД НА HTTPS</a>
+      <header>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
+    <nav class="liens-section">
+        <!-- Логотип для мобильных (добавьте этот div) -->
+        <div class="mobile-logo"></div>
+        
+        <!-- Кнопка меню для мобильных -->
+        <button class="navbar-toggler" id="mobileMenuButton">
+            <span class="navbar-toggler-icon">☰</span>
+        </button>
+        
+        <!-- Основное меню -->
+        <ul class="navbar-nav ms-auto" id="mainNav">
+            <li class="nav-item">
+                <a class="nav-link" href="#list-section">ПОДДЕРЖКА DRUPAL</a>
+            </li>
+            
+            <!-- МЕНЮ 1: АДМИНИСТРИРОВАНИЕ -->
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link" id="adminDropdown">
+                    АДМИНИСТРИРОВАНИЕ ▼
+                </a>
+                <div class="dropdown-menu" id="adminMenu">
+                    <a class="dropdown-item" href="#">МИГРАЦИЯ</a>
+                    <a class="dropdown-item" href="#">БЭКАПЫ</a>
+                    <a class="dropdown-item" href="#">АУДИТ БЕЗОПАСНОСТИ</a>
+                    <a class="dropdown-item" href="#">ОПТИМИЗАЦИЯ СКОРОСТИ</a>
+                    <a class="dropdown-item" href="#">ПЕРЕЕЗД НА HTTPS</a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">ПРОДВИЖЕНИЕ</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">РЕКЛАМА</a>
+            </li>
+            
+            <!-- МЕНЮ 2: О НАС (исправлено - уникальные ID) -->
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link" id="aboutDropdown">
+                    О НАС ▼
+                </a>
+                <div class="dropdown-menu" id="aboutMenu">
+                    <a class="dropdown-item" href="#">КОМАНДА</a>
+                    <a class="dropdown-item" href="#">DRUPALGIVE</a>
+                    <a class="dropdown-item" href="#">БЛОГ</a>
+                    <a class="dropdown-item" href="#">КУРСЫ DRUPAL</a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">ПРОЕКТЫ</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#form-section">КОНТАКТЫ</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Остальной контент остается БЕЗ изменений -->
+    <div class="header-container">
+        <div class="container">
+            <div class="row">
+                <div id="text-gauche" class="header-texte">
+                    <h1>Поддержка <br> сайтов на Drupal</h1>
+                    <p>Сопровождение и поддержка сайтов на любых версий и запущенности</p>
+                    <button>
+                        <a class="tarif-link" href="#tarif-section">ТАРИФЫ</a>
+                    </button>
+                </div>
+                
+                <div id="text-droit" class="header-texte text">
+                    <div class="texte">
+                        <h3> #1
+                            <img id="cup" src="cup.png">
+                        </h3>
+                        <p>Drupal-разработчик в России по версии Рейтинга Рунета</p>
                     </div>
-                </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">ПРОДВИЖЕНИЕ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">РЕКЛАМА</a>
-                    </li>
-                   <li class="nav-item dropdown">
-                    <a href="#" id="adminDropdown">О НАС ▼</a>
-                    <div class="dropdown-menu" id="adminMenu">
-                        <a class="dropdown-item" href="#">КОМАНДА</a>
-                        <a class="dropdown-item" href="#">DRUPALGIVE</a>
-                        <a class="dropdown-item" href="#">БЛОГ</a>
-                        <a class="dropdown-item" href="#">КУРСЫ DRUPAL</a>
+                    <div class="texte">
+                        <h3>3+</h3>
+                        <p>средний опыт специалистов более 3 лет</p>
                     </div>
-                </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">ПРОЕКТЫ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#form-section">КОНТАКТЫ</a>
-                    </li>
-                </ul>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-            <div class="header-container">
-                <div class="container">
-                    <div class="row">
-                        <!-- Левая колонка с текстом -->
-                        <div id="text-gauche" class="header-texte ">
-                            <h1>Поддержка <br> сайтов на Drupal</h1>
-                            <p>Сопровождение и поддержка сайтов на любых версий и запущенности</p>
-                            <button >
-                                <a class="tarif-link" href="#tarif-section">ТАРИФЫ</a>
-                            </button>
-                        </div>
-                        <!-- Справая колонка с текстом -->
-                         
-                        <div id="text-droit" class="header-texte text">
-                            <div class="texte">
-                                <h3> #1
-                                    <img id ="cup" src="cup.png">
-                                </h3>
-                                <p>Drupal-разработчник в Роосии по версии Рейтинга Рунета</p>
-                            </div>
-                            <div class="texte">
-                                <h3>3+</h3>
-                                <p>средний опыт специалистов более 3 лет</p>
-                            </div>
-                            <div class="texte">
-                                <h3>14</h3>
-                                <p>лет опыта в сфере Drupal</p>
-                            </div>
-                            <div class="texte">
-                                <h3>50+</h3>
-                                <p>модулей и тем в формате DrupalGive</p>
-                            </div>
-                            <div class="texte">
-                                <h3>90 000+</h3>
-                                <p>часов поддержки сайтов на Drupal</p>
-                            </div>
-                            <div class="texte">
-                                <h3>300+</h3>
-                                <p>Проектов на поддержке</p>
-                            </div>
-                    
-                        </div>
-
+                    <div class="texte">
+                        <h3>14</h3>
+                        <p>лет опыта в сфере Drupal</p>
+                    </div>
+                    <div class="texte">
+                        <h3>50+</h3>
+                        <p>модулей и тем в формате DrupalGive</p>
+                    </div>
+                    <div class="texte">
+                        <h3>90 000+</h3>
+                        <p>часов поддержки сайтов на Drupal</p>
+                    </div>
+                    <div class="texte">
+                        <h3>300+</h3>
+                        <p>Проектов на поддержке</p>
                     </div>
                 </div>
-                <!-- Кнопка меню для мобильных -->
-                <!--
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon">bouton</span>
-                </button>-->
             </div>
-        </header>
+        </div>
+    </div>
+</header>
     <main>
 		 <!-- Компетенции -->
      <section id="table-section" class="py-5">
@@ -1425,68 +1434,84 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSlider();
     console.log('Слайдер готов! Всего карточек:', total);
 });
- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Элементы меню
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mainNav = document.getElementById('mainNav');
-        const adminDropdown = document.getElementById('adminDropdown');
-        const adminMenu = document.getElementById('adminMenu');
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Мобильное меню
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mainNav = document.getElementById('mainNav');
+    
+    if (mobileMenuButton && mainNav) {
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mainNav.classList.toggle('mobile-open');
+        });
+    }
+    
+    // 2. Функция для выпадающих меню
+    function setupDropdown(dropdownId, menuId) {
+        const dropdown = document.getElementById(dropdownId);
+        const menu = document.getElementById(menuId);
         
-        // 1. Мобильное меню
-        if (mobileMenuButton && mainNav) {
-            mobileMenuButton.addEventListener('click', function(e) {
-                e.stopPropagation();
-                mainNav.classList.toggle('mobile-open');
-            });
-        }
-        
-        // 2. Выпадающее меню "Администрирование"
-        if (adminDropdown && adminMenu) {
-            adminDropdown.addEventListener('click', function(e) {
+        if (dropdown && menu) {
+            dropdown.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                adminMenu.classList.toggle('show');
+                
+                // На мобильных
+                if (window.innerWidth <= 768) {
+                    menu.classList.toggle('show');
+                } 
+                // На десктопе
+                else {
+                    document.querySelectorAll('.dropdown-menu.show').forEach(m => {
+                        if (m !== menu) m.classList.remove('show');
+                    });
+                    menu.classList.toggle('show');
+                }
             });
             
-            // Закрытие при клике на пункт меню
-            adminMenu.querySelectorAll('.dropdown-item').forEach(item => {
+            // Закрытие при клике на пункт
+            menu.querySelectorAll('.dropdown-item').forEach(item => {
                 item.addEventListener('click', function() {
-                    adminMenu.classList.remove('show');
+                    menu.classList.remove('show');
                 });
             });
         }
-        
-        // 3. Закрытие всех меню при клике вне их
-        document.addEventListener('click', function(e) {
-            // Закрыть мобильное меню
-            if (mainNav && !mainNav.contains(e.target) && 
-                mobileMenuButton && !mobileMenuButton.contains(e.target)) {
+    }
+    
+    // Настраиваем оба меню
+    setupDropdown('adminDropdown', 'adminMenu');
+    setupDropdown('aboutDropdown', 'aboutMenu');
+    
+    // 3. Закрытие всех меню при клике вне
+    document.addEventListener('click', function(e) {
+        // Закрыть мобильное меню
+        if (mainNav && mobileMenuButton) {
+            if (!mobileMenuButton.contains(e.target) && !mainNav.contains(e.target)) {
                 mainNav.classList.remove('mobile-open');
             }
+        }
+        
+        // Закрыть выпадающие меню
+        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+            const dropdownId = menu.id.replace('Menu', 'Dropdown');
+            const dropdown = document.getElementById(dropdownId);
             
-            // Закрыть выпадающее меню
-            if (adminMenu && adminDropdown && 
-                !adminMenu.contains(e.target) && 
-                !adminDropdown.contains(e.target)) {
-                adminMenu.classList.remove('show');
+            if (dropdown && !dropdown.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('show');
             }
         });
-        
-        // 4. Предотвращение закрытия при клике внутри меню
-        if (mainNav) {
-            mainNav.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        }
-        
-        if (adminMenu) {
-            adminMenu.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
+    });
+    
+    // 4. Закрыть меню при изменении размера окна
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && mainNav) {
+            mainNav.classList.remove('mobile-open');
         }
     });
-    </script>
+});
+</script>
 
 </body>
 </html>
