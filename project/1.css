@@ -1005,16 +1005,18 @@ ul.ul {
 }  /*ОТЗЫВЫ*/
 /* Стили для секции отзывов */
 .reviews-container {
-    max-width: 900px;
+    
+    max-width: unset;
     margin: 0 auto;
     position: relative;
     padding-top: 90px;
     padding-left: 20px;
     padding-right: 20px;
     box-sizing: border-box;
-    background: url(./right-quote-sign.svg) no-repeat left top;
-    background-size: 250px;
+    background: url("./right-quote-sign.svg") no-repeat left top;
+    background-size: 360px;
     width: auto;
+
 }
 
 .section-title {
@@ -1040,6 +1042,9 @@ ul.ul {
 
 .review-card.active {
     display: block;
+    width: 800px;
+    padding-left: 50px;
+    margin-left: 310px;
 }
 
 @keyframes fadeIn {
@@ -1208,7 +1213,7 @@ ul.ul {
     top: 0;
     bottom: 0;
     width: 1px;
-    background: #e0e0e0;
+    background: #ffffff;/*тут поменяла с серого наверно*/
 }
 
 /* Специальные стили для некоторых отзывов */
