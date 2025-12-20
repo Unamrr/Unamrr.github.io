@@ -354,10 +354,16 @@ header nav.liens-section {
 
 /* Логотип слева */
 header nav.liens-section::before {
-    content: "DRUPAL";
+    content: "rupal"; /* Только текст */
     font-size: 24px;
     font-weight: bold;
     color: white;
+    padding-left: 30px; /* Место для картинки D */
+    background: url('drupal-coder.svg') no-repeat left center;
+    background-size: 20px 20px; /* Размер картинки */
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 
 /* Меню справа в строку */
