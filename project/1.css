@@ -532,6 +532,55 @@ header nav.liens-section::before {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+.dropdown-menu.admin-menu {
+        display: none;
+        position: absolute;
+        background-color: #d00; /* Красный цвет как на скриншоте */
+        border: none;
+        border-radius: 0;
+        padding: 20px;
+        min-width: 300px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+    
+    .dropdown-menu.admin-menu.show {
+        display: block;
+    }
+    
+    .dropdown-item {
+        color: white;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        text-decoration: none;
+        display: block;
+        transition: background 0.3s;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255,255,255,0.1);
+        color: white;
+    }
+    
+    .dropdown-divider {
+        border-top: 1px solid rgba(255,255,255,0.3);
+        margin: 10px 0;
+    }
+    
+    .dropdown-item strong {
+        font-weight: bold;
+        color: white;
+    }
+    
+    .nav-item.dropdown {
+        position: relative;
+    }
+    
+    .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: middle;
+    }
 
 /* АДАПТИВНОСТЬ */
 
