@@ -2389,6 +2389,7 @@ body {
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
+	background-color:#000000;
     margin-top: -100px; 
     padding-top: 100px;
 }
