@@ -2037,7 +2037,7 @@ body {
 
 /* Нижняя часть - 2 колонки */
 .bottom-right {
-	flex: 1;
+	/*flex: 1;*/
     display: flex;
     gap: 20px;
     height: 390px;
@@ -2078,7 +2078,7 @@ img, svg{
 /* СТИЛИ ДЛЯ ВСЕХ ИЗОБРАЖЕНИЙ */
 .cases-split img {
     width: 100%;
-    height: 100%;
+   /* height: 100%;*/
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
