@@ -351,6 +351,7 @@ header nav.liens-section {
     justify-content: space-between;
     align-items: center;
 	background: rgba(0, 0, 0, 0.8) url("./druplicon.svg") no-repeat left top;
+	background-size: 705px 799px;
 }
 
 /* Логотип слева */
@@ -411,6 +412,7 @@ header nav.liens-section::before {
     z-index: 1;
     padding-top: 100px;
 	background: rgba(0, 0, 0, 0.8) url("./druplicon.svg") no-repeat left top;
+	background-size: 802px 604px;
 }
 
 .header-container .container {
@@ -515,8 +517,8 @@ header nav.liens-section::before {
 }
 
 #cup {
-    width: 24px;
-    height: 24px;
+    
+    height: 54px;
     margin-left: 10px;
     /*filter: invert(1);*/
 }
