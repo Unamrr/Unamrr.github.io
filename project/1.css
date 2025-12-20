@@ -410,7 +410,7 @@ header nav.liens-section::before {
     position: relative;
     z-index: 1;
     padding-top: 100px;
-	background: rgba(0, 0, 0, 0.8) url(/themes/custom/bootstrap_dc/images/druplicon.svg) no-repeat left top;
+	background: rgba(0, 0, 0, 0.8) url("./druplicon.svg") no-repeat left top;
 }
 
 .header-container .container {
