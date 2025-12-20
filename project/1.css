@@ -152,81 +152,155 @@ html, body {
     font-family: 'Montserrat', 'Roboto', sans-serif !important;
 }
 
-/* НАВИГАЦИЯ - ОБЩИЕ СТИЛИ */
+/* НАВИГАЦИЯ - ВАШ СТАРЫЙ КОД, ТОЛЬКО ИСПРАВЛЕННЫЙ */
 header nav.liens-section {
     position: relative;
     z-index: 10;
     padding: 30px 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Лого слева, меню справа */
     align-items: center;
-    width: 100%;
 }
 
-/* ЛОГОТИП - добавим через HTML */
-.logo {
+/* Добавляем логотип через псевдоэлемент, чтобы не менять HTML */
+header nav.liens-section::before {
+    content: "DRUPAL";
     font-size: 24px;
     font-weight: bold;
     color: white;
 }
 
-/* МЕНЮ СПРАВА */
-.navbar-nav {
-    display: flex !important; /* Важно: переопределяем Bootstrap */
+/* ОСНОВНОЕ ИСПРАВЛЕНИЕ: делаем меню в строку */
+.navbar-nav.ms-auto {
+    display: flex !important;
     flex-direction: row !important;
+    flex-wrap: nowrap !important;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    gap: 30px;
+    gap: 20px !important;
 }
 
-.navbar-nav .nav-item {
+.navbar-nav.ms-auto .nav-item {
+    display: inline-block !important;
+    float: none !important;
     margin: 0 !important;
-    padding: 0 !important;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav.ms-auto .nav-link {
+    display: inline !important;
+    float: none !important;
+    white-space: nowrap !important;
     color: white !important;
     text-decoration: none !important;
     font-size: 14px !important;
     font-weight: 600 !important;
-    text-transform: uppercase !important;
     padding: 8px 12px !important;
-    transition: color 0.3s !important;
-    background: none !important;
-    border: none !important;
 }
 
-.navbar-nav .nav-link:hover {
-    color: #ff0000 !important;
+/* ВАШ ОСТАЛЬНОЙ CSS ОСТАЁТСЯ БЕЗ ИЗМЕНЕНИЙ */
+
+/* Видео фон */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
 }
 
-/* Убираем Bootstrap стили */
-.navbar-nav.ms-auto {
-    margin-left: auto !important;
-    margin-right: 0 !important;
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Кнопка меню */
-.navbar-toggler {
-    display: none !important;
-    background: none !important;
-    border: 1px solid white !important;
-    color: white !important;
-    padding: 8px 12px !important;
-    border-radius: 4px !important;
-    cursor: pointer !important;
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Сильнее затемнение */
+    z-index: -1;
 }
 
-/* Убираем стандартную иконку Bootstrap */
-.navbar-toggler-icon {
-    background-image: none !important;
+/* Header container */
+.header-container {
+    position: relative;
+    z-index: 1;
 }
 
-.navbar-toggler-icon::before {
-    content: "☰";
-    color: white;
-    font-size: 20px;
+.header-container .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-container .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#text-gauche {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: left;
+}
+
+#text-gauche h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+#text-gauche p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+#text-gauche button {
+    border: 3px solid #ff0000;
+    background-color: transparent;
+    padding: 14px 28px;
+    border-radius: 6px;
+}
+
+#text-gauche button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.text {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 50px;
+}
+
+.text h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+    white-space: nowrap;
+    border-left: 3.5px solid #ff0000;
+    padding-left: 10px;
+}
+
+.text p {
+    margin: 0;
+    padding-left: 14px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #d1d1d1;
+}
+
+@media (max-width: 768px) {
+    .text {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 }
 
 
