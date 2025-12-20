@@ -1812,10 +1812,12 @@ body {
 
 /*TARIF SECTION */
 .tarif-section {
-    font-family: "Inter", sans-serif;
+    /*font-family: "Inter", sans-serif;*/
     color: #222;
     text-align: center;
     padding: 40px 0;
+	background: url("./D-background-opacity.svg") no-repeat right top, #fff;
+    background-size: 58%;
 }
 
 .tarif-tittle h2 {
