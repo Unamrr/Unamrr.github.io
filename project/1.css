@@ -2508,7 +2508,7 @@ color: #ff0000;
 
     /* Contenu au bord */
     #forme-section .content-col {
-        padding: 0;
+        padding: 5;
         order: 2;
     }
 
@@ -2531,17 +2531,6 @@ color: #ff0000;
         padding-left: 0;
     }
 
-    /* MODIFICATION PRINCIPALE ICI */
-    /* Tous les paragraphes à 4 lignes sur mobile */
-    #forme-section .test-container .mots {
-        max-height: 78px; /* 4 lignes exactes (13px × 1.5 × 4 = 78px) */
-        overflow: hidden;
-    }
-    
-    /* Dernier paragraphe à 2 lignes sur mobile */
-    #forme-section .test-container:last-child .mots {
-        max-height: 39px; /* 2 lignes exactes (13px × 1.5 × 2 = 39px) */
-    }
 
     #forme-section .mots {
         font-size: 13px;
