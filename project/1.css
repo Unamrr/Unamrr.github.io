@@ -1953,178 +1953,174 @@ body {
 }
 
 /* =========================
-   IMAGE - MODIFICATIONS SPÉCIFIQUES
+   SECTION
 ========================= */
-
-/* Conteneur de l'image - décalé vers la gauche */
-#forme-section .image-col {
+#forme-section {
     position: relative;
-    padding-top: 160px;
-    padding-right: 0; /* Enlève le padding droit Bootstrap */
-    padding-left: 0;  /* Enlève le padding gauche Bootstrap */
-    margin-left: -15px; /* Compense le padding du container */
+    margin-top: -150px;
+    padding-top: 150px;
+    overflow: hidden;
+    background: none;
 }
 
-/* L'image elle-même */
-#forme-section .laptop {
-    position: relative;
-    width: calc(100% + 150px); /* Étend l'image vers la gauche */
-    max-width: none !important; /* Override Bootstrap */
-    left: -100px; /* Décale encore plus à gauche */
-    bottom: -60px; /* Fait descendre sous le fond */
+#forme-section::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 150px);
+    background:
+        url('druplicon.svg') center top / cover no-repeat,
+        #000000;
+    z-index: -1;
+}
+
+#forme-section .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* =========================
+   IMAGE – FULL LEFT
+========================= */
+#forme-section .image-col {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    padding-top: 160px;
     z-index: 2;
+}
+
+#forme-section .laptop {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    margin-left: 0;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
 }
 
-/* Pour les grands écrans, agrandissez encore */
-@media (min-width: 1400px) {
-    #forme-section .laptop {
-        width: calc(100% + 200px);
-        left: -150px;
-        bottom: -80px;
-    }
-}
-
-/* Ajustement de la colonne texte pour ne pas être cachée */
+/* =========================
+   TEXTE
+========================= */
 #forme-section .content-col {
-    padding: 110px 80px 110px 80px; /* Augmentez le padding gauche */
+    padding: 110px 80px 110px 60px;
     color: #ffffff;
     transform: translateY(-30px);
+}
+
+#forme-section .titre2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 48px;
+    color: #ffffff;
+}
+
+/* =========================
+   FEATURES – DESKTOP
+========================= */
+#forme-section .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 56px;
+    row-gap: 32px;
+    max-width: 520px;
+}
+
+/* =========================
+   BLOC TEXTE
+========================= */
+#forme-section .test-container {
     position: relative;
-    z-index: 3;
+    padding-left: 22px;
+    display: flex;
+    align-items: flex-start;
+}
+
+#forme-section .test-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #ff3b3b;
+    border-radius: 2px;
+}
+
+#forme-section .mots {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #d6dae3;
+}
+
+/* LIENS ORANGE */
+#forme-section .test-container.special a.orange-line,
+#forme-section .test-container.special a.orange-line:visited {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+#forme-section .test-container.special a.orange-line:hover {
+    text-decoration: underline;
 }
 
 /* =========================
    MOBILE
 ========================= */
 @media (max-width: 991px) {
-    #forme-section .image-col {
-        padding-top: 60px; /* Réduit l'espace en haut sur mobile */
-        margin-left: 0; /* Réinitialise sur mobile */
-        padding-left: 15px; /* Rétablit le padding Bootstrap */
-    }
-    
-    #forme-section .laptop {
-        width: 100%; /* Reprend la largeur normale sur mobile */
-        max-width: 100% !important;
-        left: 0;
-        bottom: -40px; /* Descend un peu quand même */
-        margin-left: -30px; /* Dépasse un peu à gauche */
-    }
-    
-    #forme-section .content-col {
-        padding: 40px 20px 60px 20px;
-        transform: none;
-    }
-}
 
-/* =========================
-   VERSION ALTERNATIVE - Avec position: absolute
-========================= */
-/* Si la solution ci-dessus ne suffit pas, utilisez celle-ci : */
-
-#forme-section {
-    position: relative;
-    overflow: visible !important; /* Important pour voir ce qui dépasse */
-}
-
-#forme-section .image-col {
-    position: relative;
-    padding-top: 160px;
-    height: 600px; /* Donne une hauteur fixe au conteneur */
-}
-
-#forme-section .laptop {
-    position: absolute;
-    width: 750px; /* Largeur fixe */
-    max-width: none;
-    left: -250px; /* Dépasse largement à gauche */
-    bottom: -100px; /* Dépasse en bas */
-    z-index: 2;
-}
-
-/* Ajustez selon la taille de votre image */
-@media (min-width: 1400px) {
-    #forme-section .laptop {
-        width: 850px;
-        left: -300px;
-        bottom: -120px;
-    }
-}
-
-@media (max-width: 1200px) {
-    #forme-section .laptop {
-        width: 650px;
-        left: -180px;
-        bottom: -80px;
-    }
-}
-
-/* Mobile - repasse en relative */
-@media (max-width: 991px) {
-    #forme-section .image-col {
-        height: auto;
-        padding-top: 40px;
-    }
-    
-    #forme-section .laptop {
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-        left: 0;
-        bottom: -40px;
-        margin-left: -50px;
-    }
-}
-
-/* =========================
-   SOLUTION LA PLUS SÛRE - Avec margins négatives
-========================= */
-#forme-section .image-col {
-    position: relative;
-    padding-top: 160px;
-    margin-left: -100px; /* Décale toute la colonne vers la gauche */
-    margin-right: 50px; /* Compense pour garder l'espace */
-}
-
-#forme-section .laptop {
-    width: 120%; /* Plus large que la colonne */
-    max-width: none;
-    margin-left: -50px; /* Décale dans la colonne */
-    margin-bottom: -80px; /* Fait descendre */
-    display: block;
-}
-
-/* Ajustement du conteneur parent */
-#forme-section .container {
-    overflow: visible; /* Permet aux enfants de dépasser */
-}
-
-/* Grands écrans */
-@media (min-width: 1400px) {
-    #forme-section .image-col {
-        margin-left: -150px;
-    }
-    
-    #forme-section .laptop {
-        width: 130%;
-        margin-left: -80px;
-        margin-bottom: -100px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 991px) {
-    #forme-section .image-col {
-        margin-left: -30px;
-        margin-right: 0;
+    #forme-section {
+        margin-top: 0;
         padding-top: 60px;
     }
-    
+
+    #forme-section .image-col {
+        position: relative;
+        width: 100%;
+        padding-top: 0;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
     #forme-section .laptop {
-        width: 110%;
-        margin-left: -20px;
-        margin-bottom: -50px;
+        max-width: 80%;
+    }
+
+    #forme-section .content-col {
+        padding: 0;
+        transform: none;
+    }
+
+    #forme-section .titre2 {
+        font-size: 26px;
+        margin-bottom: 36px;
+        text-align: left;
+    }
+
+    #forme-section .features {
+        grid-template-columns: 1fr;
+        row-gap: 36px;
+        max-width: 100%;
+    }
+}
+
+/* =========================
+   TRÈS PETITS ÉCRANS
+========================= */
+@media (max-width: 576px) {
+
+    #forme-section .titre2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    #forme-section .laptop {
+        max-width: 90%;
     }
 }
 
