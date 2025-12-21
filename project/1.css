@@ -2494,15 +2494,14 @@ body {
     margin-top: 5px;
 }
 
-#forme-section .test-container.special a.orange-line {
-	color: #ff0000;
+#forme-section .test-container.special a.orange-line,
+#forme-section .test-container.special a.orange-line:visited {
+    color: #ff0000 !important;
     text-decoration: none !important;
 }
+
 #forme-section .test-container.special a.orange-line:hover {
     text-decoration: underline !important;
-}
-#forme-section .test-container.special a.orange-line:visited {
-    color: #ff0000;
 }
 
 
