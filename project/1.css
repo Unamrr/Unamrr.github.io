@@ -1959,7 +1959,6 @@ body {
     position: relative;
     margin-top: -150px;
     padding-top: 150px;
-    overflow: hidden;
     background: none;
 }
 
@@ -1983,22 +1982,19 @@ body {
 }
 
 /* =========================
-   IMAGE – FULL LEFT
+   IMAGE
 ========================= */
 #forme-section .image-col {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50vw;
+    position: relative;
     padding-top: 160px;
-    z-index: 2;
 }
 
 #forme-section .laptop {
-    display: block;
-    width: 100%;
-    max-width: 720px;
-    margin-left: 0;
+    position: relative;
+    max-width: 100%;
+    left: -60px;
+    bottom: -30px;
+    z-index: 2;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
 }
 
@@ -2011,6 +2007,7 @@ body {
     transform: translateY(-30px);
 }
 
+/* TITRE */
 #forme-section .titre2 {
     font-size: 36px;
     font-weight: 700;
@@ -2020,7 +2017,7 @@ body {
 }
 
 /* =========================
-   FEATURES – DESKTOP
+   FEATURES — DESKTOP
 ========================= */
 #forme-section .features {
     display: grid;
@@ -2038,8 +2035,10 @@ body {
     padding-left: 22px;
     display: flex;
     align-items: flex-start;
+    font-weight: normal;
 }
 
+/* BARRE ROUGE VERTICALE */
 #forme-section .test-container::before {
     content: "";
     position: absolute;
@@ -2051,49 +2050,49 @@ body {
     border-radius: 2px;
 }
 
+/* TEXTE */
 #forme-section .mots {
     margin: 0;
     font-size: 13px;
     line-height: 1.5;
     color: #d6dae3;
+    font-weight: normal;
 }
 
-/* LIENS ORANGE */
+/* LIGNE ORANGE SPÉCIALE */
+#forme-section .test-container.special {
+    color: #e0640c;
+    font-weight: normal;
+    display: block;
+    margin-top: 5px;
+}
+
+/* LIENS */
 #forme-section .test-container.special a.orange-line,
 #forme-section .test-container.special a.orange-line:visited {
-    color: #ff0000;
-    text-decoration: none;
+    color: #ff0000 !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
 }
 
 #forme-section .test-container.special a.orange-line:hover {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 
 /* =========================
-   MOBILE
+   MOBILE — TEXTE D'ABORD, PUIS IMAGE
 ========================= */
 @media (max-width: 991px) {
-
-    #forme-section {
-        margin-top: 0;
-        padding-top: 60px;
+    #forme-section .row {
+        flex-direction: column;
     }
 
-    #forme-section .image-col {
-        position: relative;
-        width: 100%;
-        padding-top: 0;
-        text-align: left;
-        margin-bottom: 40px;
-    }
-
-    #forme-section .laptop {
-        max-width: 80%;
-    }
-
+    /* Contenu - TEXTE EN PREMIER (order: 1) */
     #forme-section .content-col {
-        padding: 0;
+        padding: 40px 0 20px 0;
+        order: 1; /* Texte en premier */
         transform: none;
+        text-align: left;
     }
 
     #forme-section .titre2 {
@@ -2102,10 +2101,45 @@ body {
         text-align: left;
     }
 
+    /* Features */
     #forme-section .features {
         grid-template-columns: 1fr;
         row-gap: 36px;
         max-width: 100%;
+    }
+
+    /* Image - APRES LE TEXTE (order: 2) */
+    #forme-section .image-col {
+        padding-top: 40px; /* Espace entre texte et image */
+        text-align: center;
+        order: 2; /* Image après le texte */
+    }
+
+    #forme-section .laptop {
+        left: 0;
+        bottom: 0;
+        max-width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* BLOC TEXTE */
+    #forme-section .test-container {
+        padding-left: 18px;
+        font-weight: normal;
+    }
+
+    #forme-section .mots {
+        font-size: 13px;
+        line-height: 1.5;
+        font-weight: normal;
+    }
+
+    #forme-section .test-container.special .orange-line {
+        display: block;
+        margin-top: 5px;
+        font-weight: normal !important;
+        color: #ff0000 !important;
     }
 }
 
@@ -2113,14 +2147,29 @@ body {
    TRÈS PETITS ÉCRANS
 ========================= */
 @media (max-width: 576px) {
+    #forme-section {
+        padding: 20px 0;
+    }
 
     #forme-section .titre2 {
         font-size: 22px;
         margin-bottom: 20px;
     }
 
+    #forme-section .content-col {
+        padding: 20px 0 10px 0;
+    }
+
+    #forme-section .features {
+        row-gap: 32px;
+    }
+
+    #forme-section .image-col {
+        padding-top: 30px;
+    }
+
     #forme-section .laptop {
-        max-width: 90%;
+        max-width: 95%;
     }
 }
 
