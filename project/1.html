@@ -1484,9 +1484,10 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Слайдер готов! Всего карточек:', total);
 });
 </script>
+	<!-- шапка-->
 	<script>
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Мобильное меню
+    // 1. Мобильное меню (кнопка ☰)
     const mobileMenuButton = document.getElementById('mobileMenuButton');
     const mainNav = document.getElementById('mainNav');
     
@@ -1495,6 +1496,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             e.stopPropagation();
             mainNav.classList.toggle('mobile-open');
+            this.classList.toggle('active');
         });
     }
     
@@ -1508,23 +1510,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // На мобильных
+                // Для мобильных
                 if (window.innerWidth <= 768) {
+                    // Переключаем класс для стрелочки
+                    this.classList.toggle('open');
+                    // Переключаем видимость меню
                     menu.classList.toggle('show');
+                    
+                    // Закрываем другие открытые меню
+                    document.querySelectorAll('.dropdown-menu').forEach(m => {
+                        if (m !== menu && m.classList.contains('show')) {
+                            m.classList.remove('show');
+                            const otherDropdownId = m.id.replace('Menu', 'Dropdown');
+                            const otherDropdown = document.getElementById(otherDropdownId);
+                            if (otherDropdown) otherDropdown.classList.remove('open');
+                        }
+                    });
                 } 
-                // На десктопе
+                // Для десктопа
                 else {
+                    // Закрываем другие меню
                     document.querySelectorAll('.dropdown-menu.show').forEach(m => {
                         if (m !== menu) m.classList.remove('show');
                     });
+                    // Открываем/закрываем текущее
                     menu.classList.toggle('show');
                 }
             });
             
-            // Закрытие при клике на пункт
+            // Закрытие при клике на пункт меню
             menu.querySelectorAll('.dropdown-item').forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function(e) {
                     menu.classList.remove('show');
+                    if (dropdown) dropdown.classList.remove('open');
+                    
+                    // На мобильных закрываем главное меню
+                    if (window.innerWidth <= 768 && mainNav) {
+                        mainNav.classList.remove('mobile-open');
+                        if (mobileMenuButton) mobileMenuButton.classList.remove('active');
+                    }
                 });
             });
         }
@@ -1540,26 +1564,53 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mainNav && mobileMenuButton) {
             if (!mobileMenuButton.contains(e.target) && !mainNav.contains(e.target)) {
                 mainNav.classList.remove('mobile-open');
+                mobileMenuButton.classList.remove('active');
             }
         }
         
-        // Закрыть выпадающие меню
-        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-            const dropdownId = menu.id.replace('Menu', 'Dropdown');
-            const dropdown = document.getElementById(dropdownId);
-            
-            if (dropdown && !dropdown.contains(e.target) && !menu.contains(e.target)) {
-                menu.classList.remove('show');
-            }
-        });
+        // Закрыть выпадающие меню на десктопе
+        if (window.innerWidth > 768) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                const dropdownId = menu.id.replace('Menu', 'Dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown && !dropdown.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.remove('show');
+                }
+            });
+        }
     });
     
     // 4. Закрыть меню при изменении размера окна
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && mainNav) {
-            mainNav.classList.remove('mobile-open');
+        if (window.innerWidth > 768) {
+            // На десктопе - закрываем мобильное меню
+            if (mainNav) {
+                mainNav.classList.remove('mobile-open');
+                mainNav.style.display = 'flex !important';
+            }
+            if (mobileMenuButton) mobileMenuButton.classList.remove('active');
+            
+            // Закрываем все выпадающие меню (будут открываться по hover на десктопе)
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+            document.querySelectorAll('.nav-link.open').forEach(link => {
+                link.classList.remove('open');
+            });
+        } else {
+            // На мобильных - скрываем меню по умолчанию
+            if (mainNav) {
+                mainNav.style.display = 'none !important';
+                mainNav.classList.remove('mobile-open');
+            }
         }
     });
+    
+    // 5. Инициализация - на мобильных скрываем меню по умолчанию
+    if (window.innerWidth <= 768 && mainNav) {
+        mainNav.style.display = 'none !important';
+    }
 });
 </script>
 
