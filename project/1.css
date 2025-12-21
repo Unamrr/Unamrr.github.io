@@ -519,7 +519,8 @@ header nav.liens-section::before {
 /*support-section*/
 .support-section {
             padding: 70px 0;
-            background: #ffffff;
+            position: relative;
+  			z-index: 1;
         }
 .support-section .container {
     max-width: 1400px;
