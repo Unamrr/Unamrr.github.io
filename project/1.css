@@ -2195,24 +2195,6 @@ body {
         max-width: 85%;
     }
 }
-@media (max-width: 991px) {
-    /* FORCER l'ordre et la séparation */
-    #forme-section .row {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    #forme-section .content-col,
-    #forme-section .image-col {
-        width: 100%;
-        flex: 0 0 auto;
-    }
-    
-    /* S'assurer qu'il y a assez d'espace entre texte et image */
-    #forme-section .content-col {
-        margin-bottom: 40px;
-    }
-}
 
 
 
