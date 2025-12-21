@@ -3389,3 +3389,19 @@ img, svg{
 }
 
 
+
+/* CENTRER LES IMAGES SUR MOBILE */
+@media (max-width: 991px) {
+    /* Centrer le contenu de chaque carte */
+    .service-card {
+        text-align: center;
+    }
+
+    /* Ajuster la taille de l'image si besoin */
+    .service-card .service-icon {
+        display: inline-block;
+        max-width: 70%; 
+        height: auto;
+    }
+}
+
