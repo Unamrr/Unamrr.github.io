@@ -2501,7 +2501,7 @@ color: #ff0000;
 
     /* Image au bord et plus petite */
     #forme-section .image-col {
-        padding-top: 5;
+        padding-top: 0;
         text-align: left;
         order: 1;
     }
@@ -2514,7 +2514,7 @@ color: #ff0000;
 
     /* Contenu au bord */
     #forme-section .content-col {
-        padding: 10;
+        padding: 0;
         order: 2;
     }
 
