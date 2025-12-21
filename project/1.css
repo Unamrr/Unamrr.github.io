@@ -624,7 +624,7 @@ header nav.liens-section::before {
 .dropdown-menu.admin-menu {
         display: none;
         position: absolute;
-        background-color: #d00; /* Красный цвет как на скриншоте */
+        background-color: #ce0000; /* Красный цвет как на скриншоте */
         border: none;
         border-radius: 0;
         padding: 20px;
@@ -956,9 +956,9 @@ header nav.liens-section::before {
 /* ===================== */
 
 /* На очень маленьких экранах показываем кнопку меню */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     /* Фиксируем навигацию сверху на мобильных */
-    header nav.liens-section {
+    /*header nav.liens-section {
         position: fixed;
         top: 0;
         left: 0;
@@ -969,12 +969,12 @@ header nav.liens-section::before {
     }
     
     /* Скрываем логотип из before */
-    header nav.liens-section::before {
+    /*header nav.liens-section::before {
         display: none;
     }
     
     /* Показываем логотип как картинку */
-    .mobile-logo {
+    /*.mobile-logo {
         display: block;
         width: 120px;
         height: 30px;
@@ -986,7 +986,7 @@ header nav.liens-section::before {
     }
     
     /* Показываем кнопку меню */
-    .navbar-toggler {
+    /*.navbar-toggler {
         display: block !important;
         order: 2;
         background: none;
@@ -1000,7 +1000,7 @@ header nav.liens-section::before {
     }
     
     /* Основное меню - скрыто по умолчанию, вертикальное */
-    .navbar-nav.ms-auto {
+    /*.navbar-nav.ms-auto {
         display: none !important;
         position: fixed;
         top: 70px;
@@ -1017,7 +1017,7 @@ header nav.liens-section::before {
     }
     
     /* Когда меню открыто */
-    .navbar-nav.ms-auto.mobile-open {
+    /*.navbar-nav.ms-auto.mobile-open {
         display: flex !important;
     }
     
@@ -1037,16 +1037,16 @@ header nav.liens-section::before {
     }
     
     /* Стрелочка для выпадающих пунктов */
-    .nav-item.dropdown > .nav-link::after {
+   /* .nav-item.dropdown > .nav-link::after {
         content: "▼";
         font-size: 12px;
         margin-left: 10px;
     }
     
     /* Выпадающие меню на мобильных */
-    .dropdown-menu {
+   /* .dropdown-menu {
         /*position: static !important;*/
-        width: 100%;
+       /* width: 100%;
         margin: 0;
         padding: 0;
         background: rgba(221, 0, 0, 0.9);
@@ -1054,7 +1054,7 @@ header nav.liens-section::before {
         display: none;
     }
     
-    .dropdown-menu.show {
+   /* .dropdown-menu.show {
         display: block !important;
     }
     
@@ -1065,12 +1065,12 @@ header nav.liens-section::before {
     }
     
     /* Отступ для контента под фиксированным меню */
-    .header-container {
+    /*.header-container {
         padding-top: 100px;
     }
     
     /* Контент на мобильных */
-    .header-container .container {
+    /*.header-container .container {
         padding: 0 20px;
     }
     
@@ -1101,7 +1101,7 @@ header nav.liens-section::before {
     }
     
     /* Статистика - 1 колонка на мобильных */
-    .text {
+    /*.text {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
     }
@@ -1119,13 +1119,13 @@ header nav.liens-section::before {
     }
     
     /* Видеофон на мобильных */
-    .video-background {
+   /* .video-background {
         height: 100vh;
     }
 }
 
 /* Для планшетов (768px - 992px) */
-@media (min-width: 769px) and (max-width: 992px) {
+/*@media (min-width: 769px) and (max-width: 992px) {
     .navbar-nav.ms-auto {
         gap: 15px !important;
     }
@@ -1150,8 +1150,317 @@ header nav.liens-section::before {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
+}*/
+/* МОБИЛЬНЫЕ СТИЛИ - ИСПРАВЛЕННЫЕ */
+@media (max-width: 768px) {
+    /* Фиксируем навигацию сверху на мобильных */
+    header nav.liens-section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 15px 20px;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+    
+    /* Скрываем логотип из before */
+    header nav.liens-section::before {
+        display: none;
+    }
+    
+    /* Показываем логотип как картинку */
+    .mobile-logo {
+        display: block !important;
+        width: 120px;
+        height: 30px;
+        background-image: url('drupal-coder.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: left center;
+        flex: 1;
+    }
+    
+    /* Показываем кнопку меню */
+    .navbar-toggler {
+        display: block !important;
+        background: none;
+        border: 2px solid white;
+        border-radius: 4px;
+        color: white;
+        font-size: 24px;
+        padding: 5px 10px;
+        cursor: pointer;
+        z-index: 1001;
+        margin-left: auto;
+    }
+    
+    /* Основное меню - скрыто по умолчанию, вертикальное */
+    .navbar-nav.ms-auto {
+        display: none !important;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column !important;
+        padding: 20px;
+        margin: 0 !important;
+        gap: 0 !important;
+        z-index: 999;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+    
+    /* Когда меню открыто */
+    .navbar-nav.ms-auto.mobile-open {
+        display: flex !important;
+    }
+    
+    .navbar-nav.ms-auto .nav-item {
+        width: 100%;
+        text-align: left;
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .navbar-nav.ms-auto .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-nav.ms-auto .nav-link {
+        font-size: 16px !important;
+        padding: 15px 0 !important;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        color: white !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+    }
+    
+    .navbar-nav.ms-auto .nav-link:hover {
+        color: #ff0000 !important;
+    }
+    
+    /* Стрелочка для выпадающих пунктов */
+    .nav-item.dropdown > .nav-link::after {
+        content: "▼";
+        font-size: 12px;
+        margin-left: 10px;
+        transition: transform 0.3s;
+    }
+    
+    .nav-item.dropdown > .nav-link.open::after {
+        transform: rotate(180deg);
+    }
+    
+    /* Выпадающие меню на мобильных */
+    .dropdown-menu {
+        position: static !important;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgba(221, 0, 0, 0.9);
+        box-shadow: none;
+        display: none;
+        border-radius: 0;
+        border: none;
+    }
+    
+    .dropdown-menu.show {
+        display: block !important;
+    }
+    
+    .dropdown-item {
+        padding: 12px 15px 12px 25px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .dropdown-item:last-child {
+        border-bottom: none;
+    }
+    
+    /* Отступ для контента под фиксированным меню */
+    .header-container {
+        padding-top: 100px;
+    }
+    
+    /* Контент на мобильных */
+    .header-container .container {
+        padding: 0 20px;
+    }
+    
+    .header-container .row {
+        flex-direction: column;
+        gap: 40px;
+        min-height: auto;
+    }
+    
+    #text-gauche,
+    #text-droit {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    #text-gauche h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+    
+    #text-gauche p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    #text-gauche button {
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    #text-gauche button a {
+        display: block;
+    }
+    
+    /* Статистика - 1 колонка на мобильных */
+    .text {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .texte {
+        padding-left: 15px;
+        min-height: auto;
+        margin-bottom: 10px;
+    }
+    
+    .texte::before {
+        height: 60px;
+        top: 0;
+    }
+    
+    .texte h3 {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+    
+    .texte p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+    
+    #cup {
+        height: 40px;
+        margin-left: 10px;
+    }
+    
+    /* Видеофон на мобильных */
+    .video-background {
+        height: 100vh;
+        position: fixed;
+    }
+    
+    .header-container {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
 }
 
+/* Для планшетов (768px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    header nav.liens-section {
+        padding: 20px 30px;
+    }
+    
+    .navbar-nav.ms-auto {
+        gap: 15px !important;
+    }
+    
+    .navbar-nav.ms-auto .nav-link {
+        font-size: 12px !important;
+        padding: 6px 8px !important;
+    }
+    
+    .text {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px !important;
+    }
+    
+    .header-container .row {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    #text-gauche,
+    #text-droit {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .texte::before {
+        height: 70px;
+    }
+}
+
+/* Десктопные выпадающие меню */
+@media (min-width: 769px) {
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #d00;
+        border: none;
+        padding: 15px;
+        min-width: 250px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+    
+    .dropdown-menu.show {
+        display: block;
+    }
+    
+    .dropdown-item {
+        color: white;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        text-decoration: none;
+        display: block;
+        white-space: nowrap;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .dropdown-item:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-item.dropdown {
+        position: relative;
+    }
+}
 
 #competention > div > div {
     background-image: url(./photo_1.jpg);
