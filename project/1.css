@@ -1960,7 +1960,6 @@ body {
     margin-top: -150px;
     padding-top: 150px;
     background: none;
-    overflow: hidden; /* Empêche le débordement */
 }
 
 #forme-section::before {
@@ -1977,9 +1976,9 @@ body {
 }
 
 #forme-section .container {
-    max-width: 1200px; /* Légèrement augmenté */
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 0 30px; /* Plus d'espace sur les côtés */
+    padding: 0 15px;
 }
 
 /* =========================
@@ -1995,8 +1994,8 @@ body {
 
 #forme-section .laptop {
     position: relative;
-    max-width: 120%; /* Réduit de 130% à 120% */
-    left: -40px; /* Réduit le décalage */
+    max-width: 130%; /* Plus large pour déborder */
+    left: -60px;
     bottom: -30px;
     z-index: 2;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
@@ -2006,10 +2005,9 @@ body {
    TEXTE
 ========================= */
 #forme-section .content-col {
-    padding: 110px 40px 110px 80px; /* Ajusté les paddings */
+    padding: 110px 80px 110px 60px;
     color: #ffffff;
     transform: translateY(-30px);
-    width: 100%;
 }
 
 /* TITRE */
@@ -2019,7 +2017,6 @@ body {
     line-height: 1.25;
     margin-bottom: 48px;
     color: #ffffff;
-    max-width: 500px; /* Limite la largeur du titre */
 }
 
 /* =========================
@@ -2028,9 +2025,9 @@ body {
 #forme-section .features {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 60px; /* Augmenté l'espace entre colonnes */
+    column-gap: 56px;
     row-gap: 32px;
-    max-width: 540px; /* Légèrement augmenté */
+    max-width: 520px;
 }
 
 /* =========================
@@ -2042,7 +2039,6 @@ body {
     display: flex;
     align-items: flex-start;
     font-weight: normal;
-    min-height: 60px; /* Hauteur minimale */
 }
 
 /* BARRE ROUGE VERTICALE */
@@ -2064,7 +2060,6 @@ body {
     line-height: 1.5;
     color: #d6dae3;
     font-weight: normal;
-    word-break: keep-all; /* Évite les césures indésirables */
 }
 
 /* LIGNE ORANGE SPÉCIALE */
@@ -2091,18 +2086,14 @@ body {
    MOBILE — TEXTE D'ABORD, PUIS IMAGE
 ========================= */
 @media (max-width: 991px) {
-    #forme-section .container {
-        padding: 0 20px;
-    }
-    
     #forme-section .image-col {
         padding-top: 40px;
         justify-content: center;
-        order: 2;
+        order: 2; 
     }
 
     #forme-section .laptop {
-        max-width: 70%; /* Réduit sur mobile */
+        max-width: 80%;
         left: 0;
         bottom: 0;
     }
@@ -2110,33 +2101,30 @@ body {
     #forme-section .content-col {
         padding: 60px 0 0 0;
         transform: none;
-        order: 1;
+        order: 1; 
     }
 
     #forme-section .titre2 {
         font-size: 26px;
         margin-bottom: 36px;
         text-align: left;
-        max-width: 100%;
     }
 
-    /* Features - une seule colonne sur mobile */
+    /* Features */
     #forme-section .features {
         grid-template-columns: 1fr;
         row-gap: 36px;
         max-width: 100%;
-        column-gap: 0;
     }
 
     /* BLOC TEXTE */
     #forme-section .test-container {
         padding-left: 18px;
-        min-height: auto;
     }
 
     #forme-section .mots {
-        font-size: 14px; /* Légèrement plus grand sur mobile */
-        line-height: 1.6;
+        font-size: 13px;
+        line-height: 1.5;
     }
 
     #forme-section .test-container.special .orange-line {
@@ -2144,25 +2132,6 @@ body {
         margin-top: 5px;
         font-weight: normal !important;
         color: #ff0000 !important;
-    }
-}
-
-/* =========================
-   AJUSTEMENTS POUR TABLETTES
-========================= */
-@media (min-width: 992px) and (max-width: 1199px) {
-    #forme-section .laptop {
-        max-width: 110%;
-        left: -30px;
-    }
-    
-    #forme-section .content-col {
-        padding: 110px 30px 110px 60px;
-    }
-    
-    #forme-section .features {
-        column-gap: 40px;
-        max-width: 500px;
     }
 }
 
@@ -2192,10 +2161,9 @@ body {
     }
 
     #forme-section .laptop {
-        max-width: 85%;
+        max-width: 95%;
     }
 }
-
 
 
 
