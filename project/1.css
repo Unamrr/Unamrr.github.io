@@ -1858,7 +1858,7 @@ header nav.liens-section::before {
 .social-icons i {
     font-size: 16px; /* Уменьшаем размер иконок */
 }
-.fa-vk:before {
+/*.fa-vk:before {
     content: '';
     background-image: url("./f.jpg");
     background-repeat: no-repeat;
@@ -1867,7 +1867,7 @@ header nav.liens-section::before {
     display: inline-block;
     width: 24px;
     height: 24px;
-}
+}*/
 /* Адаптивность для мобильных */
 @media (max-width: 576px) {
     .social-icons a {
