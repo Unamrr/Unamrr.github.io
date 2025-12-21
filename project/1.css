@@ -2390,8 +2390,9 @@ body {
     background-position: center top;
     background-size: cover;
 	background-color:#000000;
-    margin-top: -100px; 
-    padding-top: 100px;
+    margin-top: -200px; 
+    padding-top: 200px;
+	background-attachment: scroll;
 }
 
 #forme-section .container {
@@ -2417,9 +2418,7 @@ body {
     filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
 }
 
-/* =========================
-   TEXTE
-========================= */
+/* TEXTE */
 #forme-section .content-col {
     padding: 110px 80px 110px 60px;
     color: #ffffff;
@@ -2435,9 +2434,7 @@ body {
     color: #ffffff;
 }
 
-/* =========================
-   FEATURES — 2 COLONNES DESKTOP
-========================= */
+/*FEATURES — 2 COLONNES DESKTOP*/
 #forme-section .features {
     display: grid;
     grid-template-columns: 1fr 1fr;
