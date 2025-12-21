@@ -2474,16 +2474,6 @@ body {
     color: #d6dae3;
     overflow: hidden;
 }
-
-/* Hauteur exacte des paragraphes */
-#forme-section .test-container:not(.last) .mots {
-    max-height: 78px;  /* 4 lignes exactes */
-}
-
-#forme-section .test-container.last .mots {
-    max-height: 39px;  /* 2 lignes exactes */
-}
-
 /* Texte orange pour la dernière ligne du deuxième paragraphe depuis le bas */
 #forme-section .test-container.special {
     color: #e0640c;
