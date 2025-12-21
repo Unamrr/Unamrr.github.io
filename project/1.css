@@ -2501,7 +2501,7 @@ color: #ff0000;
 
     /* Image au bord et plus petite */
     #forme-section .image-col {
-        padding-top: 0;
+        padding-top: 5;
         text-align: left;
         order: 1;
     }
@@ -2575,18 +2575,6 @@ color: #ff0000;
     
     #forme-section .features {
         row-gap: 32px;
-    }
-    
-    /* APPLIQUER LES MÊMES RÈGLES POUR TRÈS PETITS ÉCRANS */
-    /* Tous les paragraphes à 4 lignes */
-    #forme-section .test-container .mots {
-        max-height: 78px; /* 4 lignes exactes */
-        overflow: hidden;
-    }
-    
-    /* Dernier paragraphe à 2 lignes */
-    #forme-section .test-container:last-child .mots {
-        max-height: 39px; /* 2 lignes exactes */
     }
     
     #forme-section .laptop {
