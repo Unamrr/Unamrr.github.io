@@ -2374,9 +2374,9 @@ i.fas.fa-chevron-left:before {
 
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    /*font-family: system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-        "Helvetica Neue", Arial, sans-serif;
+        "Helvetica Neue", Arial, sans-serif;*/
     background-color: #ffffff;
     line-height: 1.6;
 }
@@ -3264,7 +3264,7 @@ img, svg{
 /* SECTION ÉQUIPE – GLOBAL */
 
 #team-section {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
 }
 
 #team-section h2 {
