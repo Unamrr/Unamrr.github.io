@@ -2422,7 +2422,7 @@ body {
     position: relative;
     max-width: 100%;
     left: -60px;
-    bottom: 0 ;
+    bottom: -30px;
     z-index: 2;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
 }
@@ -2596,6 +2596,7 @@ body {
         max-width: 90%;
     }
 }
+
 
 
 
