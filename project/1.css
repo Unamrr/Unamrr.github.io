@@ -2386,18 +2386,18 @@ body {
 ========================= */
 #forme-section {
     position: relative;
-    margin-top: -150px;
-    padding-top: 150px;
+    margin-top: -120px;  /* réduit le chevauchement avec le pseudo-élément */
+    padding-top: 170px;  /* espace en haut pour image et texte */
     background: none;
 }
 
 #forme-section::before {
     content: '';
     position: absolute;
-    top: -150px;
+    top: -120px; /* aligné avec margin-top */
     left: 0;
     width: 100%;
-    height: calc(100% + 150px);
+    height: calc(100% + 120px);
     background:
         url('druplicon.svg') center top / cover no-repeat,
         #000000;
@@ -2416,13 +2416,14 @@ body {
 #forme-section .image-col {
     position: relative;
     padding-top: 160px;
+    text-align: center; /* centre l'image sur mobile */
 }
 
 #forme-section .laptop {
     position: relative;
+    left: -30px;  /* léger ajustement horizontal */
+    bottom: -20px; /* descend l'image */
     max-width: 100%;
-    left: -60px;
-    bottom: -30px;
     z-index: 2;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
 }
@@ -2431,9 +2432,9 @@ body {
    TEXTE
 ========================= */
 #forme-section .content-col {
-    padding: 110px 80px 110px 60px;
+    padding: 130px 80px 110px 60px; /* descendre le texte */
     color: #ffffff;
-    transform: translateY(-30px);
+    transform: translateY(0); /* supprime le translate précédent */
 }
 
 /* TITRE */
@@ -2464,7 +2465,7 @@ body {
     padding-left: 22px;
     display: flex;
     align-items: flex-start;
-    font-weight: normal; /* tout texte normal */
+    font-weight: normal; /* texte normal */
 }
 
 /* BARRE ROUGE VERTICALE */
@@ -2485,13 +2486,13 @@ body {
     font-size: 13px;
     line-height: 1.5;
     color: #d6dae3;
-    font-weight: normal; /* texte normal */
+    font-weight: normal;
 }
 
 /* LIGNE ORANGE SPÉCIALE */
 #forme-section .test-container.special {
     color: #e0640c;
-    font-weight: normal; /* plus de gras */
+    font-weight: normal;
     display: block;
     margin-top: 5px;
 }
@@ -2519,8 +2520,8 @@ body {
 
     /* Image */
     #forme-section .image-col {
-        padding-top: 0;
-        text-align: left;
+        padding-top: 20px; /* réduit pour mobile */
+        text-align: center; /* centre l'image */
         order: 1;
     }
 
@@ -2532,7 +2533,9 @@ body {
 
     /* Contenu */
     #forme-section .content-col {
-        padding: 0;
+        padding-top: 30px; /* espace au-dessus du texte */
+        padding-left: 15px;
+        padding-right: 15px;
         order: 2;
         transform: none;
     }
@@ -2553,7 +2556,7 @@ body {
     /* BLOC TEXTE — espace pour la barre verticale */
     #forme-section .test-container {
         padding-left: 18px;
-        font-weight: normal; /* texte normal */
+        font-weight: normal;
     }
 
     #forme-section .mots {
@@ -2585,7 +2588,7 @@ body {
     }
 
     #forme-section .content-col {
-        padding: 0;
+        padding: 0 15px;
     }
 
     #forme-section .features {
@@ -2596,6 +2599,7 @@ body {
         max-width: 90%;
     }
 }
+
 
 
 
