@@ -2501,6 +2501,9 @@ body {
 #forme-section .test-container.special a.orange-line:hover {
     text-decoration: underline !important;
 }
+#forme-section .test-container.special a.orange-line:visited {
+    color: #ff0000;
+}
 
 
 
