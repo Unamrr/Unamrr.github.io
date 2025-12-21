@@ -3413,4 +3413,18 @@ img, svg{
         height: auto;
     }
 }
+#services-list > div > div {
+    background-image: url(./photo_1.jpg);
+    background-repeat: no-repeat;
+    background-size: 111px;
+    padding-bottom: 20px;
+    background-position: -9px 18px;
+    padding-left: 500px;
+}
+#services-list > div > div {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    z-index: 1;
+}
 
