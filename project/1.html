@@ -340,14 +340,9 @@
 <!--Drupal-->
 <section id="forme-section">
 
-    <!-- IMAGE COLLÉE AU BORD GAUCHE -->
-    <div class="image-col">
-        <img class="laptop img-fluid" src="laptop.png" alt="Drupal Expert">
-    </div>
-
-    <!-- CONTENU CENTRÉ -->
+    <!-- TEXTE (toujours en premier dans le HTML) -->
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
 
             <div class="col-12 col-md-6 content-col">
                 <h1 class="titre2">Экспертиза в Drupal, опыт 14 лет!</h1>
@@ -390,10 +385,19 @@
                 </div>
             </div>
 
+            <!-- COLONNE VIDE POUR L'IMAGE (desktop) -->
+            <div class="d-none d-md-block col-md-6"></div>
+
         </div>
     </div>
 
+    <!-- IMAGE FULL LEFT -->
+    <div class="image-col">
+        <img class="laptop img-fluid" src="laptop.png" alt="Drupal Expert">
+    </div>
+
 </section>
+
 
 
 	<!--Tarif section -->
