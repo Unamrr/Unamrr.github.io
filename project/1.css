@@ -2385,23 +2385,23 @@ body {
    SECTION
 ========================= */
 #forme-section {
-  position: relative;
-  margin-top: -150px;
-  padding-top: 150px;
-  background: none;
+    position: relative;
+    margin-top: -150px;
+    padding-top: 150px;
+    background: none;
 }
 
 #forme-section::before {
-  content: '';
-  position: absolute;
-  top: -150px; /* Même valeur que margin-top */
-  left: 0;
-  width: 100%;
-  height: calc(100% + 150px);
-  background: 
-    url('druplicon.svg') center top/cover no-repeat,
-    #000000;
-  z-index: -1;
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 150px);
+    background:
+        url('druplicon.svg') center top / cover no-repeat,
+        #000000;
+    z-index: -1;
 }
 
 #forme-section .container {
@@ -2427,11 +2427,13 @@ body {
     filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));
 }
 
-/* TEXTE */
+/* =========================
+   TEXTE
+========================= */
 #forme-section .content-col {
     padding: 110px 80px 110px 60px;
     color: #ffffff;
-    transform: translateY(-30px); /* texte légèrement plus haut que l'image */
+    transform: translateY(-30px);
 }
 
 /* TITRE */
@@ -2443,7 +2445,9 @@ body {
     color: #ffffff;
 }
 
-/*FEATURES — 2 COLONNES DESKTOP*/
+/* =========================
+   FEATURES — DESKTOP
+========================= */
 #forme-section .features {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2452,7 +2456,9 @@ body {
     max-width: 520px;
 }
 
-/* BLOC TEXTE */
+/* =========================
+   BLOC TEXTE
+========================= */
 #forme-section .test-container {
     position: relative;
     padding-left: 22px;
@@ -2460,12 +2466,12 @@ body {
     align-items: flex-start;
 }
 
-/* BARRE ROUGE */
+/* BARRE ROUGE VERTICALE */
 #forme-section .test-container::before {
     content: "";
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 3px;
     height: 100%;
     background-color: #ff3b3b;
@@ -2478,28 +2484,30 @@ body {
     font-size: 13px;
     line-height: 1.5;
     color: #d6dae3;
-    overflow: hidden;
 }
-/* Texte orange pour la dernière ligne du deuxième paragraphe depuis le bas */
+
+/* LIGNE ORANGE SPÉCIALE */
 #forme-section .test-container.special {
     color: #e0640c;
     font-weight: 600;
     display: block;
     margin-top: 5px;
 }
+
 .orange-line {
-color: #ff0000;
+    color: #ff0000;
 }
 
 /* =========================
    MOBILE — 1 COLONNE
 ========================= */
 @media (max-width: 991px) {
+
     #forme-section .row {
         flex-direction: column;
     }
 
-    /* Image au bord et plus petite */
+    /* Image */
     #forme-section .image-col {
         padding-top: 0;
         text-align: left;
@@ -2509,34 +2517,33 @@ color: #ff0000;
     #forme-section .laptop {
         left: 0;
         bottom: 0;
-        max-width: 70%; /* réduit l'image sur mobile */
+        max-width: 70%;
     }
 
-    /* Contenu au bord */
+    /* Contenu */
     #forme-section .content-col {
         padding: 0;
         order: 2;
+        transform: none;
     }
 
     #forme-section .titre2 {
         font-size: 26px;
-        margin: 0 0 36px 0;
+        margin-bottom: 36px;
         text-align: left;
-        padding: 0;
     }
 
+    /* Features */
     #forme-section .features {
         grid-template-columns: 1fr;
         row-gap: 36px;
         max-width: 100%;
-        margin: 0;
-        padding: 0;
     }
 
+    /* BLOC TEXTE — CORRECTION CLÉ */
     #forme-section .test-container {
-        padding-left: 0;
+        padding-left: 18px; /* espace pour la barre */
     }
-
 
     #forme-section .mots {
         font-size: 13px;
@@ -2544,8 +2551,8 @@ color: #ff0000;
     }
 
     #forme-section .test-container.special .orange-line {
-        margin-top: 5px;
         display: block;
+        margin-top: 5px;
         font-weight: 600;
         color: #e0640c;
     }
@@ -2555,30 +2562,26 @@ color: #ff0000;
    TRÈS PETITS ÉCRANS
 ========================= */
 @media (max-width: 576px) {
+
     #forme-section {
         padding: 20px 0;
     }
-    
+
     #forme-section .titre2 {
         font-size: 22px;
         margin-bottom: 20px;
     }
-    
+
     #forme-section .content-col {
         padding: 0;
     }
-    
-    #forme-section .mots {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-    
+
     #forme-section .features {
         row-gap: 32px;
     }
-    
+
     #forme-section .laptop {
-        max-width: 90%; /* image encore plus petite */
+        max-width: 90%;
     }
 }
 
