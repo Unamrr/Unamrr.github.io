@@ -2971,7 +2971,42 @@ img, svg{
 
 
 
-/* CENTRER LES IMAGES SUR MOBILE */
+#services-list > div > div {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    z-index: 1;
+}
+
+/* Conteneur pour l'image et son arrière-plan */
+#services-list > div > div::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 8px;
+    width: 140px;
+    height: 140px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+/* Image comme pseudo-élément après l'arrière-plan */
+#services-list > div > div::after {
+    content: '';
+    position: absolute;
+    left: -18px; /* Ajusté pour centrer sur l'arrière-plan */
+    top: 15px; /* Ajusté pour centrer sur l'arrière-plan */
+    width: 111px;
+    height: 111px;
+    background-image: url(./photo_1.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+}
+
+/* Pour le responsive mobile */
 @media (max-width: 991px) {
     /* Centrer le contenu de chaque carte */
     .service-card {
@@ -2984,19 +3019,22 @@ img, svg{
         max-width: 70%; 
         height: auto;
     }
-}
-#services-list > div > div {
-    background-image: url(./photo_1.jpg);
-    background-repeat: no-repeat;
-    background-size: 111px;
-    padding-bottom: 20px;
-    background-position: -9px 18px;
-    padding-left: 500px;
-}
-#services-list > div > div {
-    position: relative;
-    padding-left: 50px;
-    padding-bottom: 20px;
-    z-index: 1;
+    
+    /* Centrer l'image et son arrière-plan sur mobile */
+    #services-list > div > div {
+        padding-left: 20px;
+    }
+    
+    #services-list > div > div::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 8px;
+    }
+    
+    #services-list > div > div::after {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 15px;
+    }
 }
 
