@@ -2496,7 +2496,13 @@ body {
 
 .orange-line {
     color: #ff0000;
+    text-decoration: none;
 }
+
+.orange-line:hover {
+    text-decoration: underline;
+}
+
 
 /* =========================
    MOBILE — 1 COLONNE
