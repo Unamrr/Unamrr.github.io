@@ -2464,6 +2464,7 @@ body {
     padding-left: 22px;
     display: flex;
     align-items: flex-start;
+    font-weight: normal; /* tout texte normal */
 }
 
 /* BARRE ROUGE VERTICALE */
@@ -2484,27 +2485,28 @@ body {
     font-size: 13px;
     line-height: 1.5;
     color: #d6dae3;
+    font-weight: normal; /* texte normal */
 }
 
 /* LIGNE ORANGE SPÉCIALE */
 #forme-section .test-container.special {
     color: #e0640c;
-    font-weight: 600;
+    font-weight: normal; /* plus de gras */
     display: block;
     margin-top: 5px;
 }
 
+/* LIENS */
 #forme-section .test-container.special a.orange-line,
 #forme-section .test-container.special a.orange-line:visited {
     color: #ff0000 !important;
     text-decoration: none !important;
+    font-weight: normal !important;
 }
 
 #forme-section .test-container.special a.orange-line:hover {
     text-decoration: underline !important;
 }
-
-
 
 /* =========================
    MOBILE — 1 COLONNE
@@ -2548,21 +2550,23 @@ body {
         max-width: 100%;
     }
 
-    /* BLOC TEXTE — CORRECTION CLÉ */
+    /* BLOC TEXTE — espace pour la barre verticale */
     #forme-section .test-container {
-        padding-left: 18px; /* espace pour la barre */
+        padding-left: 18px;
+        font-weight: normal; /* texte normal */
     }
 
     #forme-section .mots {
         font-size: 13px;
         line-height: 1.5;
+        font-weight: normal;
     }
 
     #forme-section .test-container.special .orange-line {
         display: block;
         margin-top: 5px;
-        font-weight: 600;
-        color: #e0640c;
+        font-weight: normal !important;
+        color: #ff0000 !important;
     }
 }
 
