@@ -2089,7 +2089,7 @@ body {
     #forme-section .image-col {
         padding-top: 40px;
         justify-content: center;
-        order: 2; 
+        order: 2; /* Image après sur mobile */
     }
 
     #forme-section .laptop {
@@ -2101,7 +2101,7 @@ body {
     #forme-section .content-col {
         padding: 60px 0 0 0;
         transform: none;
-        order: 1; 
+        order: 1; /* Texte avant sur mobile */
     }
 
     #forme-section .titre2 {
