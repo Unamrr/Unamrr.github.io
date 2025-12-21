@@ -2495,10 +2495,11 @@ body {
 }
 
 #forme-section .test-container.special a.orange-line {
+	color: #ff0000;
     text-decoration: none !important;
 }
 #forme-section .test-container.special a.orange-line:hover {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 
 
