@@ -3316,14 +3316,28 @@ img, svg{
 
 #team-section .btn-outline-dark {
     background-color: white;
-    color: black;
+    color: black; 
     border: 2px solid black;
     border-radius: 8px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    text-decoration: none; 
 }
+
+#team-section .btn-outline-dark:hover {
+    background-color: #f0f0f0; 
+    color: black;
+}
+
+#team-section .btn-outline-dark:focus,
+#team-section .btn-outline-dark:active {
+    color: black !important;
+    background-color: #e0e0e0;
+    outline: none; 
+}
+
 
 #team-section .btn-outline-dark:hover {
     color: white;
