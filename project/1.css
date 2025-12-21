@@ -948,7 +948,7 @@ header nav.liens-section::before {
     }
 }
 */
-<style>
+
 /* ДОБАВЬТЕ ЭТО В КОНЕЦ ВАШЕГО CSS, ПОСЛЕ ВСЕХ ДРУГИХ СТИЛЕЙ */
 
 /* ===================== */
@@ -1045,7 +1045,7 @@ header nav.liens-section::before {
     
     /* Выпадающие меню на мобильных */
     .dropdown-menu {
-        position: static !important;
+        /*position: static !important;*/
         width: 100%;
         margin: 0;
         padding: 0;
