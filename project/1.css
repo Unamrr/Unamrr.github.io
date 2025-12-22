@@ -300,9 +300,9 @@ header nav.liens-section::before {
 
         /* Mobile */
         @media (max-width: 768px) {
-            .support-section {
+            /*.support-section {
                 padding: 40px 0;
-            }
+            }*/
 			.support-section .container {
         padding-left: 16px;
         padding-right: 16px;
