@@ -1928,13 +1928,14 @@ ul.ul {
         font-size: 18px;
     }
 }
+*/
 i.fas.fa-chevron-right:before {
     content: url(./arrow-right.svg);
 }
 i.fas.fa-chevron-left:before {
     content: url(./arrow-left.svg);
 }
-*/
+
 /* =============================== */
 /* ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ОТЗЫВОВ */
 /* =============================== */
