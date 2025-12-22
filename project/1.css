@@ -625,7 +625,7 @@ header nav.liens-section::before {
     
     /* Видеофон на мобильных */
     .video-background {
-        height: 100vh;
+        height: -webkit-fill-available;
         /*position: fixed;*/
     }
     
