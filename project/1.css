@@ -1111,6 +1111,20 @@ header nav.liens-section::before {
 .social-icons i {
     font-size: 16px; /* Уменьшаем размер иконок */
 }
+.fa-facebook-f:before {
+    content: "f";
+}
+.fa-vk:before {
+    content: "vk";
+}
+.fa-telegram-plane:before, .fa-telegram:before {
+    content: "tg";
+}
+.fa-youtube:before {
+    content: "y";
+}
+
+
 /*.fa-vk:before {
     content: '';
     background-image: url("./f.jpg");
