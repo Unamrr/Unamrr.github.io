@@ -1792,8 +1792,70 @@ ul.ul {
     top: 0;
     bottom: 0;
     width: 1px;
-    background: #ffffff;
+    background:  #e0e0e0;
 }
+/* =============================== */
+/* СТРЕЛОЧКИ ДЛЯ ВСЕХ УСТРОЙСТВ (SVG ИЗОБРАЖЕНИЯ) */
+/* =============================== */
+
+/* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРЕЛОЧЕК */
+.control-arrow i.fa-chevron-right,
+.control-arrow i.fa-chevron-left {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0 !important; /* Скрываем текстовые иконки */
+}
+
+/* СТРЕЛКА ВПРАВО */
+.control-arrow i.fa-chevron-right {
+    background-image: url(./arrow-right.svg);
+}
+
+/* СТРЕЛКА ВЛЕВО */
+.control-arrow i.fa-chevron-left {
+    background-image: url(./arrow-left.svg);
+}
+
+/* Десктопные контролы (большие экраны) */
+@media (min-width: 992px) {
+    .desktop-side-controls {
+        display: flex;
+    }
+    
+    .review-controls {
+        display: none; /* Скрываем мобильные контролы на десктопе */
+    }
+    
+    /* Десктопные стрелочки большего размера */
+    .desktop-side-controls .control-arrow i.fa-chevron-right,
+    .desktop-side-controls .control-arrow i.fa-chevron-left {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Мобильные контролы (маленькие экраны) */
+@media (max-width: 991px) {
+    .desktop-side-controls {
+        display: none !important;
+    }
+    
+    .review-controls {
+        display: flex !important;
+    }
+    
+    /* Мобильные стрелочки меньшего размера */
+    .review-controls .control-arrow i.fa-chevron-right,
+    .review-controls .control-arrow i.fa-chevron-left {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 
 /* Специальные стили для некоторых отзывов */
 .company-ciel {
@@ -1929,12 +1991,12 @@ ul.ul {
     }
 }
 */
-i.fas.fa-chevron-right:before {
+/*i.fas.fa-chevron-right:before {
     content: url(./arrow-right.svg);
 }
 i.fas.fa-chevron-left:before {
     content: url(./arrow-left.svg);
-}
+}*/
 
 /* =============================== */
 /* ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ОТЗЫВОВ */
@@ -2037,7 +2099,7 @@ i.fas.fa-chevron-left:before {
     }
     
     /* Стрелочки с иконками SVG */
-    i.fas.fa-chevron-right:before,
+   /* i.fas.fa-chevron-right:before,
     i.fas.fa-chevron-left:before {
         content: '';
         display: block;
@@ -2054,7 +2116,7 @@ i.fas.fa-chevron-left:before {
     
     i.fas.fa-chevron-left:before {
         background-image: url(./arrow-left.svg);
-    }
+    }*/
 }
 
 @media (max-width: 576px) {
