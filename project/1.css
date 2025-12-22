@@ -1822,10 +1822,10 @@ ul.ul {
     }
 }
 /* АДАПТИВНОСТЬ */
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {
     .review-card {
         padding-right: 80px; /* Место для боковых контролов */
-    }
+   /* }
     
     .desktop-side-controls {
         display: flex;
@@ -1934,8 +1934,187 @@ i.fas.fa-chevron-right:before {
 i.fas.fa-chevron-left:before {
     content: url(./arrow-left.svg);
 }
+*/
+/* =============================== */
+/* ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ОТЗЫВОВ */
+/* =============================== */
 
+@media (max-width: 991px) {
+    .reviews-container {
+        padding-top: 60px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-size: 200px !important;
+        overflow-x: hidden; /* Важно: предотвращаем горизонтальный скролл */
+    }
+    
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    /* СБРАСЫВАЕМ все фиксированные значения для карточки */
+    .review-card,
+    .review-card.active {
+        width: 100% !important; /* Занимает всю доступную ширину */
+        max-width: 100% !important;
+        margin: 0 auto !important; /* Центрируем */
+        padding: 25px !important;
+        min-height: auto !important; /* Убираем фиксированную высоту */
+        box-sizing: border-box;
+        display: none;
+    }
+    
+    .review-card.active {
+        display: block !important;
+    }
+    
+    /* Логотип на мобильных */
+    .review-logo {
+        margin-left: 0 !important;
+        margin-bottom: 20px;
+        justify-content: center;
+        height: 50px;
+    }
+    
+    .review-logo img {
+        max-height: 50px;
+        max-width: 180px;
+    }
+    
+    /* Контент отзыва */
+    .review-content {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: justify;
+        padding: 0 10px;
+    }
+    
+    /* Автор отзыва */
+    .review-author {
+        margin-left: 0 !important;
+        text-align: center;
+        padding-top: 15px;
+        margin-top: 20px;
+        font-size: 14px;
+        word-break: break-word; /* Чтобы длинные ссылки переносились */
+    }
+    
+    .review-author a {
+        display: inline-block;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+    
+    /* Десктопные контролы скрываем на мобильных */
+    .desktop-side-controls {
+        display: none !important;
+    }
+    
+    /* Мобильные контролы под карточкой */
+    .review-controls {
+        display: flex !important;
+        border-top: 1px solid #e0e0e0;
+        margin-top: 30px;
+        padding-top: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .control-arrows {
+        gap: 10px;
+    }
+    
+    .control-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Стрелочки с иконками SVG */
+    i.fas.fa-chevron-right:before,
+    i.fas.fa-chevron-left:before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    i.fas.fa-chevron-right:before {
+        background-image: url(./arrow-right.svg);
+    }
+    
+    i.fas.fa-chevron-left:before {
+        background-image: url(./arrow-left.svg);
+    }
+}
 
+@media (max-width: 576px) {
+    .reviews-container {
+        padding-top: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-size: 150px !important;
+    }
+    
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .review-card,
+    .review-card.active {
+        padding: 20px 15px !important;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    .review-content {
+        font-size: 15px;
+        line-height: 1.5;
+        padding: 0;
+    }
+    
+    .review-logo img {
+        max-height: 40px;
+        max-width: 150px;
+    }
+    
+    .control-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .page-numbers {
+        font-size: 14px;
+    }
+    
+    .current-page {
+        font-size: 18px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 375px) {
+    .review-content {
+        font-size: 14px;
+    }
+    
+    .review-author {
+        font-size: 13px;
+    }
+    
+    .control-arrow {
+        width: 35px;
+        height: 35px;
+    }
+}
 /* =========================
    BASE
 ========================= */
