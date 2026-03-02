@@ -1,3 +1,16 @@
+CREATE TABLE application (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    fio VARCHAR(150) NOT NULL DEFAULT '',
+    phone VARCHAR(20) NOT NULL DEFAULT '',
+    email VARCHAR(100) NOT NULL DEFAULT '',
+    birth_date DATE NOT NULL,
+    gender ENUM('male', 'female', 'other') NOT NULL,
+    biography TEXT NOT NULL,
+    contract_accepted TINYINT(1) NOT NULL DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
+
 ALTER TABLE application 
 ADD COLUMN phone VARCHAR(20) NOT NULL DEFAULT '',
 ADD COLUMN email VARCHAR(100) NOT NULL DEFAULT '',
