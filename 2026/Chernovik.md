@@ -1,3 +1,14 @@
+ALTER TABLE application 
+ADD COLUMN phone VARCHAR(20) NOT NULL DEFAULT '',
+ADD COLUMN email VARCHAR(100) NOT NULL DEFAULT '',
+ADD COLUMN birth_date DATE,
+ADD COLUMN gender ENUM('male', 'female', 'other') NOT NULL,
+ADD COLUMN biography TEXT NOT NULL,
+ADD COLUMN contract_accepted TINYINT(1) NOT NULL DEFAULT 0; 
+
+
+
+
 -- Таблица языков
 CREATE TABLE programming_languages (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
