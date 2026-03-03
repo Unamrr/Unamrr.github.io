@@ -97,3 +97,201 @@ $stmt = $db->prepare("INSERT INTO application_languages (application_id, languag
 foreach ($_POST['languages'] as $lang_id) {
     $stmt->execute([$application_id, $lang_id]);
 }
+
+
+
+
+
+
+
+
+
+
+header('Content-Type: text/html; charset=UTF-8');
+
+// 🔥 НОВОЕ: функция для проверки полей
+function validate_field($value, $pattern, $field_name, &$errors, &$error_fields) {
+    if (empty($value)) {
+        $errors[] = "Поле $field_name обязательно";
+        $error_fields[] = $field_name;
+        return false;
+    }
+    if (!preg_match($pattern, $value)) {
+        $errors[] = "Поле $field_name содержит недопустимые символы";
+        $error_fields[] = $field_name;
+        return false;
+    }
+    return true;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // 🔥 НОВОЕ: читаем cookies
+    $saved_data = [];
+    $errors = [];
+    $error_fields = [];
+
+    if (!empty($_COOKIE['form_data'])) {
+        $saved_data = unserialize($_COOKIE['form_data']);
+        setcookie('form_data', '', time() - 3600, '/'); // удаляем после прочтения
+    }
+
+    if (!empty($_COOKIE['errors'])) {
+        $errors = unserialize($_COOKIE['errors']);
+        setcookie('errors', '', time() - 3600, '/');
+    }
+
+    if (!empty($_COOKIE['error_fields'])) {
+        $error_fields = unserialize($_COOKIE['error_fields']);
+        setcookie('error_fields', '', time() - 3600, '/');
+    }
+
+    if (!empty($_GET['save'])) {
+        print('Спасибо, результаты сохранены.');
+    }
+    
+    include('form.php');
+    exit();
+}
+
+
+// Вместо старого кода с $errors = [] вставляем ЭТО:
+
+$errors = [];
+$error_fields = []; // для подсветки
+
+// ФИО
+validate_field($_POST['fio'], '/^[а-яА-ЯёЁa-zA-Z\s\-]+$/u', 'ФИО', $errors, $error_fields);
+
+// Телефон
+validate_field($_POST['phone'], '/^[\d\s\+\-\(\)]+$/', 'Телефон', $errors, $error_fields);
+
+// Email
+if (empty($_POST['email'])) {
+    $errors[] = 'Email обязателен';
+    $error_fields[] = 'email';
+} elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Некорректный email';
+    $error_fields[] = 'email';
+}
+
+// Дата рождения
+if (empty($_POST['birth_date'])) {
+    $errors[] = 'Дата рождения обязательна';
+    $error_fields[] = 'birth_date';
+}
+
+// Пол
+if (empty($_POST['gender']) || !in_array($_POST['gender'], ['male', 'female'])) {
+    $errors[] = 'Выберите пол';
+    $error_fields[] = 'gender';
+}
+
+// Языки
+if (empty($_POST['languages']) || !is_array($_POST['languages'])) {
+    $errors[] = 'Выберите языки';
+    $error_fields[] = 'languages';
+}
+
+// Биография
+if (empty($_POST['biography'])) {
+    $errors[] = 'Заполните биографию';
+    $error_fields[] = 'biography';
+}
+
+// Чекбокс
+if (empty($_POST['contract_accepted'])) {
+    $errors[] = 'Подтвердите контракт';
+    $error_fields[] = 'contract_accepted';
+}
+
+
+
+if (!empty($errors)) {
+    setcookie('errors', serialize($errors), time() + 3600, '/');
+    setcookie('error_fields', serialize($error_fields), time() + 3600, '/');
+    setcookie('form_data', serialize($_POST), time() + 3600, '/');
+    header('Location: index.php');
+    exit();
+}
+
+
+try {
+    // Вставка в основную таблицу
+    $stmt = $db->prepare("INSERT INTO application (fio, phone, email, birth_date, gender, biography, contract_accepted) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([
+        $_POST['fio'],
+        $_POST['phone'],
+        $_POST['email'],
+        $_POST['birth_date'],
+        $_POST['gender'],
+        $_POST['biography'],
+        isset($_POST['contract_accepted']) ? 1 : 0
+    ]);
+
+    $application_id = $db->lastInsertId();
+
+    // Вставка языков
+    $stmt = $db->prepare("INSERT INTO application_languages (application_id, language_id) VALUES (?, ?)");
+    foreach ($_POST['languages'] as $lang_id) {
+        $stmt->execute([$application_id, $lang_id]);
+    }
+
+    // 🔥 🔥 🔥 ВОТ ЗДЕСЬ - ПОСЛЕ ВСТАВКИ В БД, ДО РЕДИРЕКТА 🔥 🔥 🔥
+    setcookie('saved_fio', $_POST['fio'], time() + 365*24*3600, '/');
+    setcookie('saved_phone', $_POST['phone'], time() + 365*24*3600, '/');
+    setcookie('saved_email', $_POST['email'], time() + 365*24*3600, '/');
+    setcookie('saved_birth_date', $_POST['birth_date'], time() + 365*24*3600, '/');
+    setcookie('saved_gender', $_POST['gender'], time() + 365*24*3600, '/');
+    setcookie('saved_biography', $_POST['biography'], time() + 365*24*3600, '/');
+    setcookie('saved_contract', isset($_POST['contract_accepted']) ? 'checked' : '', time() + 365*24*3600, '/');
+
+    header('Location: ?save=1');
+    exit();
+
+} catch(PDOException $e) {
+    print('Error : ' . $e->getMessage());
+    exit();
+}
+
+в form.php
+
+<?php
+// Значения для полей (приоритет: POST > cookies от ошибок > сохраненные cookies)
+$fio = $_POST['fio'] ?? $saved_data['fio'] ?? $_COOKIE['saved_fio'] ?? '';
+$phone = $_POST['phone'] ?? $saved_data['phone'] ?? $_COOKIE['saved_phone'] ?? '';
+$email = $_POST['email'] ?? $saved_data['email'] ?? $_COOKIE['saved_email'] ?? '';
+$birth_date = $_POST['birth_date'] ?? $saved_data['birth_date'] ?? $_COOKIE['saved_birth_date'] ?? '';
+$gender = $_POST['gender'] ?? $saved_data['gender'] ?? $_COOKIE['saved_gender'] ?? '';
+$biography = $_POST['biography'] ?? $saved_data['biography'] ?? $_COOKIE['saved_biography'] ?? '';
+$contract = isset($_POST['contract_accepted']) ? 'checked' : ($saved_data['contract_accepted'] ?? $_COOKIE['saved_contract'] ?? '');
+$selected_langs = $_POST['languages'] ?? $saved_data['languages'] ?? [];
+?>
+
+<?php if (!empty($errors)): ?>
+    <div style="color: red; border: 2px solid red; padding: 10px; margin-bottom: 20px;">
+        <strong>Исправьте ошибки:</strong>
+        <?php foreach ($errors as $error): ?>
+            <p><?= htmlspecialchars($error) ?></p>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
+<!-- ФИО -->
+<input type="text" name="fio" 
+       value="<?= htmlspecialchars($fio) ?>"
+       class="<?= in_array('fio', $error_fields) ? 'error' : '' ?>">
+
+<!-- Телефон -->
+<input type="tel" name="phone" 
+       value="<?= htmlspecialchars($phone) ?>"
+       class="<?= in_array('phone', $error_fields) ? 'error' : '' ?>">
+
+<!-- Аналогично для всех полей... -->
+
+
+<style>
+    .error {
+        border: 2px solid red !important;
+        background-color: #fff0f0;
+    }
+</style>
