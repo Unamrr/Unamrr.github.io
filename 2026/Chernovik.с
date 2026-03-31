@@ -1,3 +1,80 @@
+
+# Структура index.php
+
+Ваш `index.php` должен обрабатывать как GET-запросы (для отображения формы или информации о пользователе), так и POST-запросы (для обработки данных формы или входа).
+
+## Основная структура
+
+```php
+<?php
+// header('Content-Type: text/html; charset=UTF-8'); // Можно оставить или убрать, если все выводы через шаблоны
+
+// 1. Подключение к базе данных и настройки
+$db_user = 'u82379';
+$db_pass = '8400862';
+$db = new PDO('mysql:host=localhost;dbname=u82379', $db_user, $db_pass);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+session_start(); // Важно начать сессию в начале скрипта
+
+$errors = [];
+$error_fields = [];
+$saved_data = [];
+$messages = [];
+$is_authorized = false;
+$user_id = null;
+$login_display = null; // Для отображения логина авторизованного пользователя
+
+// 2. Обработка GET-запросов
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+    // Читаем cookies если были ошибки (из предыдущих POST-запросов, например, регистрации)
+    if (!empty($_COOKIE['errors'])) {
+        $errors = unserialize($_COOKIE['errors']);
+        $error_fields = unserialize($_COOKIE['error_fields']);
+        $saved_data = unserialize($_COOKIE['saved_data']);
+        
+        setcookie('errors', '', time() - 3600, '/');
+        setcookie('error_fields', '', time() - 3600, '/');
+        setcookie('saved_data', '', time() - 3600, '/');
+    }
+
+    // Проверяем авторизацию через сессию
+    if (!empty($_SESSION['user_id']) && !empty($_SESSION['login'])) {
+        $is_authorized = true;
+        $user_id = $_SESSION['user_id'];
+        $login_display = htmlspecialchars($_SESSION['login']);
+        
+        // Загружаем данные пользователя из БД (если они еще не были загружены или изменились)
+        // Здесь может быть логика проверки, нужно ли загружать данные заново,
+        // или можно просто загрузить их, если пользователь авторизован.
+        try {
+            $stmt = $db->prepare("SELECT * FROM application WHERE id = ?");
+            $stmt->execute([$user_id]);
+            $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            if ($user_data) {
+                // Если $saved_data еще пустые (т.е. не были загружены из кук),
+                // то заполняем их данными из БД.
+                if (empty($saved_data)) {
+                    $saved_data = [
+                        'fio' => $user_data['fio'],
+                        'phone' => $user_data['phone'],
+                        'email' => $user_data['email'],
+                        'birth_date' => $user_data['birth_date'],
+                        'gender' => $user_data['gender'],
+                        'biography' => $user_data['biography'],
+                        'contract_accepted' => $user_data['contract_accepted'] ? true : false, // Приводим к булевому типу
+                    ];
+                    
+                    // Загружаем языки пользователя
+                    $stmt_lang = $db->prepare("SELECT language_id FROM application_languages WHERE application_id = ?");
+                    $stmt_lang->execute([$user_id]);
+                    $languages = $stmt_lang-&
+
+
+
+
 try {
   // 1. СНАЧАЛА вставляем основную заявку
   $stmt = $db->prepare("INSERT INTO application (fio, year, phone, email, birth_date, gender, biography, contract_accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -1248,3 +1325,278 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (application_id) REFERENCES application(id) ON DELETE CASCADE
 );
+
+# Структура index.php
+
+Ваш `index.php` должен обрабатывать как GET-запросы (для отображения формы или информации о пользователе), так и POST-запросы (для обработки данных формы или входа).
+
+## Основная структура
+
+```php
+<?php
+// header('Content-Type: text/html; charset=UTF-8'); // Можно оставить или убрать, если все выводы через шаблоны
+
+// 1. Подключение к базе данных и настройки
+$db_user = 'u82379';
+$db_pass = '8400862';
+$db = new PDO('mysql:host=localhost;dbname=u82379', $db_user, $db_pass);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+session_start(); // Важно начать сессию в начале скрипта
+
+$errors = [];
+$error_fields = [];
+$saved_data = [];
+$messages = [];
+$is_authorized = false;
+$user_id = null;
+$login_display = null; // Для отображения логина авторизованного пользователя
+
+// 2. Обработка GET-запросов
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+    // Читаем cookies если были ошибки (из предыдущих POST-запросов, например, регистрации)
+    if (!empty($_COOKIE['errors'])) {
+        $errors = unserialize($_COOKIE['errors']);
+        $error_fields = unserialize($_COOKIE['error_fields']);
+        $saved_data = unserialize($_COOKIE['saved_data']);
+        
+        setcookie('errors', '', time() - 3600, '/');
+        setcookie('error_fields', '', time() - 3600, '/');
+        setcookie('saved_data', '', time() - 3600, '/');
+    }
+
+    // Проверяем авторизацию через сессию
+    if (!empty($_SESSION['user_id']) && !empty($_SESSION['login'])) {
+        $is_authorized = true;
+        $user_id = $_SESSION['user_id'];
+        $login_display = htmlspecialchars($_SESSION['login']);
+        
+        // Загружаем данные пользователя из БД (если они еще не были загружены или изменились)
+        // Здесь может быть логика проверки, нужно ли загружать данные заново,
+        // или можно просто загрузить их, если пользователь авторизован.
+        try {
+            $stmt = $db->prepare("SELECT * FROM application WHERE id = ?");
+            $stmt->execute([$user_id]);
+            $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            if ($user_data) {
+                // Если $saved_data еще пустые (т.е. не были загружены из кук),
+                // то заполняем их данными из БД.
+                if (empty($saved_data)) {
+                    $saved_data = [
+                        'fio' => $user_data['fio'],
+                        'phone' => $user_data['phone'],
+                        'email' => $user_data['email'],
+                        'birth_date' => $user_data['birth_date'],
+                        'gender' => $user_data['gender'],
+                        'biography' => $user_data['biography'],
+                        'contract_accepted' => $user_data['contract_accepted'] ? true : false, // Приводим к булевому типу
+                    ];
+                    
+                    // Загружаем языки пользователя
+                    $stmt_lang = $db->prepare("SELECT language_id FROM application_languages WHERE application_id = ?");
+                    $stmt_lang->execute([$user_id]);
+                    $languages = $stmt_lang-&gt;fetchAll(PDO::FETCH_COLUMN);
+                    $saved_data['languages'] = $languages;
+                }
+                
+                // Сообщение о входе
+                $messages[] = sprintf('Вы вошли как <strong>%s</strong>. <a href="logout.php">Выйти</a>', $login_display);
+            } else {
+                 // Пользователь авторизован в сессии, но отсутствует в БД - возможно, стоит выйти
+                 session_unset();
+                 session_destroy();
+                 $is_authorized = false;
+                 $messages[] = 'Ваши данные не найдены в системе. Пожалуйста, авторизуйтесь заново.';
+            }
+        } catch (PDOException $e) {
+            $messages[] = 'Ошибка загрузки данных пользователя: ' . $e->getMessage();
+        }
+    }
+
+    // Сообщения об успешном сохранении (например, после регистрации)
+    if (!empty($_GET['save'])) {
+        $messages[] = 'Спасибо, результаты сохранены.';
+        
+        // Если были сгенерированы логин/пароль (например, при регистрации)
+        if (!empty($_COOKIE['generated_login']) && !empty($_COOKIE['generated_pass'])) {
+            $messages[] = sprintf('Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>
+                и паролем <strong>%s</strong> для изменения данных.',
+                htmlspecialchars($_COOKIE['generated_login']),
+                htmlspecialchars($_COOKIE['generated_pass']));
+            
+            setcookie('generated_login', '', time() - 3600, '/');
+            setcookie('generated_pass', '', time() - 3600, '/');
+        }
+    }
+    
+    // Если пользователь не авторизован, ищем ошибки входа из сессии (если они есть)
+    if (!$is_authorized && !empty($_SESSION['login_errors'])) {
+        $errors = array_merge($errors, $_SESSION['login_errors']); // Объединяем ошибки
+        unset($_SESSION['login_errors']); // Очищаем ошибки входа из сессии
+    }
+
+    // Подключение шаблона формы
+    include('form.php');
+    exit();
+}
+
+// 3. Обработка POST-запросов (предполагается, что это отправка основной формы)
+// Если форма регистрации/обновления отправляет POST-запрос на index.php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // --- Логика обработки POST-запроса ---
+    // Это та часть, где происходит валидация и сохранение данных.
+    // Ваши проверки полей (fio, phone, email и т.д.) должны быть здесь.
+    // Вам нужно будет добавить сюда проверку логина и пароля, если они отправляются.
+    
+    // Пример проверки ФИО (как у вас было)
+    if (empty($_POST['fio'])) {
+        $errors[] = 'Заполните ФИО';
+        $error_fields[] = 'fio';
+    }
+    // ... (другие проверки полей) ...
+
+    // --- Проверка логина и пароля (если они отправляются на этот же index.php) ---
+    // Если это форма регистрации, и логин/пароль передаются
+    if (isset($_POST['login']) && isset($_POST['password'])) {
+        $login = $_POST['login'];       $password = $_POST['password'];
+
+        // Проверка на пустоту логина
+        if (empty($login)) {
+            $errors[] = 'Логин не может быть пустым.';
+            $error_fields[] = 'login';
+        } else {
+            // Проверка уникальности логина
+            try {
+                $stmt_check_login = $db->prepare("SELECT id FROM application WHERE login = ?");
+                $stmt_check_login->execute([$login]);
+                if ($stmt_check_login->fetch()) {
+                    $errors[] = 'Этот логин уже занят.';
+                    $error_fields[] = 'login';
+                }
+            } catch (PDOException $e) {
+                $errors[] = 'Ошибка проверки логина: ' . $e->getMessage();
+            }
+        }
+
+        // Проверка пароля (минимальная длина, например)
+        if (empty($password) || strlen($password) < 6) {
+            $errors[] = 'Пароль должен содержать минимум 6 символов.';
+            $error_fields[] = 'password';
+        }
+    }
+    
+    // ... (остальные проверки полей формы) ...
+
+    // Если есть ошибки валидации
+    if (!empty($errors)) {
+        // Сохраняем ошибки и данные в cookies, чтобы показать их после перезагрузки
+        setcookie('errors', serialize($errors), time() + 3600, '/');
+        setcookie('error_fields', serialize($error_fields), time() + 3600, '/');
+        setcookie('saved_data', serialize($_POST), time() + 3600, '/'); // Сохраняем ВСЕ POST данные
+        
+        header('Location: index.php'); // Перезагружаем страницу, чтобы показать ошибки
+        exit();
+    }
+
+    // --- Если ошибок нет ---
+    // Здесь будет логика сохранения данных в базу данных.
+    // Это может быть INSERT (если пользователь новый) или UPDATE (если он авторизован и обновляет данные).
+
+    // Получаем данные из $_POST
+    $fio = $_POST['fio'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $birth_date = $_POST['birth_date'];
+    $gender = $_POST['gender'];
+    $biography = $_POST['biography'];
+    $contract_accepted = isset($_POST['contract_accepted']) ? 1 : 0;
+    $languages = isset($_POST['languages']) ? $_POST['languages'] : [];
+
+    // Если пользователь авторизован, обновляем его данные
+    if ($is_authorized && $user_id) {
+        try {
+            // Обновление основной информации
+            $stmt_update = $db->prepare("
+                UPDATE application 
+                SET fio = ?, phone = ?, email = ?, birth_date = ?, gender = ?, biography = ?, contract_accepted = ?
+                WHERE id = ?
+            ");
+            $stmt_update->execute([$fio, $phone, $email, $birth_date, $gender, $biography, $contract_accepted, $user_id]);
+
+            // Обновление языков (сначала удаляем старые, потом добавляем новые)
+            $stmt_delete_langs = $db->prepare("DELETE FROM application_languages WHERE application_id = ?");
+            $stmt_delete_langs->execute([$user_id]);
+            
+            $stmt_insert_lang = $db->prepare("INSERT INTO application_languages (application_id, language_id) VALUES (?, ?)");
+            foreach ($languages as $lang_id) {
+                $stmt_insert_lang->execute([$user_id, $lang_id]);
+            }
+            
+            // Перенаправ��ение с сообщением об успехе
+            header('Location: index.php?save=1');
+            exit();
+
+        } catch (PDOException $e) {
+            // Обработка ошибок сохранения
+            $messages[] = 'Ошибка сохранения данных: ' . $e->getMessage();
+            // Можно также сохранить $POST в cookies для повторного ввода
+            setcookie('saved_data', serialize($_POST), time() + 3600, '/');
+            include('form.php'); // Показываем форму с ошибкой
+            exit();
+        }
+    } else {
+        // Если пользователь не авторизован, это регистрация
+        // Используем логин и пароль из POST (если они были)
+        $login = $_POST['login']; // Предполагаем, что они были проверены выше
+        $password = $_POST['password'];
+        $password_hash = password_hash($password, PASSWORD_DEFAULT); // Хэшируем пароль
+
+        try {
+            $db->beginTransaction(); // Начинаем транзакцию
+
+            // Вставка в таблицу application
+            $stmt_insert = $db->prepare("
+                INSERT INTO application (fio, phone, email, birth_date, gender, biography, contract_accepted, login, password_hash)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ");
+            $stmt_insert->execute([$fio, $phone, $email, $birth_date, $gender, $biography, $contract_accepted, $login, $password_hash]);
+            
+            $new_user_id = $db->lastInsertId(); // Получаем ID только что вставленного пользователя
+
+            // Вставка языков
+            $stmt_insert_lang = $db->prepare("INSERT INTO application_languages (application_id, language_id) VALUES (?, ?)");
+            foreach ($languages as $lang_id) {
+                $stmt_insert_lang->execute([$new_user_id, $lang_id]);
+            }
+
+            $db->commit(); // Фиксируем транзакцию
+
+            // Устанавливаем куки с логином и паролем для удобства пользователя
+            setcookie('generated_login', $login, time() + 3600 * 24, '/'); // Живут 1 день
+            setcookie('generated_pass', $password, time() + 3600 * 24, '/'); // Живут 1 день
+
+            // Перенаправление на index.php с параметром save
+            header('Location: index.php?save=1');
+            exit();
+
+        } catch (PDOException $e) {
+            $db->rollBack(); // Откатываем транзакцию в случае ошибки
+            // Обработка ошибок сохранения
+            $errors[] = 'Ошибка регистрации: ' . $e->getMessage();
+            setcookie('errors', serialize($errors), time() + 3600, '/');
+            setcookie('error_fields', serialize($error_fields), time() + 3600, '/');
+            setcookie('saved_data', serialize($_POST), time() + 3600, '/');
+            header('Location: index.php');
+            exit();
+        }
+    }
+}
+
+// Если скрипт дошел до сюда, значит, была ошибка, которую мы не перенаправили
+// (например, ошибка вывода или что-то еще).
+// На всякий случай, включаем шаблон.
+include('form.php');
+?>
