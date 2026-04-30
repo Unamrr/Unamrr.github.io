@@ -1,5 +1,3 @@
-324=# \d employees
-Did not find any relation named "employees".
 324=# -- Best used for learning purposes. Original developer also has an ER diag
 ram available at https://dbseminar.r61.net/node/32--create tablesBEGIN; CREATE T
 ABLE regions    ( region_id      SERIAL primary key,             region_name
@@ -30,4 +28,36 @@ tart_date    TIMESTAMP NOT NULL    , end_date      TIMESTAMP NOT NULL
  INTEGER REFERENCES departments(department_id)    , CONSTRAINT    jhist_date_int
 erval                    CHECK (end_date > start_date)    , PRIMARY KEY (employe
 e_id, start_date)    ) ;
+324=# --populate tablesINSERT INTO regions VALUES         ( 1        , 'Europe'
+        );INSERT INTO regions VALUES         ( 2        , 'Americas'         );I
+NSERT INTO regions VALUES         ( 3        , 'Asia'         );INSERT INTO regi
+ons VALUES         ( 4        , 'Middle East and Africa'         );INSERT INTO c
+ountries VALUES         ( 'IT'        , 'Italy'        , 1         );INSERT INTO
+ countries VALUES         ( 'JP'        , 'Japan'        , 3         );INSERT IN
+TO countries VALUES         ( 'US'        , 'United States of America'        ,
+2         );INSERT INTO countries VALUES         ( 'CA'        , 'Canada'
+ , 2         );INSERT INTO countries VALUES         ( 'CN'        , 'China'
+   , 3         );INSERT INTO countries VALUES         ( 'IN'        , 'India'
+     , 3         );INSERT INTO countries VALUES         ( 'AU'        , 'Austral
+ia'        , 3         );INSERT INTO countries VALUES         ( 'ZW'        , 'Z
+imbabwe'        , 4         );INSERT INTO countries VALUES         ( 'SG'
+ , 'Singapore'        , 3         );INSERT INTO countries VALUES         ( 'UK'
+       , 'United Kingdom'        , 1         );INSERT INTO countries VALUES
+    ( 'FR'        , 'France'        , 1         );INSERT INTO countries VALUES
+       ( 'DE'        , 'Germany'        , 1         );INSERT INTO countries VALU
+ES         ( 'ZM'        , 'Zambia'        , 4         );INSERT INTO countries V
+ALUES         ( 'EG'        , 'Egypt'        , 4         );INSERT INTO countries
+ VALUES         ( 'BR'        , 'Brazil'        , 2         );INSERT INTO countr
+ies VALUES         ( 'CH'        , 'Switzerland'        , 1         );INSERT INT
+O countries VALUES         ( 'NL'        , 'Netherlands'        , 1         );IN
+SERT INTO countries VALUES         ( 'MX'        , 'Mexico'        , 2         )
+;INSERT INTO countries VALUES         ( 'KW'        , 'Kuwait'        , 4
+  );INSERT INTO countries VALUES         ( 'IL'        , 'Israel'        , 4
+     );INSERT INTO countries VALUES         ( 'DK'        , 'Denmark'        , 1
+         );INSERT INTO countries VALUES         ( 'HK'        , 'HongKong'
+  , 3         );INSERT INTO countries VALUES         ( 'NG'        , 'Nigeria'
+      , 4         );INSERT INTO countries VALUES         ( 'AR'        , 'Argent
+ina'        , 2         );INSERT INTO countries VALUES         ( 'BE'        , '
+Belgium'        , 1         );
+324=#
 324=#
