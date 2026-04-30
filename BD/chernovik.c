@@ -1,3 +1,34 @@
+Dianaa=# \encoding UTF8
+Dianaa=# DO $$
+Dianaa$# DECLARE
+Dianaa$#     v_year TEXT;
+Dianaa$#     v_c INTEGER;
+Dianaa$# BEGIN
+Dianaa$#     SELECT TO_CHAR(hire_date, 'YYYY') INTO v_year
+Dianaa$#     FROM employees
+Dianaa$#     GROUP BY TO_CHAR(hire_date, 'YYYY')
+Dianaa$#     ORDER BY COUNT(*) DESC
+Dianaa$#     LIMIT 1;
+Dianaa$#
+Dianaa$#     RAISE NOTICE 'Год: %', v_year;
+Dianaa$#
+Dianaa$#     FOR month IN 1..12 LOOP
+Dianaa$#         SELECT COUNT(*) INTO v_c
+Dianaa$#         FROM employees
+Dianaa$#         WHERE EXTRACT(MONTH FROM hire_date) = month
+Dianaa$#           AND EXTRACT(YEAR FROM hire_date) = v_year::INTEGER;
+Dianaa$#
+Dianaa$#         RAISE NOTICE 'Месяц: %, сотрудников: %', month, v_c;
+Dianaa$#     END LOOP;
+Dianaa$# END;
+Dianaa$# $$;
+Р?РЁР?Р'Р?Р?:  Р?РчР?РчС?Р?Р°С? РїР?С?Р>РчР?Р?Р?Р°С'РчР>С?Р?Р?С?С'С? Р+Р°Р№С' Р?
+Р>С? РєР?Р?РёС?Р?Р?РєРё "UTF8": 0x83
+Dianaa=#
+
+
+
+
 Dianaa=# DO $$
 Dianaa$# DECLARE
 Dianaa$#     v_name employees.first_name%TYPE;
