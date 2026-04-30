@@ -1,3 +1,66 @@
+Dianaa=# DO $$
+Dianaa$# DECLARE
+Dianaa$#     v_name employees.first_name%TYPE;
+Dianaa$#     v_deptname departments.department_name%TYPE;
+Dianaa$# BEGIN
+Dianaa$#     SELECT e.first_name, d.department_name INTO v_name, v_deptname
+Dianaa$#     FROM employees e
+Dianaa$#     JOIN departments d ON e.department_id = d.department_id
+Dianaa$#     WHERE e.employee_id = (SELECT manager_id FROM employees WHERE emplo
+yee_id = 103);
+Dianaa$#
+Dianaa$#     RAISE NOTICE 'Сотрудник: %', v_name;
+Dianaa$#     RAISE NOTICE 'Отдел: %', v_deptname;
+Dianaa$# END;
+Dianaa$# $$;
+ЗАМЕЧАНИЕ:  'Rваг¤-ЁЄ: Lex
+ЗАМЕЧАНИЕ:  ?в¤?<: Executive
+DO
+Dianaa=# DO $$
+Dianaa$# DECLARE
+Dianaa$#     v_min INTEGER;
+Dianaa$#     v_max INTEGER;
+Dianaa$#     v_c INTEGER;
+Dianaa$# BEGIN
+Dianaa$#     SELECT MIN(employee_id), MAX(employee_id) INTO v_min, v_max FROM em
+ployees;
+Dianaa$#
+Dianaa$#     FOR i IN v_min + 1 .. v_max - 1 LOOP
+Dianaa$#         SELECT COUNT(*) INTO v_c FROM employees WHERE employee_id = i;
+Dianaa$#         IF v_c = 0 THEN
+Dianaa$#             RAISE NOTICE 'Пропущен ID: %', i;
+Dianaa$#         END IF;
+Dianaa$#     END LOOP;
+Dianaa$# END;
+Dianaa$# $$;
+DO
+Dianaa=#
+Dianaa=#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 DO $$
 DECLARE
     v_name employees.first_name%TYPE;
