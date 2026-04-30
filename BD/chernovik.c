@@ -1,3 +1,59 @@
+DO $$
+DECLARE
+    v_year TEXT;
+    v_c INTEGER;
+BEGIN
+    SELECT TO_CHAR(hire_date, 'YYYY') INTO v_year
+    FROM employees
+    GROUP BY TO_CHAR(hire_date, 'YYYY')
+    ORDER BY COUNT(*) DESC
+    LIMIT 1;
+    
+    RAISE NOTICE 'Year: %', v_year;
+    
+    FOR month IN 1..12 LOOP
+        SELECT COUNT(*) INTO v_c
+        FROM employees
+        WHERE EXTRACT(MONTH FROM hire_date) = month
+          AND EXTRACT(YEAR FROM hire_date) = v_year::INTEGER;
+        
+        RAISE NOTICE 'Month: %, Employees: %', month, v_c;
+    END LOOP;
+END;
+$$;DO $$
+DECLARE
+    v_name employees.first_name%TYPE;
+    v_deptname departments.department_name%TYPE;
+BEGIN
+    SELECT e.first_name, d.department_name INTO v_name, v_deptname
+    FROM employees e
+    JOIN departments d ON e.department_id = d.department_id
+    WHERE e.employee_id = (SELECT manager_id FROM employees WHERE employee_id = 103);
+    
+    RAISE NOTICE 'Employee: %', v_name;
+    RAISE NOTICE 'Department: %', v_deptname;
+END;
+$$;DO $$
+DECLARE
+    v_min INTEGER;
+    v_max INTEGER;
+    v_c INTEGER;
+BEGIN
+    SELECT MIN(employee_id), MAX(employee_id) INTO v_min, v_max FROM employees;
+    
+    FOR i IN v_min + 1 .. v_max - 1 LOOP
+        SELECT COUNT(*) INTO v_c FROM employees WHERE employee_id = i;
+        IF v_c = 0 THEN
+            RAISE NOTICE 'Missing ID: %', i;
+        END IF;
+    END LOOP;
+END;
+$$;
+
+
+
+
+
 Dianaa=# \encoding UTF8
 Dianaa=# DO $$
 Dianaa$# DECLARE
