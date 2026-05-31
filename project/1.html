@@ -1209,7 +1209,7 @@
                     <!-- Правая колонка с формой -->
                     <div id="form" class="col-12 col-md-6">
                        
-                        <form id="feedbackForm" action="https://api.web3forms.com/submit" method="POST" class="row g-3">
+                        <form id="feedbackForm" action="http://u82379.kubsu-dev.ru/project1/" method="POST" class="row g-3" onsubmit="event.preventDefault(); sendForm();">
 						<input type="hidden" name="access_key" value="2f150c45-44a5-4083-affa-81d1de06b6ee">
                             <div class="col-12">
                                 <input type="text" class="form-control" id="field-name-1" name="field-name-1" placeholder="Ваше имя" required>
@@ -1635,6 +1635,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
+<script>
+async function sendForm() {
+    const form = document.getElementById('feedbackForm');
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    
+    // Проверка обязательного согласия
+    if (!data.agree) {
+        alert('Подтвердите согласие на обработку данных');
+        return;
+    }
+    
+    try {
+        const response = await fetch('http://u82379.kubsu-dev.ru/project1/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(`✅ Заявка отправлена!\nЛогин: ${result.login}\nПароль: ${result.password}\n\nСохраните их для редактирования профиля.`);
+            form.reset();
+            
+            // Показываем результат на странице
+            let resultDiv = document.getElementById('formResult');
+            if (!resultDiv) {
+                resultDiv = document.createElement('div');
+                resultDiv.id = 'formResult';
+                form.parentNode.insertBefore(resultDiv, form.nextSibling);
+            }
+            resultDiv.innerHTML = `<div style="background:#d4edda; color:#155724; padding:15px; margin-top:20px; border-radius:5px;">
+                <strong>✅ Данные сохранены!</strong><br>
+                Логин: <strong>${result.login}</strong><br>
+                Пароль: <strong>${result.password}</strong><br>
+                <a href="${result.profile_url}" target="_blank">Редактировать профиль</a>
+            </div>`;
+        } else {
+            alert('❌ Ошибка: ' + JSON.stringify(result.errors));
+        }
+    } catch (error) {
+        alert('❌ Ошибка отправки: ' + error.message);
+    }
+}
+</script>
 </body>
 </html>
