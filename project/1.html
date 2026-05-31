@@ -1242,7 +1242,18 @@
                                 <button id="submitBtn" type="submit" class="btn-submit">ОТПРАВИТЬ</button>
                             </div>
                         </form>
-                        
+                        <!-- Блок для входа в профиль -->
+							<div style="background: #f0f0f0; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+							    <h3>🔐 Уже есть профиль? Войдите, чтобы отредактировать данные</h3>
+							    <form id="loginForm" onsubmit="event.preventDefault(); loginAndRedirect();">
+							        <input type="text" id="loginName" placeholder="Логин" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px;">
+							        <input type="password" id="loginPassword" placeholder="Пароль" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px;">
+							        <button type="submit" style="background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Войти и редактировать</button>
+							    </form>
+							    <div id="loginError" style="color: red; margin-top: 10px;"></div>
+							</div>
+
+
                         
                     </div>
                 </div>
@@ -1685,6 +1696,35 @@ async function sendForm() {
         alert('❌ Ошибка отправки: ' + error.message);
     }
 }
+	<script>
+async function loginAndRedirect() {
+    const login = document.getElementById('loginName').value;
+    const password = document.getElementById('loginPassword').value;
+    const errorDiv = document.getElementById('loginError');
+    
+    errorDiv.textContent = '';
+    
+    try {
+        // Сначала авторизуемся и получаем ID пользователя
+        const response = await fetch('http://u82379.kubsu-dev.ru/project1/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ login: login, password: password })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Перенаправляем на страницу редактирования профиля
+            window.location.href = result.profile_url;
+        } else {
+            errorDiv.textContent = '❌ Ошибка: ' + (result.error || 'Неверный логин или пароль');
+        }
+    } catch (err) {
+        errorDiv.textContent = '❌ Ошибка соединения: ' + err.message;
+    }
+}
+</script>
 </script>
 </body>
 </html>
