@@ -1242,22 +1242,11 @@
                                 <button id="submitBtn" type="submit" class="btn-submit">ОТПРАВИТЬ</button>
                             </div>
                         </form>
-                        <!-- Ссылка для входа в профиль -->
-							<!-- Ссылка для входа в профиль -->
+                        
+						<!-- Ссылка для входа в профиль под формой -->
 						<div style="text-align: center; margin-top: 20px;">
-						    <a href="#" id="showLoginLink" style="color: #ff0000; text-decoration: underline; cursor: pointer;">🔑 Уже есть профиль? Войдите, чтобы отредактировать данные</a>
+						    <a href="#" id="showLoginLink" style="color: #ff0000; text-decoration: underline; cursor: pointer;"> Уже есть профиль? Войдите, чтобы отредактировать данные</a>
 						</div>
-						
-						<!-- Скрытое окно входа (появляется при клике) -->
-						<div id="loginModal" style="display: none; background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #ddd;">
-						    <h3 style="margin-top: 0;">Вход в профиль</h3>
-						    <input type="text" id="loginName" placeholder="Логин" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-						    <input type="password" id="loginPassword" placeholder="Пароль" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
-						    <button id="loginBtn" style="background: #ff0000; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Войти</button>
-						    <button id="cancelLoginBtn" style="background: #999; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Отмена</button>
-						    <div id="loginError" style="color: red; margin-top: 10px;"></div>
-						</div>
-
                         
                     </div>
                 </div>
@@ -1677,7 +1666,7 @@ async function sendForm() {
         const result = await response.json();
         
         if (result.success) {
-            alert(`✅ Заявка отправлена!\nЛогин: ${result.login}\nПароль: ${result.password}\n\nСохраните их для редактирования профиля.`);
+            alert(` Заявка отправлена!\nЛогин: ${result.login}\nПароль: ${result.password}\n\nСохраните их для редактирования профиля.`);
             form.reset();
             
             // Показываем результат на странице
@@ -1688,54 +1677,29 @@ async function sendForm() {
                 form.parentNode.insertBefore(resultDiv, form.nextSibling);
             }
             resultDiv.innerHTML = `<div style="background:#d4edda; color:#155724; padding:15px; margin-top:20px; border-radius:5px;">
-                <strong>✅ Данные сохранены!</strong><br>
+                <strong> Данные сохранены!</strong><br>
                 Логин: <strong>${result.login}</strong><br>
                 Пароль: <strong>${result.password}</strong><br>
                 <a href="${result.profile_url}" target="_blank">Редактировать профиль</a>
             </div>`;
         } else {
-            alert('❌ Ошибка: ' + JSON.stringify(result.errors));
+            alert(' Ошибка: ' + JSON.stringify(result.errors));
         }
     } catch (error) {
-        alert('❌ Ошибка отправки: ' + error.message);
+        alert(' Ошибка отправки: ' + error.message);
     }
 }
 </script>
 <script>
-    // Показываем/скрываем окно входа
-    const showLoginLink = document.getElementById('showLoginLink');
-    const loginModal = document.getElementById('loginModal');
-    const cancelLoginBtn = document.getElementById('cancelLoginBtn');
-    const loginBtn = document.getElementById('loginBtn');
-    const loginError = document.getElementById('loginError');
-    
-    showLoginLink.addEventListener('click', function(e) {
+    document.getElementById('showLoginLink').addEventListener('click', async function(e) {
         e.preventDefault();
-        loginModal.style.display = 'block';
-        loginError.textContent = '';
-    });
-    
-    cancelLoginBtn.addEventListener('click', function() {
-        loginModal.style.display = 'none';
-        document.getElementById('loginName').value = '';
-        document.getElementById('loginPassword').value = '';
-        loginError.textContent = '';
-    });
-    
-    // Обработчик входа
-    loginBtn.addEventListener('click', async function() {
-        const login = document.getElementById('loginName').value;
-        const password = document.getElementById('loginPassword').value;
         
-        if (!login || !password) {
-            loginError.textContent = 'Введите логин и пароль';
-            return;
-        }
-        
-        loginError.textContent = 'Проверяем...';
+        // Запрашиваем у пользователя логин (пароль спросит браузер при редиректе)
+        const login = prompt('Введите ваш логин:');
+        if (!login) return;
         
         try {
-            // Пытаемся получить ID пользователя по логину
+            // Находим ID пользователя по логину
             const response = await fetch('http://u82379.kubsu-dev.ru/project1/getUserId', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1744,13 +1708,13 @@ async function sendForm() {
             const result = await response.json();
             
             if (result.success && result.id) {
-                // Перенаправляем на страницу профиля (браузер сам запросит пароль)
+                // Перекидываем на страницу профиля — браузер сам попросит пароль
                 window.location.href = 'http://u82379.kubsu-dev.ru/project1/profile/' + result.id;
             } else {
-                loginError.textContent = '❌ Пользователь с таким логином не найден';
+                alert(' Пользователь с таким логином не найден');
             }
         } catch (err) {
-            loginError.textContent = '❌ Ошибка соединения: ' + err.message;
+            alert(' Ошибка соединения: ' + err.message);
         }
     });
 </script>
