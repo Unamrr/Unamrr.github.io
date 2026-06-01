@@ -1243,9 +1243,13 @@
                             </div>
                         </form>
                         
-					<!-- Ссылка для входа в профиль под формой -->
+					<!-- Форма для входа в профиль (POST-запрос) -->
 						<div style="text-align: center; margin-top: 20px;">
-						    <a href="http://u82379.kubsu-dev.ru/project1/findMyProfile" style="color: #ff0000; text-decoration: underline;"> Уже есть профиль? Войдите, чтобы отредактировать данные</a>
+						    <form method="POST" action="http://u82379.kubsu-dev.ru/project1/findMyProfile" style="display: inline;">
+						        <button type="submit" style="background: none; border: none; color: #ff0000; text-decoration: underline; cursor: pointer; font-size: 14px; padding: 0;">
+						             Уже есть профиль? Войдите, чтобы отредактировать данные
+						        </button>
+						    </form>
 						</div>
 					</div>
                 </div>
